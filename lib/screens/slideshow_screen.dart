@@ -29,7 +29,6 @@ import 'package:arcadia_app/screens/slides/slide_28.dart';
 import 'package:arcadia_app/screens/slides/slide_29.dart';
 import 'package:arcadia_app/screens/slides/slide_30.dart';
 import 'package:arcadia_app/screens/slides/slide_31.dart';
-import 'package:arcadia_app/screens/slides/slide_32.dart';
 import 'package:arcadia_app/style/colors.dart';
 import 'package:arcadia_app/widgets/arrow.dart';
 import 'package:arcadia_app/widgets/circle_button.dart';
@@ -37,22 +36,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 
-const initialSlides = [
-  1,
-  5,
-  9,
-  10,
-  11,
-  12,
-  14,
-  15,
-  17,
-  21,
-  22,
-  23,
-  27,
-  32,
-];
+const initialSlides = [1, 5, 9, 10, 11, 12, 14, 15, 16, 20, 21, 22, 26, 31];
 
 class SlideshowScreen extends HookWidget {
   const SlideshowScreen({super.key});
@@ -101,7 +85,6 @@ class SlideshowScreen extends HookWidget {
           Slide29(currentSlide: currentSlide),
           Slide30(currentSlide: currentSlide),
           Slide31(currentSlide: currentSlide),
-          Slide32(currentSlide: currentSlide),
           Positioned.fill(
             child: Align(
               alignment: Alignment.centerRight,
