@@ -11,10 +11,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await windowManager.ensureInitialized();
-  const windowOptions = WindowOptions(
-    size: Size(1920, 1080),
-    fullScreen: true,
-  );
+  const windowOptions = WindowOptions(size: Size(1920, 1080));
   windowManager.waitUntilReadyToShow(windowOptions, () async {
     await windowManager.show();
     await windowManager.focus();
