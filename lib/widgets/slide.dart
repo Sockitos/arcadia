@@ -18,7 +18,6 @@ class Slide extends HookWidget {
     this.showBackground = false,
     required this.showProps,
     required this.playAudio,
-    this.shouldStop = false,
     this.backgroundDuration = const Duration(milliseconds: 300),
     this.propsDuration = const Duration(milliseconds: 1000),
   });
@@ -30,7 +29,6 @@ class Slide extends HookWidget {
   final bool showBackground;
   final bool showProps;
   final bool playAudio;
-  final bool shouldStop;
   final Duration backgroundDuration;
   final Duration propsDuration;
 
@@ -41,8 +39,8 @@ class Slide extends HookWidget {
       () {
         if (playAudio && audioPath != null) {
           player.play(AssetSource(audioPath!));
-          if (!shouldStop) {
-            player.onPlayerComplete.first.then((_) => onAudioEnd?.call());
+          if (onAudioEnd != null) {
+            player.onPlayerComplete.first.then((_) => onAudioEnd!());
           }
         } else {
           player.stop();
@@ -71,15 +69,20 @@ class Slide extends HookWidget {
                 },
                 [showBackground],
               );
-              return controller.value == 0
-                  ? const SizedBox()
-                  : SizedBox.expand(
-                      child: Image(
-                        image: background!,
-                        fit: BoxFit.cover,
-                        opacity: controller,
-                      ),
-                    );
+              return AnimatedBuilder(
+                animation: controller,
+                builder: (context, _) {
+                  return controller.value == 0
+                      ? const SizedBox()
+                      : SizedBox.expand(
+                          child: Image(
+                            image: background!,
+                            fit: BoxFit.cover,
+                            opacity: controller,
+                          ),
+                        );
+                },
+              );
             },
           ),
         HookBuilder(
@@ -98,16 +101,16 @@ class Slide extends HookWidget {
               },
               [showProps],
             );
-            return controller.value == 0
-                ? const SizedBox()
-                : AnimatedBuilder(
-                    animation: controller,
-                    builder: (context, child) {
-                      return Stack(
+            return AnimatedBuilder(
+              animation: controller,
+              builder: (context, child) {
+                return controller.value == 0
+                    ? const SizedBox()
+                    : Stack(
                         children: propsBuilder(context, controller),
                       );
-                    },
-                  );
+              },
+            );
           },
         ),
       ],
