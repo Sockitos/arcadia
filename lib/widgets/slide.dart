@@ -71,13 +71,15 @@ class Slide extends HookWidget {
                 },
                 [showBackground],
               );
-              return SizedBox.expand(
-                child: Image(
-                  image: background!,
-                  fit: BoxFit.cover,
-                  opacity: controller,
-                ),
-              );
+              return controller.value == 0
+                  ? const SizedBox()
+                  : SizedBox.expand(
+                      child: Image(
+                        image: background!,
+                        fit: BoxFit.cover,
+                        opacity: controller,
+                      ),
+                    );
             },
           ),
         HookBuilder(
@@ -96,14 +98,16 @@ class Slide extends HookWidget {
               },
               [showProps],
             );
-            return AnimatedBuilder(
-              animation: controller,
-              builder: (context, child) {
-                return Stack(
-                  children: propsBuilder(context, controller),
-                );
-              },
-            );
+            return controller.value == 0
+                ? const SizedBox()
+                : AnimatedBuilder(
+                    animation: controller,
+                    builder: (context, child) {
+                      return Stack(
+                        children: propsBuilder(context, controller),
+                      );
+                    },
+                  );
           },
         ),
       ],

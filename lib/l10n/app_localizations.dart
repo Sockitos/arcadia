@@ -349,73 +349,73 @@ abstract class AppLocalizations {
   /// No description provided for @ourPart1Label.
   ///
   /// In en, this message translates to:
-  /// **'Reduce food waste'**
+  /// **'Reduce\nfood waste'**
   String get ourPart1Label;
 
   /// No description provided for @ourPart1Text.
   ///
   /// In en, this message translates to:
-  /// **'Food waste is responsible for 6% of total global emissions'**
+  /// **'Food waste is\nresponsible for 6% of\ntotal global\nemissions'**
   String get ourPart1Text;
 
   /// No description provided for @ourPart2Label.
   ///
   /// In en, this message translates to:
-  /// **'Eat a Plant-rich diet'**
+  /// **'Eat a\nPlant-rich diet'**
   String get ourPart2Label;
 
   /// No description provided for @ourPart2Text.
   ///
   /// In en, this message translates to:
-  /// **'Plant-rich diets reduce emissions and also tend to be healtier'**
+  /// **'Plant-rich diets\nreduce emissions\nand also tend to be\nhealtier'**
   String get ourPart2Text;
 
   /// No description provided for @ourPart3Label.
   ///
   /// In en, this message translates to:
-  /// **'Make your home more efficient'**
+  /// **'Make your\nhome more\nefficient'**
   String get ourPart3Label;
 
   /// No description provided for @ourPart3Text.
   ///
   /// In en, this message translates to:
-  /// **'Weatherize, use led lights, be conscious of energy use'**
+  /// **'Weatherize, use led\nlights, be conscious\nof energy use'**
   String get ourPart3Text;
 
   /// No description provided for @ourPart4Label.
   ///
   /// In en, this message translates to:
-  /// **'Shift to alternative transportation'**
+  /// **'Shift to\nalternative\ntransportation'**
   String get ourPart4Label;
 
   /// No description provided for @ourPart4Text.
   ///
   /// In en, this message translates to:
-  /// **'Public transportation, Bicycles, Car-pool, walk'**
+  /// **'Public transportation, Bicycles, Car-pool,\nwalk'**
   String get ourPart4Text;
 
   /// No description provided for @ourPart5Label.
   ///
   /// In en, this message translates to:
-  /// **'Buyn less stuff'**
+  /// **'Buy\nless stuff'**
   String get ourPart5Label;
 
   /// No description provided for @ourPart5Text.
   ///
   /// In en, this message translates to:
-  /// **'Try to refurbish or repurpose existing items'**
+  /// **'Try to refurbish or repurpose existing\nitems'**
   String get ourPart5Text;
 
   /// No description provided for @ourPart6Label.
   ///
   /// In en, this message translates to:
-  /// **'Support equality'**
+  /// **'Support\nequality'**
   String get ourPart6Label;
 
   /// No description provided for @ourPart6Text.
   ///
   /// In en, this message translates to:
-  /// **'Access to high-quality, inclusive education and voluntary reproductive'**
+  /// **'Access to high-quality,\ninclusive education\nand voluntary\nreproductive\nhealthcare'**
   String get ourPart6Text;
 
   /// No description provided for @krill.

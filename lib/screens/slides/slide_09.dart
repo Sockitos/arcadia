@@ -15,6 +15,8 @@ class Slide09 extends StatelessWidget {
     return Slide(
       showProps: currentSlide.value == 9,
       audioPath: Assets.audios.en.slide09,
+      background: Assets.images.backgrounds.slide11,
+      showBackground: currentSlide.value >= 9,
       playAudio: currentSlide.value == 9,
       onAudioEnd: () => currentSlide.value++,
       propsBuilder: (context, controller) {
