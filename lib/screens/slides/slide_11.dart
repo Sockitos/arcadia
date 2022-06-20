@@ -22,7 +22,6 @@ class Slide11 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Slide(
       showProps: currentSlide.value == 11,
-      shouldStop: true,
       playAudio: false,
       propsBuilder: (context, controller) {
         final l10n = AppLocalizations.of(context)!;
