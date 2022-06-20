@@ -2,6 +2,11 @@
 /// *****************************************************
 ///  FlutterGen
 /// *****************************************************
+
+// coverage:ignore-file
+// ignore_for_file: type=lint
+// ignore_for_file: directives_ordering,unnecessary_import
+
 import 'package:flutter/widgets.dart';
 
 class $AssetsAudiosGen {
@@ -218,6 +223,10 @@ class $AssetsImagesBackgroundsGen {
   AssetGenImage get slide07 =>
       const AssetGenImage('assets/images/backgrounds/slide_07.png');
 
+  /// File path: assets/images/backgrounds/slide_11.png
+  AssetGenImage get slide11 =>
+      const AssetGenImage('assets/images/backgrounds/slide_11.png');
+
   /// File path: assets/images/backgrounds/slide_12.png
   AssetGenImage get slide12 =>
       const AssetGenImage('assets/images/backgrounds/slide_12.png');
@@ -306,6 +315,34 @@ class $AssetsImagesPropsGen {
   AssetGenImage get slide08Whale =>
       const AssetGenImage('assets/images/props/slide_08_whale.png');
 
+  /// File path: assets/images/props/slide_11_food_1.png
+  AssetGenImage get slide11Food1 =>
+      const AssetGenImage('assets/images/props/slide_11_food_1.png');
+
+  /// File path: assets/images/props/slide_11_food_2.png
+  AssetGenImage get slide11Food2 =>
+      const AssetGenImage('assets/images/props/slide_11_food_2.png');
+
+  /// File path: assets/images/props/slide_11_hands.png
+  AssetGenImage get slide11Hands =>
+      const AssetGenImage('assets/images/props/slide_11_hands.png');
+
+  /// File path: assets/images/props/slide_11_house.png
+  AssetGenImage get slide11House =>
+      const AssetGenImage('assets/images/props/slide_11_house.png');
+
+  /// File path: assets/images/props/slide_11_stuff.png
+  AssetGenImage get slide11Stuff =>
+      const AssetGenImage('assets/images/props/slide_11_stuff.png');
+
+  /// File path: assets/images/props/slide_11_vehicles.png
+  AssetGenImage get slide11Vehicles =>
+      const AssetGenImage('assets/images/props/slide_11_vehicles.png');
+
+  /// File path: assets/images/props/slide_11_whale.png
+  AssetGenImage get slide11Whale =>
+      const AssetGenImage('assets/images/props/slide_11_whale.png');
+
   /// File path: assets/images/props/slide_17_sound.png
   AssetGenImage get slide17Sound =>
       const AssetGenImage('assets/images/props/slide_17_sound.png');
@@ -358,19 +395,23 @@ class Assets {
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 
-class AssetGenImage extends AssetImage {
-  const AssetGenImage(super.assetName);
+class AssetGenImage {
+  const AssetGenImage(this._assetName);
+
+  final String _assetName;
 
   Image image({
     Key? key,
+    AssetBundle? bundle,
     ImageFrameBuilder? frameBuilder,
-    ImageLoadingBuilder? loadingBuilder,
     ImageErrorWidgetBuilder? errorBuilder,
     String? semanticLabel,
     bool excludeFromSemantics = false,
+    double? scale,
     double? width,
     double? height,
     Color? color,
+    Animation<double>? opacity,
     BlendMode? colorBlendMode,
     BoxFit? fit,
     AlignmentGeometry alignment = Alignment.center,
@@ -379,19 +420,24 @@ class AssetGenImage extends AssetImage {
     bool matchTextDirection = false,
     bool gaplessPlayback = false,
     bool isAntiAlias = false,
+    String? package,
     FilterQuality filterQuality = FilterQuality.low,
+    int? cacheWidth,
+    int? cacheHeight,
   }) {
-    return Image(
+    return Image.asset(
+      _assetName,
       key: key,
-      image: this,
+      bundle: bundle,
       frameBuilder: frameBuilder,
-      loadingBuilder: loadingBuilder,
       errorBuilder: errorBuilder,
       semanticLabel: semanticLabel,
       excludeFromSemantics: excludeFromSemantics,
+      scale: scale,
       width: width,
       height: height,
       color: color,
+      opacity: opacity,
       colorBlendMode: colorBlendMode,
       fit: fit,
       alignment: alignment,
@@ -400,9 +446,14 @@ class AssetGenImage extends AssetImage {
       matchTextDirection: matchTextDirection,
       gaplessPlayback: gaplessPlayback,
       isAntiAlias: isAntiAlias,
+      package: package,
       filterQuality: filterQuality,
+      cacheWidth: cacheWidth,
+      cacheHeight: cacheHeight,
     );
   }
 
-  String get path => assetName;
+  String get path => _assetName;
+
+  String get keyName => _assetName;
 }

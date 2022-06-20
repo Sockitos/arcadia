@@ -134,40 +134,40 @@ class AppLocalizationsEn extends AppLocalizations {
   String get touchToFlip => 'touch to flip';
 
   @override
-  String get ourPart1Label => 'Reduce food waste';
+  String get ourPart1Label => 'Reduce\nfood waste';
 
   @override
-  String get ourPart1Text => 'Food waste is responsible for 6% of total global emissions';
+  String get ourPart1Text => 'Food waste is\nresponsible for 6% of\ntotal global\nemissions';
 
   @override
-  String get ourPart2Label => 'Eat a Plant-rich diet';
+  String get ourPart2Label => 'Eat a\nPlant-rich diet';
 
   @override
-  String get ourPart2Text => 'Plant-rich diets reduce emissions and also tend to be healtier';
+  String get ourPart2Text => 'Plant-rich diets\nreduce emissions\nand also tend to be\nhealtier';
 
   @override
-  String get ourPart3Label => 'Make your home more efficient';
+  String get ourPart3Label => 'Make your\nhome more\nefficient';
 
   @override
-  String get ourPart3Text => 'Weatherize, use led lights, be conscious of energy use';
+  String get ourPart3Text => 'Weatherize, use led\nlights, be conscious\nof energy use';
 
   @override
-  String get ourPart4Label => 'Shift to alternative transportation';
+  String get ourPart4Label => 'Shift to\nalternative\ntransportation';
 
   @override
-  String get ourPart4Text => 'Public transportation, Bicycles, Car-pool, walk';
+  String get ourPart4Text => 'Public transportation, Bicycles, Car-pool,\nwalk';
 
   @override
-  String get ourPart5Label => 'Buyn less stuff';
+  String get ourPart5Label => 'Buy\nless stuff';
 
   @override
-  String get ourPart5Text => 'Try to refurbish or repurpose existing items';
+  String get ourPart5Text => 'Try to refurbish or repurpose existing\nitems';
 
   @override
-  String get ourPart6Label => 'Support equality';
+  String get ourPart6Label => 'Support\nequality';
 
   @override
-  String get ourPart6Text => 'Access to high-quality, inclusive education and voluntary reproductive';
+  String get ourPart6Text => 'Access to high-quality,\ninclusive education\nand voluntary\nreproductive\nhealthcare';
 
   @override
   String get krill => 'Krill';
