@@ -1,6 +1,5 @@
 {
     "whalesDoWhat": "Whales\ndo what?",
-    "start!": "Start!",
     "start": "Start",
     "sources": "Sources",
     "youreHere": "You're\nhere",
@@ -28,7 +27,7 @@
     "billion": "billion",
     "trees": "trees",
     "equivalent": "Equivalent to\n4 Amazon",
-    "4AmazonForests": "4 Amazon\nForests!",
+    "amazonForests": "4 Amazon\nForests!",
     "blueWhale": "Blue Whale",
     "human": "Human",
     "brachiosaurus": "Brachiosaurus",

@@ -1,6 +1,5 @@
 {
     "whalesDoWhat": "Whales\ndo what?",
-    "start!": "Start!",
     "start": "Start",
     "sources": "Sources",
     "youreHere": "You're\nhere",
@@ -28,7 +27,7 @@
     "billion": "billion",
     "trees": "trees",
     "equivalent": "Equivalent to\n4 Amazon",
-    "4AmazonForests": "4 Amazon\nForests!",
+    "amazonForests": "4 Amazon\nForests!",
     "blueWhale": "Blue Whale",
     "human": "Human",
     "brachiosaurus": "Brachiosaurus",
@@ -96,7 +95,7 @@
     "lets3Label": "Alternative Energy",
     "lets3Text": "Support renewables instead of oil drilling",
     "sameCO2Captured": "The same CO₂\n captured by",
-    "treesInOnYear": "trees in one year",
+    "treesInOnYear": "trees in\none year",
     "letsDoThis": "Let's do this\ntogether!",
     "bePartOfThisStory": "And now, leave your mark on our walls.\nBe part of this story. :)"
 }
