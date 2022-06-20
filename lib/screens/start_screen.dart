@@ -80,7 +80,7 @@ class StartScreen extends StatelessWidget {
                   },
                 ),
                 Text(
-                  AppLocalizations.of(context)!.oceansDoWhat,
+                  AppLocalizations.of(context)!.whalesDoWhat,
                   style: const TextStyle(
                     fontFamily: FontFamily.poppins,
                     fontWeight: FontWeight.bold,
@@ -100,7 +100,7 @@ class StartScreen extends StatelessWidget {
                   ),
                   onTap: () => context.go('/slideshow'),
                   child: Text(
-                    AppLocalizations.of(context)!.start,
+                    '${AppLocalizations.of(context)!.start}!',
                     style: const TextStyle(
                       fontFamily: FontFamily.poppins,
                       fontWeight: FontWeight.bold,
