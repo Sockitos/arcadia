@@ -223,9 +223,9 @@ class $AssetsImagesBackgroundsGen {
   AssetGenImage get slide07 =>
       const AssetGenImage('assets/images/backgrounds/slide_07.png');
 
-  /// File path: assets/images/backgrounds/slide_11.png
-  AssetGenImage get slide11 =>
-      const AssetGenImage('assets/images/backgrounds/slide_11.png');
+  /// File path: assets/images/backgrounds/slide_09.png
+  AssetGenImage get slide09 =>
+      const AssetGenImage('assets/images/backgrounds/slide_09.png');
 
   /// File path: assets/images/backgrounds/slide_12.png
   AssetGenImage get slide12 =>
@@ -314,6 +314,74 @@ class $AssetsImagesPropsGen {
   /// File path: assets/images/props/slide_08_whale.png
   AssetGenImage get slide08Whale =>
       const AssetGenImage('assets/images/props/slide_08_whale.png');
+
+  /// File path: assets/images/props/slide_09_big_arrow.png
+  AssetGenImage get slide09BigArrow =>
+      const AssetGenImage('assets/images/props/slide_09_big_arrow.png');
+
+  /// File path: assets/images/props/slide_09_big_whale.png
+  AssetGenImage get slide09BigWhale =>
+      const AssetGenImage('assets/images/props/slide_09_big_whale.png');
+
+  /// File path: assets/images/props/slide_09_bus.png
+  AssetGenImage get slide09Bus =>
+      const AssetGenImage('assets/images/props/slide_09_bus.png');
+
+  /// File path: assets/images/props/slide_09_dinossaur.png
+  AssetGenImage get slide09Dinossaur =>
+      const AssetGenImage('assets/images/props/slide_09_dinossaur.png');
+
+  /// File path: assets/images/props/slide_09_fish.png
+  AssetGenImage get slide09Fish =>
+      const AssetGenImage('assets/images/props/slide_09_fish.png');
+
+  /// File path: assets/images/props/slide_09_people.png
+  AssetGenImage get slide09People =>
+      const AssetGenImage('assets/images/props/slide_09_people.png');
+
+  /// File path: assets/images/props/slide_09_shark.png
+  AssetGenImage get slide09Shark =>
+      const AssetGenImage('assets/images/props/slide_09_shark.png');
+
+  /// File path: assets/images/props/slide_09_small_whale.png
+  AssetGenImage get slide09SmallWhale =>
+      const AssetGenImage('assets/images/props/slide_09_small_whale.png');
+
+  /// File path: assets/images/props/slide_10_group_small_whales.png
+  AssetGenImage get slide10GroupSmallWhales => const AssetGenImage(
+      'assets/images/props/slide_10_group_small_whales.png');
+
+  /// File path: assets/images/props/slide_10_group_trees.png
+  AssetGenImage get slide10GroupTrees =>
+      const AssetGenImage('assets/images/props/slide_10_group_trees.png');
+
+  /// File path: assets/images/props/slide_10_small_whale.png
+  AssetGenImage get slide10SmallWhale =>
+      const AssetGenImage('assets/images/props/slide_10_small_whale.png');
+
+  /// File path: assets/images/props/slide_10_top_left_arrow.png
+  AssetGenImage get slide10TopLeftArrow =>
+      const AssetGenImage('assets/images/props/slide_10_top_left_arrow.png');
+
+  /// File path: assets/images/props/slide_10_top_right_bottom_arrow.png
+  AssetGenImage get slide10TopRightBottomArrow => const AssetGenImage(
+      'assets/images/props/slide_10_top_right_bottom_arrow.png');
+
+  /// File path: assets/images/props/slide_10_top_right_top_arrow.png
+  AssetGenImage get slide10TopRightTopArrow => const AssetGenImage(
+      'assets/images/props/slide_10_top_right_top_arrow.png');
+
+  /// File path: assets/images/props/slide_10_tree.png
+  AssetGenImage get slide10Tree =>
+      const AssetGenImage('assets/images/props/slide_10_tree.png');
+
+  /// File path: assets/images/props/slide_10_whale_bottom_arrow.png
+  AssetGenImage get slide10WhaleBottomArrow => const AssetGenImage(
+      'assets/images/props/slide_10_whale_bottom_arrow.png');
+
+  /// File path: assets/images/props/slide_10_whale_top_arrow.png
+  AssetGenImage get slide10WhaleTopArrow =>
+      const AssetGenImage('assets/images/props/slide_10_whale_top_arrow.png');
 
   /// File path: assets/images/props/slide_11_food_1.png
   AssetGenImage get slide11Food1 =>
