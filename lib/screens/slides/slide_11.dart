@@ -130,10 +130,10 @@ class Slide11 extends StatelessWidget {
             left: 965,
             child: Opacity(
               opacity: titleOpacity.value,
-              child: const ArcText(
+              child: ArcText(
                 radius: 800,
-                text: 'But we must do our part!',
-                textStyle: TextStyle(
+                text: l10n.doOurPart,
+                textStyle: const TextStyle(
                   fontFamily: FontFamily.quotesScript,
                   color: AppColors.blue,
                   fontSize: 44,
@@ -160,9 +160,9 @@ class Slide11 extends StatelessWidget {
               ),
               Opacity(
                 opacity: titleOpacity.value,
-                child: const Text(
-                  'touch to flip',
-                  style: TextStyle(
+                child: Text(
+                  l10n.touchToFlip,
+                  style: const TextStyle(
                     fontFamily: FontFamily.poppins,
                     color: AppColors.red,
                     fontSize: 17,
