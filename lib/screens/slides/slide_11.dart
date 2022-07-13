@@ -1,32 +1,34 @@
-import 'dart:math';
-
 import 'package:arcadia_app/gen/assets.gen.dart';
 import 'package:arcadia_app/gen/fonts.gen.dart';
 import 'package:arcadia_app/l10n/app_localizations.dart';
 import 'package:arcadia_app/style/colors.dart';
+import 'package:arcadia_app/utils/hooks.dart';
 import 'package:arcadia_app/widgets/slide.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_arc_text/flutter_arc_text.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class Slide11 extends StatelessWidget {
+class Slide11 extends ConsumerWidget {
   const Slide11({
     super.key,
     required this.currentSlide,
+    required this.onAudioEnd,
   });
 
-  final ValueNotifier<int> currentSlide;
+  final int currentSlide;
+  final VoidCallback onAudioEnd;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Slide(
-      showProps: currentSlide.value == 11,
-      playAudio: false,
+      slide: 11,
+      currentSlide: currentSlide,
+      onAudioEnd: onAudioEnd,
       propsBuilder: (context, controller) {
         final l10n = AppLocalizations.of(context)!;
-        const reverseCurve = Interval(0.9, 1, curve: Curves.easeOut);
-
+        const reverseCurve = Interval(0, 1, curve: Curves.easeOut);
         final whaleOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
@@ -34,7 +36,6 @@ class Slide11 extends StatelessWidget {
             reverseCurve: reverseCurve,
           ),
         );
-
         final backgroundCircleOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
@@ -42,7 +43,6 @@ class Slide11 extends StatelessWidget {
             reverseCurve: reverseCurve,
           ),
         );
-
         final titleOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
@@ -50,7 +50,6 @@ class Slide11 extends StatelessWidget {
             reverseCurve: reverseCurve,
           ),
         );
-
         final tipOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
@@ -58,7 +57,6 @@ class Slide11 extends StatelessWidget {
             reverseCurve: reverseCurve,
           ),
         );
-
         final circle1Opacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
@@ -66,7 +64,6 @@ class Slide11 extends StatelessWidget {
             reverseCurve: reverseCurve,
           ),
         );
-
         final circle2Opacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
@@ -74,7 +71,6 @@ class Slide11 extends StatelessWidget {
             reverseCurve: reverseCurve,
           ),
         );
-
         final circle3Opacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
@@ -82,7 +78,6 @@ class Slide11 extends StatelessWidget {
             reverseCurve: reverseCurve,
           ),
         );
-
         final circle4Opacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
@@ -90,7 +85,6 @@ class Slide11 extends StatelessWidget {
             reverseCurve: reverseCurve,
           ),
         );
-
         final circle5Opacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
@@ -98,7 +92,6 @@ class Slide11 extends StatelessWidget {
             reverseCurve: reverseCurve,
           ),
         );
-
         final circle6Opacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
@@ -111,12 +104,12 @@ class Slide11 extends StatelessWidget {
           Positioned(
             left: 562,
             top: 117.3,
-            child: Opacity(
-              opacity: backgroundCircleOpacity.value,
+            child: FadeTransition(
+              opacity: backgroundCircleOpacity,
               child: const DecoratedBox(
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: AppColors.lighterBlue,
+                  color: AppColors.lightBlue20,
                 ),
                 child: SizedBox(
                   width: 796,
@@ -127,18 +120,19 @@ class Slide11 extends StatelessWidget {
           ),
           Positioned(
             top: 1065,
-            left: 965,
-            child: Opacity(
-              opacity: titleOpacity.value,
+            left: 0,
+            right: 0,
+            child: FadeTransition(
+              opacity: titleOpacity,
               child: ArcText(
                 radius: 800,
                 text: l10n.doOurPart,
+                startAngleAlignment: StartAngleAlignment.center,
                 textStyle: const TextStyle(
                   fontFamily: FontFamily.quotesScript,
                   color: AppColors.blue,
                   fontSize: 44,
                 ),
-                startAngle: -pi / 13,
               ),
             ),
           ),
@@ -146,20 +140,13 @@ class Slide11 extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 80),
-              Opacity(
-                opacity: tipOpacity.value,
-                child: const DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: AppColors.red,
-                  ),
-                  child: SizedBox(
-                    width: 20,
-                    height: 20,
-                  ),
-                ),
+              FadeTransition(
+                opacity: tipOpacity,
+                child: Assets.images.props.slide11Arrow.image(),
               ),
-              Opacity(
-                opacity: titleOpacity.value,
+              const SizedBox(height: 2),
+              FadeTransition(
+                opacity: titleOpacity,
                 child: Text(
                   l10n.touchToFlip,
                   style: const TextStyle(
@@ -173,8 +160,8 @@ class Slide11 extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Opacity(
-                    opacity: circle1Opacity.value,
+                  FadeTransition(
+                    opacity: circle1Opacity,
                     child: _ImageCoin(
                       image: Assets.images.props.slide11Food1.image(),
                       title: l10n.ourPart1Label,
@@ -182,8 +169,8 @@ class Slide11 extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 70),
-                  Opacity(
-                    opacity: circle2Opacity.value,
+                  FadeTransition(
+                    opacity: circle2Opacity,
                     child: _ImageCoin(
                       image: Assets.images.props.slide11Food2.image(),
                       title: l10n.ourPart2Label,
@@ -191,8 +178,8 @@ class Slide11 extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 70),
-                  Opacity(
-                    opacity: circle3Opacity.value,
+                  FadeTransition(
+                    opacity: circle3Opacity,
                     child: _ImageCoin(
                       image: Assets.images.props.slide11House.image(),
                       title: l10n.ourPart3Label,
@@ -205,8 +192,8 @@ class Slide11 extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Opacity(
-                    opacity: circle4Opacity.value,
+                  FadeTransition(
+                    opacity: circle4Opacity,
                     child: _ImageCoin(
                       image: Assets.images.props.slide11Vehicles.image(),
                       title: l10n.ourPart4Label,
@@ -214,8 +201,8 @@ class Slide11 extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 70),
-                  Opacity(
-                    opacity: circle5Opacity.value,
+                  FadeTransition(
+                    opacity: circle5Opacity,
                     child: _ImageCoin(
                       image: Assets.images.props.slide11Stuff.image(),
                       title: l10n.ourPart5Label,
@@ -223,8 +210,8 @@ class Slide11 extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 70),
-                  Opacity(
-                    opacity: circle6Opacity.value,
+                  FadeTransition(
+                    opacity: circle6Opacity,
                     child: _ImageCoin(
                       image: Assets.images.props.slide11Hands.image(),
                       title: l10n.ourPart6Label,
@@ -238,10 +225,8 @@ class Slide11 extends StatelessWidget {
           Positioned(
             left: 1461.5,
             top: 409,
-            child: Opacity(
-              opacity: whaleOpacity.value,
-              child: Assets.images.props.slide11Whale.image(),
-            ),
+            child:
+                Assets.images.props.slide11Whale.image(opacity: whaleOpacity),
           ),
         ];
       },
@@ -262,54 +247,61 @@ class _ImageCoin extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = useFlipCardController();
     return FlipCard(
-      front: DecoratedBox(
-        decoration: const BoxDecoration(
-          shape: BoxShape.circle,
-          color: AppColors.white,
-        ),
-        child: SizedBox(
-          height: 236,
-          width: 236,
-          child: Center(
-            child: image,
+      controller: controller,
+      flipOnTouch: false,
+      front: Material(
+        type: MaterialType.circle,
+        color: AppColors.white,
+        child: InkWell(
+          onTap: controller.toggleCard,
+          customBorder: const CircleBorder(),
+          child: SizedBox(
+            height: 236,
+            width: 236,
+            child: Center(
+              child: image,
+            ),
           ),
         ),
       ),
-      back: DecoratedBox(
-        decoration: const BoxDecoration(
-          shape: BoxShape.circle,
-          color: AppColors.white,
-        ),
-        child: SizedBox(
-          height: 236,
-          width: 236,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                title,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontFamily: FontFamily.poppins,
-                  color: AppColors.blue,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 23,
-                  height: 1.2,
+      back: Material(
+        type: MaterialType.circle,
+        color: AppColors.white,
+        child: InkWell(
+          onTap: controller.toggleCard,
+          customBorder: const CircleBorder(),
+          child: SizedBox(
+            height: 236,
+            width: 236,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontFamily: FontFamily.poppins,
+                    color: AppColors.blue,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 23,
+                    height: 1.2,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 10),
-              Text(
-                content,
-                textAlign: TextAlign.center,
-                style: const TextStyle(
-                  fontFamily: FontFamily.poppins,
-                  color: AppColors.blue,
-                  fontSize: 17,
-                  height: 1.2,
+                const SizedBox(height: 10),
+                Text(
+                  content,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontFamily: FontFamily.poppins,
+                    color: AppColors.blue,
+                    fontSize: 17,
+                    height: 1.2,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

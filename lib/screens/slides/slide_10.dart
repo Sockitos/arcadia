@@ -2,33 +2,38 @@ import 'dart:math';
 
 import 'package:arcadia_app/gen/gen.dart';
 import 'package:arcadia_app/l10n/app_localizations.dart';
+import 'package:arcadia_app/main.dart';
 import 'package:arcadia_app/style/colors.dart';
 import 'package:arcadia_app/widgets/line.dart';
 import 'package:arcadia_app/widgets/slide.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_arc_text/flutter_arc_text.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class Slide10 extends StatelessWidget {
+class Slide10 extends ConsumerWidget {
   const Slide10({
     super.key,
     required this.currentSlide,
+    required this.onAudioEnd,
   });
 
-  final ValueNotifier<int> currentSlide;
+  final int currentSlide;
+  final VoidCallback onAudioEnd;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final locale = ref.watch(localeProvider);
     return Slide(
-      showProps: currentSlide.value == 10,
-      audioPath: Assets.audios.en.slide10,
-      playAudio: currentSlide.value == 10,
-      onAudioEnd: () => currentSlide.value++,
+      slide: 10,
+      currentSlide: currentSlide,
+      audioPath: locale.languageCode == 'en'
+          ? Assets.audios.en.slide10
+          : Assets.audios.pt.slide10,
+      onAudioEnd: onAudioEnd,
       propsBuilder: (context, controller) {
         final l10n = AppLocalizations.of(context)!;
-
-        const reverseCurve = Interval(0.9, 1, curve: Curves.easeOut);
-
+        const reverseCurve = Interval(0, 1, curve: Curves.easeOut);
         final whaleOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
@@ -36,7 +41,6 @@ class Slide10 extends StatelessWidget {
             reverseCurve: reverseCurve,
           ),
         );
-
         final co2Opacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
@@ -44,7 +48,6 @@ class Slide10 extends StatelessWidget {
             reverseCurve: reverseCurve,
           ),
         );
-
         final cardOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
@@ -52,7 +55,6 @@ class Slide10 extends StatelessWidget {
             reverseCurve: reverseCurve,
           ),
         );
-
         final titleOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
@@ -60,7 +62,6 @@ class Slide10 extends StatelessWidget {
             reverseCurve: reverseCurve,
           ),
         );
-
         final graphOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
@@ -68,43 +69,24 @@ class Slide10 extends StatelessWidget {
             reverseCurve: reverseCurve,
           ),
         );
-
-        final smallWhaleOpacity = Tween<double>(begin: 0, end: 1).animate(
+        final whalesOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
             curve: const Interval(0.5, 0.6, curve: Curves.easeIn),
             reverseCurve: reverseCurve,
           ),
         );
-
-        final smallWhalesOpacity = Tween<double>(begin: 0, end: 1).animate(
+        final treesOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
             curve: const Interval(0.6, 0.7, curve: Curves.easeIn),
             reverseCurve: reverseCurve,
           ),
         );
-
-        final treeOpacity = Tween<double>(begin: 0, end: 1).animate(
-          CurvedAnimation(
-            parent: controller,
-            curve: const Interval(0.7, 0.8, curve: Curves.easeIn),
-            reverseCurve: reverseCurve,
-          ),
-        );
-
-        final treesOpacity = Tween<double>(begin: 0, end: 1).animate(
-          CurvedAnimation(
-            parent: controller,
-            curve: const Interval(0.8, 0.9, curve: Curves.easeIn),
-            reverseCurve: reverseCurve,
-          ),
-        );
-
         final fishOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
-            curve: const Interval(0.9, 1, curve: Curves.easeIn),
+            curve: const Interval(0.7, 0.8, curve: Curves.easeIn),
             reverseCurve: reverseCurve,
           ),
         );
@@ -113,22 +95,37 @@ class Slide10 extends StatelessWidget {
           Positioned(
             left: 532.7,
             top: 85.1,
-            child: Opacity(
-              opacity: co2Opacity.value,
-              child: Assets.images.props.slide10TopLeftArrow.image(),
-            ),
+            child: Assets.images.props.slide10TopLeftArrow
+                .image(opacity: co2Opacity),
           ),
           Positioned(
             left: 517.2,
             top: 57.5,
-            child: Opacity(
-              opacity: co2Opacity.value,
-              child: const Text(
-                'CO₂',
-                style: TextStyle(
-                  fontFamily: FontFamily.quotesScript,
-                  color: AppColors.red,
-                  fontSize: 32,
+            child: FadeTransition(
+              opacity: co2Opacity,
+              child: RichText(
+                text: TextSpan(
+                  style: const TextStyle(
+                    fontFamily: FontFamily.quotesScript,
+                    color: AppColors.red,
+                    fontSize: 32,
+                  ),
+                  children: [
+                    const TextSpan(text: 'CO'),
+                    WidgetSpan(
+                      child: Transform.translate(
+                        offset: const Offset(0, 2),
+                        child: const Text(
+                          '2',
+                          style: TextStyle(
+                            fontFamily: FontFamily.quotesScript,
+                            color: AppColors.red,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
@@ -136,24 +133,39 @@ class Slide10 extends StatelessWidget {
           Positioned(
             left: 1503.3,
             top: 46.9,
-            child: Opacity(
-              opacity: co2Opacity.value,
-              child: Assets.images.props.slide10TopRightTopArrow.image(),
-            ),
+            child: Assets.images.props.slide10TopRightTopArrow
+                .image(opacity: co2Opacity),
           ),
           Positioned(
             left: 1524.9,
             top: 16.1,
-            child: Opacity(
-              opacity: co2Opacity.value,
+            child: FadeTransition(
+              opacity: co2Opacity,
               child: Transform.rotate(
                 angle: -0.041283333333 * pi,
-                child: const Text(
-                  'CO₂',
-                  style: TextStyle(
-                    fontFamily: FontFamily.quotesScript,
-                    color: AppColors.red,
-                    fontSize: 25,
+                child: RichText(
+                  text: TextSpan(
+                    style: const TextStyle(
+                      fontFamily: FontFamily.quotesScript,
+                      color: AppColors.red,
+                      fontSize: 32,
+                    ),
+                    children: [
+                      const TextSpan(text: 'CO'),
+                      WidgetSpan(
+                        child: Transform.translate(
+                          offset: const Offset(0, 2),
+                          child: const Text(
+                            '2',
+                            style: TextStyle(
+                              fontFamily: FontFamily.quotesScript,
+                              color: AppColors.red,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -162,24 +174,39 @@ class Slide10 extends StatelessWidget {
           Positioned(
             left: 1428.3,
             top: 105.3,
-            child: Opacity(
-              opacity: co2Opacity.value,
-              child: Assets.images.props.slide10TopRightBottomArrow.image(),
-            ),
+            child: Assets.images.props.slide10TopRightBottomArrow
+                .image(opacity: co2Opacity),
           ),
           Positioned(
             left: 1387.1,
             top: 120.8,
-            child: Opacity(
-              opacity: co2Opacity.value,
+            child: FadeTransition(
+              opacity: co2Opacity,
               child: Transform.rotate(
                 angle: -1.9744888889 * pi,
-                child: const Text(
-                  'CO₂',
-                  style: TextStyle(
-                    fontFamily: FontFamily.quotesScript,
-                    color: AppColors.red,
-                    fontSize: 32,
+                child: RichText(
+                  text: TextSpan(
+                    style: const TextStyle(
+                      fontFamily: FontFamily.quotesScript,
+                      color: AppColors.red,
+                      fontSize: 32,
+                    ),
+                    children: [
+                      const TextSpan(text: 'CO'),
+                      WidgetSpan(
+                        child: Transform.translate(
+                          offset: const Offset(0, 2),
+                          child: const Text(
+                            '2',
+                            style: TextStyle(
+                              fontFamily: FontFamily.quotesScript,
+                              color: AppColors.red,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -188,11 +215,11 @@ class Slide10 extends StatelessWidget {
           Positioned(
             left: 1014,
             top: 294,
-            child: Opacity(
-              opacity: cardOpacity.value,
+            child: FadeTransition(
+              opacity: cardOpacity,
               child: DecoratedBox(
                 decoration: BoxDecoration(
-                  color: AppColors.lighterBlue,
+                  color: AppColors.lightBlue20,
                   borderRadius: BorderRadius.circular(50),
                 ),
                 child: SizedBox(
@@ -208,8 +235,8 @@ class Slide10 extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Opacity(
-                          opacity: titleOpacity.value,
+                        FadeTransition(
+                          opacity: titleOpacity,
                           child: Row(
                             children: [
                               const Spacer(flex: 2),
@@ -253,8 +280,8 @@ class Slide10 extends StatelessWidget {
                                 child: Column(
                                   children: [
                                     const Spacer(),
-                                    Opacity(
-                                      opacity: smallWhaleOpacity.value,
+                                    FadeTransition(
+                                      opacity: whalesOpacity,
                                       child: Column(
                                         children: [
                                           Assets.images.props.slide10SmallWhale
@@ -275,8 +302,8 @@ class Slide10 extends StatelessWidget {
                                       ),
                                     ),
                                     const Spacer(flex: 2),
-                                    Opacity(
-                                      opacity: smallWhalesOpacity.value,
+                                    FadeTransition(
+                                      opacity: whalesOpacity,
                                       child: Column(
                                         children: [
                                           Assets.images.props
@@ -301,8 +328,8 @@ class Slide10 extends StatelessWidget {
                                   ],
                                 ),
                               ),
-                              Opacity(
-                                opacity: graphOpacity.value,
+                              FadeTransition(
+                                opacity: graphOpacity,
                                 child: Stack(
                                   alignment: Alignment.topCenter,
                                   children: [
@@ -361,8 +388,8 @@ class Slide10 extends StatelessWidget {
                                 flex: 3,
                                 child: Column(
                                   children: [
-                                    Opacity(
-                                      opacity: treeOpacity.value,
+                                    FadeTransition(
+                                      opacity: treesOpacity,
                                       child: Text(
                                         l10n.equivalentToCO2,
                                         textAlign: TextAlign.center,
@@ -376,8 +403,8 @@ class Slide10 extends StatelessWidget {
                                       ),
                                     ),
                                     const Spacer(),
-                                    Opacity(
-                                      opacity: treeOpacity.value,
+                                    FadeTransition(
+                                      opacity: treesOpacity,
                                       child: Column(
                                         children: [
                                           Assets.images.props.slide10Tree
@@ -409,8 +436,8 @@ class Slide10 extends StatelessWidget {
                                       ),
                                     ),
                                     const Spacer(flex: 2),
-                                    Opacity(
-                                      opacity: treesOpacity.value,
+                                    FadeTransition(
+                                      opacity: treesOpacity,
                                       child: Column(
                                         children: [
                                           Assets.images.props.slide10GroupTrees
@@ -458,32 +485,45 @@ class Slide10 extends StatelessWidget {
           Positioned(
             left: 192.4,
             top: 332,
-            child: Opacity(
-              opacity: whaleOpacity.value,
-              child: Assets.images.props.slide09BigWhale.image(),
-            ),
+            child: Assets.images.props.slide09BigWhale
+                .image(opacity: whaleOpacity),
           ),
           Positioned(
             left: 539,
             top: 315,
-            child: Opacity(
-              opacity: co2Opacity.value,
-              child: Assets.images.props.slide10WhaleTopArrow.image(),
-            ),
+            child: Assets.images.props.slide10WhaleTopArrow
+                .image(opacity: co2Opacity),
           ),
           Positioned(
             left: 479.2,
             top: 307.6,
-            child: Opacity(
-              opacity: co2Opacity.value,
+            child: FadeTransition(
+              opacity: co2Opacity,
               child: Transform.rotate(
                 angle: -0.11477222222 * pi,
-                child: const Text(
-                  'CO₂',
-                  style: TextStyle(
-                    fontFamily: FontFamily.quotesScript,
-                    color: AppColors.red,
-                    fontSize: 32,
+                child: RichText(
+                  text: TextSpan(
+                    style: const TextStyle(
+                      fontFamily: FontFamily.quotesScript,
+                      color: AppColors.red,
+                      fontSize: 32,
+                    ),
+                    children: [
+                      const TextSpan(text: 'CO'),
+                      WidgetSpan(
+                        child: Transform.translate(
+                          offset: const Offset(0, 2),
+                          child: const Text(
+                            '2',
+                            style: TextStyle(
+                              fontFamily: FontFamily.quotesScript,
+                              color: AppColors.red,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -492,24 +532,39 @@ class Slide10 extends StatelessWidget {
           Positioned(
             left: 847,
             top: 519.9,
-            child: Opacity(
-              opacity: co2Opacity.value,
-              child: Assets.images.props.slide10WhaleBottomArrow.image(),
-            ),
+            child: Assets.images.props.slide10WhaleBottomArrow
+                .image(opacity: co2Opacity),
           ),
           Positioned(
             left: 872.9,
             top: 554,
-            child: Opacity(
-              opacity: co2Opacity.value,
+            child: FadeTransition(
+              opacity: co2Opacity,
               child: Transform.rotate(
                 angle: -0.060455555556 * pi,
-                child: const Text(
-                  'CO₂',
-                  style: TextStyle(
-                    fontFamily: FontFamily.quotesScript,
-                    color: AppColors.red,
-                    fontSize: 32,
+                child: RichText(
+                  text: TextSpan(
+                    style: const TextStyle(
+                      fontFamily: FontFamily.quotesScript,
+                      color: AppColors.red,
+                      fontSize: 32,
+                    ),
+                    children: [
+                      const TextSpan(text: 'CO'),
+                      WidgetSpan(
+                        child: Transform.translate(
+                          offset: const Offset(0, 2),
+                          child: const Text(
+                            '2',
+                            style: TextStyle(
+                              fontFamily: FontFamily.quotesScript,
+                              color: AppColors.red,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -518,16 +573,18 @@ class Slide10 extends StatelessWidget {
           Positioned(
             left: 905.6,
             top: 763.5,
-            child: Opacity(
-              opacity: fishOpacity.value,
-              child: Assets.images.props.slide09Fish.image(),
-            ),
+            child: Assets.images.props.slide09Fish.image(opacity: fishOpacity),
+          ),
+          Positioned(
+            left: 899.3,
+            top: 735.3,
+            child: Assets.images.props.slide10Tiny.image(opacity: fishOpacity),
           ),
           Positioned(
             left: 880,
             top: 1040,
-            child: Opacity(
-              opacity: fishOpacity.value,
+            child: FadeTransition(
+              opacity: fishOpacity,
               child: ArcText(
                 radius: 300,
                 startAngle: -pi / 20,
@@ -543,52 +600,48 @@ class Slide10 extends StatelessWidget {
           Positioned(
             left: 1160,
             top: 560,
-            child: Opacity(
-              opacity: smallWhaleOpacity.value,
+            child: FadeTransition(
+              opacity: whalesOpacity,
               child: const Line(
-                size: Size(105, 1),
+                size: Size(105, 2),
                 color: AppColors.darkBlue,
                 axis: Axis.horizontal,
-                strokeWidth: 1,
               ),
             ),
           ),
           Positioned(
             left: 1160,
             top: 695,
-            child: Opacity(
-              opacity: smallWhalesOpacity.value,
+            child: FadeTransition(
+              opacity: whalesOpacity,
               child: const Line(
-                size: Size(52, 1),
+                size: Size(52, 2),
                 color: AppColors.darkBlue,
                 axis: Axis.horizontal,
-                strokeWidth: 1,
               ),
             ),
           ),
           Positioned(
             left: 1345,
             top: 600,
-            child: Opacity(
-              opacity: treeOpacity.value,
+            child: FadeTransition(
+              opacity: treesOpacity,
               child: const Line(
-                size: Size(140, 1),
+                size: Size(140, 2),
                 color: AppColors.darkGreen,
                 axis: Axis.horizontal,
-                strokeWidth: 1,
               ),
             ),
           ),
           Positioned(
             left: 1405,
             top: 720,
-            child: Opacity(
-              opacity: treesOpacity.value,
+            child: FadeTransition(
+              opacity: treesOpacity,
               child: const Line(
-                size: Size(75, 1),
+                size: Size(75, 2),
                 color: AppColors.darkGreen,
                 axis: Axis.horizontal,
-                strokeWidth: 1,
               ),
             ),
           ),

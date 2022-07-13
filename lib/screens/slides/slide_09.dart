@@ -2,31 +2,39 @@ import 'dart:math';
 
 import 'package:arcadia_app/gen/gen.dart';
 import 'package:arcadia_app/l10n/app_localizations.dart';
+import 'package:arcadia_app/main.dart';
 import 'package:arcadia_app/style/colors.dart';
+import 'package:arcadia_app/widgets/line.dart';
 import 'package:arcadia_app/widgets/slide.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class Slide09 extends StatelessWidget {
+class Slide09 extends ConsumerWidget {
   const Slide09({
     super.key,
     required this.currentSlide,
+    required this.onAudioEnd,
   });
 
-  final ValueNotifier<int> currentSlide;
+  final int currentSlide;
+  final VoidCallback onAudioEnd;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final locale = ref.watch(localeProvider);
     return Slide(
-      showProps: currentSlide.value == 9,
-      audioPath: Assets.audios.en.slide09,
-      background: Assets.images.backgrounds.slide09,
-      showBackground: currentSlide.value >= 9,
-      playAudio: currentSlide.value == 9,
-      onAudioEnd: () => currentSlide.value++,
+      slide: 9,
+      currentSlide: currentSlide,
+      audioPath: locale.languageCode == 'en'
+          ? Assets.audios.en.slide09
+          : Assets.audios.pt.slide09,
+      background:
+          Assets.images.backgrounds.slide09.image(fit: BoxFit.cover).image,
+      onAudioEnd: onAudioEnd,
       propsBuilder: (context, controller) {
         final l10n = AppLocalizations.of(context)!;
-        const reverseCurve = Interval(0.9, 1, curve: Curves.easeOut);
+        const reverseCurve = Interval(0, 1, curve: Curves.easeOut);
 
         final whaleOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
@@ -104,19 +112,17 @@ class Slide09 extends StatelessWidget {
           Positioned(
             left: 336,
             top: 565,
-            child: Opacity(
-              opacity: arrowOpacity.value,
-              child: Assets.images.props.slide09BigArrow.image(),
-            ),
+            child: Assets.images.props.slide09BigArrow
+                .image(opacity: arrowOpacity),
           ),
           Positioned(
             left: 1096,
             top: 254,
-            child: Opacity(
-              opacity: cardOpacity.value,
+            child: FadeTransition(
+              opacity: cardOpacity,
               child: DecoratedBox(
                 decoration: BoxDecoration(
-                  color: AppColors.lighterBlue,
+                  color: AppColors.lightBlue20,
                   borderRadius: BorderRadius.circular(50),
                 ),
                 child: Padding(
@@ -125,8 +131,8 @@ class Slide09 extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Opacity(
-                        opacity: whaleCardOpacity.value,
+                      FadeTransition(
+                        opacity: whaleCardOpacity,
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -149,8 +155,9 @@ class Slide09 extends StatelessWidget {
                                     fontSize: 15,
                                   ),
                                 ),
+                                const SizedBox(width: 5),
                                 const Text(
-                                  ' 30m',
+                                  '30m',
                                   style: TextStyle(
                                     fontFamily: FontFamily.poppins,
                                     fontWeight: FontWeight.bold,
@@ -164,8 +171,8 @@ class Slide09 extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 5),
-                      Opacity(
-                        opacity: dinoOpacity.value,
+                      FadeTransition(
+                        opacity: dinoOpacity,
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -203,6 +210,7 @@ class Slide09 extends StatelessWidget {
                                     const _BarBar(
                                       totalWidth: 314.2,
                                       filledWidth: 18,
+                                      invert: true,
                                     ),
                                     const SizedBox(height: 15),
                                     Row(
@@ -241,8 +249,9 @@ class Slide09 extends StatelessWidget {
                                     fontSize: 15,
                                   ),
                                 ),
+                                const SizedBox(width: 5),
                                 const Text(
-                                  ' 23m',
+                                  '23m',
                                   style: TextStyle(
                                     fontFamily: FontFamily.poppins,
                                     fontWeight: FontWeight.bold,
@@ -256,8 +265,8 @@ class Slide09 extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 30),
-                      Opacity(
-                        opacity: sharkOpacity.value,
+                      FadeTransition(
+                        opacity: sharkOpacity,
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -280,8 +289,9 @@ class Slide09 extends StatelessWidget {
                                     fontSize: 15,
                                   ),
                                 ),
+                                const SizedBox(width: 5),
                                 const Text(
-                                  ' 6.4m',
+                                  '6.4m',
                                   style: TextStyle(
                                     fontFamily: FontFamily.poppins,
                                     fontWeight: FontWeight.bold,
@@ -295,8 +305,8 @@ class Slide09 extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 19),
-                      Opacity(
-                        opacity: busOpacity.value,
+                      FadeTransition(
+                        opacity: busOpacity,
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -319,8 +329,9 @@ class Slide09 extends StatelessWidget {
                                     fontSize: 15,
                                   ),
                                 ),
+                                const SizedBox(width: 5),
                                 const Text(
-                                  ' 12m',
+                                  '12m',
                                   style: TextStyle(
                                     fontFamily: FontFamily.poppins,
                                     fontWeight: FontWeight.bold,
@@ -342,16 +353,14 @@ class Slide09 extends StatelessWidget {
           Positioned(
             left: 192.4,
             top: 331.6,
-            child: Opacity(
-              opacity: whaleOpacity.value,
-              child: Assets.images.props.slide09BigWhale.image(),
-            ),
+            child: Assets.images.props.slide09BigWhale
+                .image(opacity: whaleOpacity),
           ),
           Positioned(
             left: 535.7,
             top: 584.7,
-            child: Opacity(
-              opacity: arrowOpacity.value,
+            child: FadeTransition(
+              opacity: arrowOpacity,
               child: Transform.rotate(
                 angle: -0.060455555556 * pi,
                 child: const Text(
@@ -368,16 +377,13 @@ class Slide09 extends StatelessWidget {
           Positioned(
             left: 906,
             top: 753,
-            child: Opacity(
-              opacity: fishOpacity.value,
-              child: Assets.images.props.slide09Fish.image(),
-            ),
+            child: Assets.images.props.slide09Fish.image(opacity: fishOpacity),
           ),
           Positioned(
             left: 924.4,
             top: 687.2,
-            child: Opacity(
-              opacity: fishOpacity.value,
+            child: FadeTransition(
+              opacity: fishOpacity,
               child: Transform.rotate(
                 angle: -1.9284722222 * pi,
                 child: const Text(
@@ -392,10 +398,10 @@ class Slide09 extends StatelessWidget {
             ),
           ),
           Positioned(
-            left: 1487.4,
-            top: 431.3,
-            child: Opacity(
-              opacity: youOpacity.value,
+            left: 1490,
+            top: 435,
+            child: FadeTransition(
+              opacity: youOpacity,
               child: DecoratedBox(
                 decoration: BoxDecoration(
                   color: AppColors.white,
@@ -423,6 +429,21 @@ class Slide09 extends StatelessWidget {
               ),
             ),
           ),
+          Positioned(
+            left: 1485,
+            top: 470,
+            child: FadeTransition(
+              opacity: youOpacity,
+              child: Transform.rotate(
+                angle: pi / 3,
+                child: const Line(
+                  color: AppColors.darkBlue,
+                  axis: Axis.vertical,
+                  size: Size(2, 30),
+                ),
+              ),
+            ),
+          ),
         ];
       },
     );
@@ -433,63 +454,56 @@ class _BarBar extends StatelessWidget {
   const _BarBar({
     required this.totalWidth,
     required this.filledWidth,
+    this.invert = false,
   });
 
   final double totalWidth;
   final double filledWidth;
+  final bool invert;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        for (var i = 1; i <= (totalWidth / filledWidth); i++) ...[
-          if (i == 1)
-            Padding(
-              padding: const EdgeInsets.only(bottom: 3),
-              child: Row(
-                children: [
-                  // const _ColoredBox(
-                  //   width: 1,
-                  //   height: 12,
-                  //   color: AppColors.lightBlue,
-                  // ),
-                  _ColoredBox(
-                    width: filledWidth, // - 2,
-                    height: 6,
-                    color: AppColors.lightBlue,
-                  ),
-                  // const _ColoredBox(
-                  //   width: 1,
-                  //   height: 12,
-                  //   color: AppColors.lightBlue,
-                  // ),
-                ],
-              ),
-            )
-          else
-            Padding(
-              padding: i.isEven
-                  ? const EdgeInsets.only(top: 3)
-                  : const EdgeInsets.only(bottom: 3),
-              child: _ColoredBox(
+    final bars = [
+      for (var i = 1; i <= (totalWidth / filledWidth); i++) ...[
+        if (i == 1)
+          Padding(
+            padding: const EdgeInsets.only(bottom: 3),
+            child: ColoredBox(
+              color: AppColors.lightBlue,
+              child: SizedBox(
                 width: filledWidth,
                 height: 6,
-                color: AppColors.evenLighterBlue,
               ),
             ),
-          if (i + 1 > (totalWidth / filledWidth))
-            Padding(
-              padding: (i + 1).isEven
-                  ? const EdgeInsets.only(top: 3)
-                  : const EdgeInsets.only(bottom: 3),
-              child: _ColoredBox(
+          )
+        else
+          Padding(
+            padding: i.isEven
+                ? const EdgeInsets.only(top: 3)
+                : const EdgeInsets.only(bottom: 3),
+            child: ColoredBox(
+              color: AppColors.lightBlue40,
+              child: SizedBox(
+                width: filledWidth,
                 height: 6,
-                width: totalWidth - (i * filledWidth),
-                color: AppColors.evenLighterBlue,
               ),
             ),
-        ]
-      ],
+          ),
+        if (i + 1 > (totalWidth / filledWidth))
+          Padding(
+            padding: (i + 1).isEven
+                ? const EdgeInsets.only(top: 3)
+                : const EdgeInsets.only(bottom: 3),
+            child: _ColoredBox(
+              height: 6,
+              width: totalWidth - (i * filledWidth),
+              color: AppColors.lightBlue40,
+            ),
+          ),
+      ]
+    ];
+    return Row(
+      children: (invert ? bars.reversed : bars).toList(),
     );
   }
 }

@@ -8,299 +8,377 @@ class AppLocalizationsPt extends AppLocalizations {
   AppLocalizationsPt([String locale = 'pt']) : super(locale);
 
   @override
-  String get whalesDoWhat => 'Whales\ndo what?';
+  String get whalesDoWhat => 'As baleias\nfazem o quê?!';
 
   @override
-  String get start => 'Start';
+  String get start => 'Começar!';
 
   @override
-  String get sources => 'Sources';
+  String get credits => 'Credits';
 
   @override
-  String get youreHere => 'You\'re\nhere';
+  String get projectBy => 'Project by';
 
   @override
-  String get twoLeggedCreatures => 'Two-legged\nCreatures';
+  String get supervisedBy => 'Supervised by';
 
   @override
-  String get populationOverTime => 'Blue Whale population\nover time';
+  String get development => 'Development';
 
   @override
-  String get commercialWhalingPeak => 'Commercial\nwhaling\npeak';
+  String get marineBiologyAdvisor => 'Marine Biology Advisor';
 
   @override
-  String get nearExtinction => 'Near-extinction';
+  String get narration => 'Narration';
 
   @override
-  String get commercialWhalingBan => 'Commercial\nwhaling ban';
+  String get standDesign => 'Stand design';
 
   @override
-  String get numbersSlowlyRising => 'Number are\nslowly rising!';
+  String get standProduction => 'Stand production';
 
   @override
-  String get whenBorn => 'When were you born?';
+  String get specialThanks => 'Special thanks to';
 
   @override
-  String get notLongUntilBan => 'Not long until\nthe whaling ban.';
+  String get madeFromRecycledPlastic => 'Material made from 100% recycled plastic.';
 
   @override
-  String get populationsGrowSoon => 'Whale populations\nwill start to grow soon :)';
+  String get and => 'and';
 
   @override
-  String get populationsRecovering => 'Whale populations\nare already recovering :D';
+  String get sources => 'Fontes';
 
   @override
-  String get carbon => 'Carbon';
+  String get close => 'Fechar';
 
   @override
-  String get oxygen => 'Oxygen';
+  String get stopsToExplore => 'Paragens para explorar ;)';
 
   @override
-  String get breathing => 'breathing';
+  String get leave => 'Fechar';
 
   @override
-  String get feeding => 'feeding';
+  String get youreHere => 'Estás\naqui';
+
+  @override
+  String get twoLeggedCreatures => 'Criaturas\nde duas pernas';
+
+  @override
+  String get populationOverTime => 'População de Baleia Azul\nao longo do tempo';
+
+  @override
+  String get commercialWhalingPeak => 'Pico da\nCaça às\nBaleias';
+
+  @override
+  String get nearExtinction => 'Quase extinção';
+
+  @override
+  String get commercialWhalingBan => 'Proibição de caça\ncomercial de baleias';
+
+  @override
+  String get numbersSlowlyRising => 'Números\na crescer!';
+
+  @override
+  String get today => 'Hoje';
+
+  @override
+  String get whenBorn => 'Em que ano nasceste?';
+
+  @override
+  String get youBorn => 'Nasceste!';
+
+  @override
+  String get notLongUntilBan => 'Não falta muito até à\nproibição da caça à baleia.';
+
+  @override
+  String get populationsGrowSoon => 'As populações de baleias\nvão começar a crescer em breve  :)';
+
+  @override
+  String get populationsRecovering => 'As populações de baleias\njá estão a crescer :D';
+
+  @override
+  String get carbon => 'Carbono';
+
+  @override
+  String get oxygen => 'Oxigénio';
+
+  @override
+  String get breathing => 'respirar';
+
+  @override
+  String get feeding => 'alimentar';
 
   @override
   String get phytoplankton => 'fitoplâncton';
 
   @override
-  String get chooseCountry => 'Choose your country:';
+  String get chooseCountry => 'Escolhe o teu país:';
 
   @override
-  String get pooIsImportant => 'My poo\n is important?!';
+  String get myPoo => 'O meu cocó';
 
   @override
-  String get emitted => 'Emitted';
+  String get isImportant => 'é importante?!';
 
   @override
-  String get absorbed => 'Absorbed';
+  String get emitted => 'Emitido';
 
   @override
-  String get tonsPerYear => '(in tons / per year)';
+  String get absorbed => 'Absorvido';
 
   @override
-  String get worldwide => 'worldwide';
+  String get tonsPerYear => '(em toneladas / por ano)';
 
   @override
-  String get billion => 'billion';
+  String get worldwide => 'mundialmente';
 
   @override
-  String get trees => 'trees';
+  String get billion => 'mil milhões';
 
   @override
-  String get equivalent => 'Equivalent to\n4 Amazon';
+  String get trees => 'árvores';
 
   @override
-  String get amazonForests => '4 Amazon\nForests!';
+  String get equivalent => 'Equivalente a';
 
   @override
-  String get blueWhale => 'Blue Whale';
+  String get amazonForests => '4 Florestas\nda Amazónia!';
 
   @override
-  String get human => 'Human';
+  String get blueWhale => 'Baleia Azul';
+
+  @override
+  String get human => 'Humano';
 
   @override
   String get brachiosaurus => 'Brachiosaurus';
 
   @override
-  String get greatWhiteShake => 'Great white shark';
+  String get greatWhiteShake => 'Grande Tubarão Branco';
 
   @override
-  String get bus => 'Bus';
+  String get bus => 'Autocarro';
 
   @override
-  String get you => 'You!';
+  String get you => 'Tu!';
 
   @override
-  String get hadNoIdea => 'I had no idea!';
+  String get hadNoIdea => 'Não fazia ideia!';
 
   @override
-  String get carbonDeepWhenTheyDie => 'Carbon (CO₂) shuttled to the deep\nsea by baleen whales when they die';
+  String get carbonDeepWhenTheyDie => 'Carbono (CO2) levado para o fundo do oceano \npor baleias de barbas quando morrem';
 
   @override
-  String get whalesToday => 'Whales\nToday';
+  String get whalesToday => 'Baleias\nhoje';
 
   @override
-  String get ifWhalesRecovered => 'If whale\npopulations\nrecovered to\npre-whaling\nnumbers';
+  String get ifWhalesRecovered => 'Se as\npopulações\nde baleias\nrecuperasse\naos números\nanteriores à\ncaça de baleias';
 
   @override
-  String get equivalentToCO2 => 'That\'s equivalent to\nthe CO2 absorbed by:';
+  String get equivalentToCO2 => 'O equivalente ao\nCO2 absorvido por:';
 
   @override
-  String get doOurPart => 'But we must do our part!';
+  String get doOurPart => 'Temos de fazer a nossa parte!';
 
   @override
-  String get touchToFlip => 'touch to flip';
+  String get touchToFlip => 'toca para virar';
 
   @override
-  String get ourPart1Label => 'Reduce food waste';
+  String get ourPart1Label => 'Reduz o\ndesperdício\nalimentar';
 
   @override
-  String get ourPart1Text => 'Food waste is responsible for 6% of total global emissions';
+  String get ourPart1Text => 'Responsável por 6%\nto total das emissões\nglobais';
 
   @override
-  String get ourPart2Label => 'Eat a Plant-rich diet';
+  String get ourPart2Label => 'Come uma\ndieta rica em\nvegetais';
 
   @override
-  String get ourPart2Text => 'Plant-rich diets reduce emissions and also tend to be healtier';
+  String get ourPart2Text => 'Estas produzem\nmenos CO2 e\ntendem a ser mais\nsaudáveis';
 
   @override
-  String get ourPart3Label => 'Make your home more efficient';
+  String get ourPart3Label => 'Torna a tua\ncasa mais\neficiente';
 
   @override
-  String get ourPart3Text => 'Weatherize, use led lights, be conscious of energy use';
+  String get ourPart3Text => 'Isolamento, luzes led,\nusa energia de\nforma eficiente';
 
   @override
-  String get ourPart4Label => 'Shift to alternative transportation';
+  String get ourPart4Label => 'Usa\ntransportes\nalternativos';
 
   @override
-  String get ourPart4Text => 'Public transportation, Bicycles, Car-pool, walk';
+  String get ourPart4Text => 'Transportes\npúblicos, bicicletas,\npartilha de carro,\nandar a pé';
 
   @override
-  String get ourPart5Label => 'Buyn less stuff';
+  String get ourPart5Label => 'Compra\nmenos coisas';
 
   @override
-  String get ourPart5Text => 'Try to refurbish or repurpose existing items';
+  String get ourPart5Text => 'Tenta arranjar ou dar\nnova vida a produtos\nexistentes';
 
   @override
-  String get ourPart6Label => 'Support equality';
+  String get ourPart6Label => 'Apoia a\nigualdade';
 
   @override
-  String get ourPart6Text => 'Access to high-quality, inclusive education and voluntary reproductive';
+  String get ourPart6Text => 'Acesso a educação\ninclusiva de\nqualidade e a saúde\nreprodutiva\nvoluntária';
 
   @override
   String get krill => 'Krill';
 
   @override
-  String get microplastics => 'Microplastics';
+  String get microplastics => 'Microplásticos';
 
   @override
-  String get plasticWasteCreate => 'Plastic waste created';
+  String get plasticWasteCreate => 'Resíduos plásticos criados';
 
   @override
-  String get whereYouFrom => 'Where are you from?';
+  String get whereYouFrom => 'De onde és?';
 
   @override
-  String get tons => 'tons';
+  String get tons => 'toneladas';
 
   @override
-  String get adultAfricanElephants => 'Adult African\nElephants';
+  String get adultAfricanElephants => 'Elefantes Africanos\nAdultos';
 
   @override
-  String get whatCanYouDo => 'What can\nyou do?';
+  String get whatCan => 'O que';
 
   @override
-  String get canDo1Label => 'Take a reusable bag with you';
+  String get youDo => 'podes fazer?';
 
   @override
-  String get canDo2Label => 'Respect natural environments';
+  String get canDo1Label => 'Leva um saco\nreutilizável\ncontigo';
 
   @override
-  String get canDo2Text => 'and leave them cleaner then you found them';
+  String get canDo2Label => 'Respeita o\nambiente natural';
 
   @override
-  String get canDo3Label => 'Look for natural fibres';
+  String get canDo2Text => 'e deixa-os mais\nlimpos do que\nencontraste';
 
   @override
-  String get canDo3Text => 'Synthetic fibres like polyester & nylon release plastic microfibers when washed';
+  String get canDo3Label => 'Procura\nfibras naturais';
 
   @override
-  String get canDo4Label => 'Stop using single-use plastics';
+  String get canDo3Text => 'Fibras sintéticas como\no poliéster ou nylon\nlargam microfibras\nde plástico quando \nlavadas';
 
   @override
-  String get canDo5Label => 'Buy vegies & fruit not wrapped in plastic';
+  String get canDo4Label => 'Deixa de usar\nplásticos de\nuso único';
 
   @override
-  String get canDo6Label => 'When you can\'t really avoid using plastic, recycle it after';
+  String get canDo5Label => 'Compra\nfruta e\nvegetais não\nembalados\nem plástico';
 
   @override
-  String get baltazarMigration => 'Baltazar\'s Migration\n6,400 km/year';
+  String get canDo6Label => 'Quando não\nconsegues\nmesmo evitar\nusar plástico,\nrecicla-o depois';
 
   @override
-  String get feedingGrounds => 'feeding grounds';
+  String get baltazarMigration => 'A migração do Baltazar\n6,400 km/ano';
 
   @override
-  String get breedingGround => 'breeding grounds';
+  String get feedingGrounds => 'zona de\nalimentação';
 
   @override
-  String get clickToSeeDistance => 'Click to see distance\nfrom where you are from';
+  String get breedingGround => 'zona de\nacasalamento';
 
   @override
-  String get migrationCorridors => 'Blue whales\nmigration corridors';
+  String get clickToSeeDistance => 'Clica para ver a distância\ndesde onde estás agora';
 
   @override
-  String get shippingDensity => 'Shipping density';
+  String get migrationCorridors => 'Corredores de migração\nda Baleia Azul';
 
   @override
-  String get slide => 'slide';
+  String get shippingDensity => 'Densidade\nde navios';
 
   @override
-  String get weNeedTo => 'We need to...';
+  String get slide => 'desliza';
 
   @override
-  String get needTo1Label => 'Slow ships down';
+  String get weNeedTo => 'Precisamos de...';
 
   @override
-  String get needTo1Text => 'especially in the migration corridors';
+  String get needTo1Label => 'Abrandar\nos navios';
 
   @override
-  String get needTo2Label => 'Avoid certain areas at particular periods';
+  String get needTo1Text => 'especialmente\nnos corredores\nmigratórios';
 
   @override
-  String get needTo2Text => 'Adapt to marine life patterns';
+  String get needTo2Label => 'Evitar certas\nzonas em certas\nalturas do ano';
 
   @override
-  String get needTo3Label => 'Buy local products';
+  String get needTo2Text => 'Adaptar aos padrões\nda vida marinha';
 
   @override
-  String get needTo3Text => 'Support local economies and avoid long transport';
+  String get needTo3Label => 'Comprar\nprodutos locais';
 
   @override
-  String get noiceVolume => 'Noise volume';
+  String get needTo3Text => 'Apoiar a\neconomia local e\nevitar transporte\nlongo';
 
   @override
-  String get realOceanNoice => '(real ocean noise)';
+  String get noiceVolume => 'Volume de ruído';
 
   @override
-  String get soundVolumes => 'Sound volumes';
+  String get realOceanNoice => '(som real nos oceanos)';
 
   @override
-  String get clickOnIcons => 'Click on\nthe icons';
+  String get soundVolumes => 'Volume dos Sons';
 
   @override
-  String get decibels => 'decibels (dB)';
+  String get clickOnIcons => 'Clica\nnos icons';
 
   @override
-  String get reduceNoise => 'Let\'s reduce\nthe noise';
+  String get decibels => 'decibeis (dB)';
 
   @override
-  String get lets1Label => 'Less noisy vessels';
+  String get letsReduce => 'Vamos reduzir';
 
   @override
-  String get lets1Text => 'For example, replace propellers';
+  String get theNoise => 'o ruído';
 
   @override
-  String get lets2Label => 'Avoid sensitive areas';
+  String get lets1Label => 'Navios\nmais\nsilenciosos';
 
   @override
-  String get lets2Text => 'Adapt to ocean life';
+  String get lets1Text => 'Por exemplo,\ntrocar hélices';
 
   @override
-  String get lets3Label => 'Alternative Energy';
+  String get lets2Label => 'Evitar\nzonas\nsensíveis';
 
   @override
-  String get lets3Text => 'Support renewables instead of oil drilling';
+  String get lets2Text => 'Adaptar à\nvida marinha';
 
   @override
-  String get sameCO2Captured => 'The same CO₂\n captured by';
+  String get lets3Label => 'Energia\nalternativa';
 
   @override
-  String get treesInOnYear => 'trees in one year';
+  String get lets3Text => 'Apoiar energias\nrenováveis em\nvez de petróleo ';
 
   @override
-  String get letsDoThis => 'Let\'s do this\ntogether!';
+  String get seismicAirGun => 'Canhão\nde ar\nsísmico';
 
   @override
-  String get bePartOfThisStory => 'And now, leave your mark on our walls.\nBe part of this story. :)';
+  String get containerShip => 'Navio\nporta\ncontentores';
+
+  @override
+  String get offshoreDrillRig => 'Plataforma\npetrolífera';
+
+  @override
+  String get blueWhaleDB => 'Baleia\nAzul';
+
+  @override
+  String get jetEngine => 'Motor\nde Jato';
+
+  @override
+  String get talkingToFriend => 'Conversar\ncom amigo ';
+
+  @override
+  String get painfulHumanEar => 'Doloroso\npara o ouvido\nhumano';
+
+  @override
+  String get sameCO2Captured => 'O mesmo CO2\nabsorvido por';
+
+  @override
+  String get treesInOnYear => 'árvores\nnum ano';
+
+  @override
+  String get letsDoThis => 'Vamos fazer\nisto juntos!';
+
+  @override
+  String get bePartOfThisStory => 'E agora, deixa a tua marca nas nossas paredes.\nFaz parte desta história. :)';
 }

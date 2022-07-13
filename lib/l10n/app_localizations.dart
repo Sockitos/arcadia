@@ -97,20 +97,104 @@ abstract class AppLocalizations {
   /// No description provided for @whalesDoWhat.
   ///
   /// In en, this message translates to:
-  /// **'Whales\ndo what?'**
+  /// **'Whales\ndo what?!'**
   String get whalesDoWhat;
 
   /// No description provided for @start.
   ///
   /// In en, this message translates to:
-  /// **'Start'**
+  /// **'Start!'**
   String get start;
+
+  /// No description provided for @credits.
+  ///
+  /// In en, this message translates to:
+  /// **'Credits'**
+  String get credits;
+
+  /// No description provided for @projectBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Project by'**
+  String get projectBy;
+
+  /// No description provided for @supervisedBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Supervised by'**
+  String get supervisedBy;
+
+  /// No description provided for @development.
+  ///
+  /// In en, this message translates to:
+  /// **'Development'**
+  String get development;
+
+  /// No description provided for @marineBiologyAdvisor.
+  ///
+  /// In en, this message translates to:
+  /// **'Marine Biology Advisor'**
+  String get marineBiologyAdvisor;
+
+  /// No description provided for @narration.
+  ///
+  /// In en, this message translates to:
+  /// **'Narration'**
+  String get narration;
+
+  /// No description provided for @standDesign.
+  ///
+  /// In en, this message translates to:
+  /// **'Stand design'**
+  String get standDesign;
+
+  /// No description provided for @standProduction.
+  ///
+  /// In en, this message translates to:
+  /// **'Stand production'**
+  String get standProduction;
+
+  /// No description provided for @specialThanks.
+  ///
+  /// In en, this message translates to:
+  /// **'Special thanks to'**
+  String get specialThanks;
+
+  /// No description provided for @madeFromRecycledPlastic.
+  ///
+  /// In en, this message translates to:
+  /// **'Material made from 100% recycled plastic.'**
+  String get madeFromRecycledPlastic;
+
+  /// No description provided for @and.
+  ///
+  /// In en, this message translates to:
+  /// **'and'**
+  String get and;
 
   /// No description provided for @sources.
   ///
   /// In en, this message translates to:
   /// **'Sources'**
   String get sources;
+
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
+  /// No description provided for @stopsToExplore.
+  ///
+  /// In en, this message translates to:
+  /// **'Stops to explore ;)'**
+  String get stopsToExplore;
+
+  /// No description provided for @leave.
+  ///
+  /// In en, this message translates to:
+  /// **'Leave'**
+  String get leave;
 
   /// No description provided for @youreHere.
   ///
@@ -154,11 +238,23 @@ abstract class AppLocalizations {
   /// **'Number are\nslowly rising!'**
   String get numbersSlowlyRising;
 
+  /// No description provided for @today.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get today;
+
   /// No description provided for @whenBorn.
   ///
   /// In en, this message translates to:
   /// **'When were you born?'**
   String get whenBorn;
+
+  /// No description provided for @youBorn.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re born!'**
+  String get youBorn;
 
   /// No description provided for @notLongUntilBan.
   ///
@@ -205,7 +301,7 @@ abstract class AppLocalizations {
   /// No description provided for @phytoplankton.
   ///
   /// In en, this message translates to:
-  /// **'fitoplâncton'**
+  /// **'phytoplankton'**
   String get phytoplankton;
 
   /// No description provided for @chooseCountry.
@@ -214,11 +310,17 @@ abstract class AppLocalizations {
   /// **'Choose your country:'**
   String get chooseCountry;
 
-  /// No description provided for @pooIsImportant.
+  /// No description provided for @myPoo.
   ///
   /// In en, this message translates to:
-  /// **'My poo\n is important?!'**
-  String get pooIsImportant;
+  /// **'My poo'**
+  String get myPoo;
+
+  /// No description provided for @isImportant.
+  ///
+  /// In en, this message translates to:
+  /// **'is important?!'**
+  String get isImportant;
 
   /// No description provided for @emitted.
   ///
@@ -259,7 +361,7 @@ abstract class AppLocalizations {
   /// No description provided for @equivalent.
   ///
   /// In en, this message translates to:
-  /// **'Equivalent to\n4 Amazon'**
+  /// **'Equivalent to'**
   String get equivalent;
 
   /// No description provided for @amazonForests.
@@ -454,58 +556,64 @@ abstract class AppLocalizations {
   /// **'Adult African\nElephants'**
   String get adultAfricanElephants;
 
-  /// No description provided for @whatCanYouDo.
+  /// No description provided for @whatCan.
   ///
   /// In en, this message translates to:
-  /// **'What can\nyou do?'**
-  String get whatCanYouDo;
+  /// **'What can'**
+  String get whatCan;
+
+  /// No description provided for @youDo.
+  ///
+  /// In en, this message translates to:
+  /// **'you do?'**
+  String get youDo;
 
   /// No description provided for @canDo1Label.
   ///
   /// In en, this message translates to:
-  /// **'Take a reusable bag with you'**
+  /// **'Take a\nreusable bag\nwith you'**
   String get canDo1Label;
 
   /// No description provided for @canDo2Label.
   ///
   /// In en, this message translates to:
-  /// **'Respect natural environments'**
+  /// **'Respect natural\nenvironments'**
   String get canDo2Label;
 
   /// No description provided for @canDo2Text.
   ///
   /// In en, this message translates to:
-  /// **'and leave them cleaner then you found them'**
+  /// **'and leave them\ncleaner then you\nfound them'**
   String get canDo2Text;
 
   /// No description provided for @canDo3Label.
   ///
   /// In en, this message translates to:
-  /// **'Look for natural fibres'**
+  /// **'Look for\nnatural fibres'**
   String get canDo3Label;
 
   /// No description provided for @canDo3Text.
   ///
   /// In en, this message translates to:
-  /// **'Synthetic fibres like polyester & nylon release plastic microfibers when washed'**
+  /// **'Synthetic fibres like\npolyester & nylon\nrelease plastic\nmicrofibers when\nwashed'**
   String get canDo3Text;
 
   /// No description provided for @canDo4Label.
   ///
   /// In en, this message translates to:
-  /// **'Stop using single-use plastics'**
+  /// **'Stop using\nsingle-use\nplastics'**
   String get canDo4Label;
 
   /// No description provided for @canDo5Label.
   ///
   /// In en, this message translates to:
-  /// **'Buy vegies & fruit not wrapped in plastic'**
+  /// **'Buy vegies\n& fruit not\nwrapped in\nplastic'**
   String get canDo5Label;
 
   /// No description provided for @canDo6Label.
   ///
   /// In en, this message translates to:
-  /// **'When you can\'t really avoid using plastic, recycle it after'**
+  /// **'When you can\'t\nreally avoid\nusing plastic,\nrecycle it after'**
   String get canDo6Label;
 
   /// No description provided for @baltazarMigration.
@@ -541,7 +649,7 @@ abstract class AppLocalizations {
   /// No description provided for @shippingDensity.
   ///
   /// In en, this message translates to:
-  /// **'Shipping density'**
+  /// **'Shipping\ndensity'**
   String get shippingDensity;
 
   /// No description provided for @slide.
@@ -559,37 +667,37 @@ abstract class AppLocalizations {
   /// No description provided for @needTo1Label.
   ///
   /// In en, this message translates to:
-  /// **'Slow ships down'**
+  /// **'Slow ships\ndown'**
   String get needTo1Label;
 
   /// No description provided for @needTo1Text.
   ///
   /// In en, this message translates to:
-  /// **'especially in the migration corridors'**
+  /// **'especially in\nthe migration\ncorridors'**
   String get needTo1Text;
 
   /// No description provided for @needTo2Label.
   ///
   /// In en, this message translates to:
-  /// **'Avoid certain areas at particular periods'**
+  /// **'Avoid certain\nareas at\nparticular periods'**
   String get needTo2Label;
 
   /// No description provided for @needTo2Text.
   ///
   /// In en, this message translates to:
-  /// **'Adapt to marine life patterns'**
+  /// **'Adapt to marine\nlife patterns'**
   String get needTo2Text;
 
   /// No description provided for @needTo3Label.
   ///
   /// In en, this message translates to:
-  /// **'Buy local products'**
+  /// **'Buy\nlocal products'**
   String get needTo3Label;
 
   /// No description provided for @needTo3Text.
   ///
   /// In en, this message translates to:
-  /// **'Support local economies and avoid long transport'**
+  /// **'Support local\neconomies and\navoid long\ntransport'**
   String get needTo3Text;
 
   /// No description provided for @noiceVolume.
@@ -607,7 +715,7 @@ abstract class AppLocalizations {
   /// No description provided for @soundVolumes.
   ///
   /// In en, this message translates to:
-  /// **'Sound volumes'**
+  /// **'Sound Volumes'**
   String get soundVolumes;
 
   /// No description provided for @clickOnIcons.
@@ -622,47 +730,95 @@ abstract class AppLocalizations {
   /// **'decibels (dB)'**
   String get decibels;
 
-  /// No description provided for @reduceNoise.
+  /// No description provided for @letsReduce.
   ///
   /// In en, this message translates to:
-  /// **'Let\'s reduce\nthe noise'**
-  String get reduceNoise;
+  /// **'Let\'s reduce'**
+  String get letsReduce;
+
+  /// No description provided for @theNoise.
+  ///
+  /// In en, this message translates to:
+  /// **'the noise'**
+  String get theNoise;
 
   /// No description provided for @lets1Label.
   ///
   /// In en, this message translates to:
-  /// **'Less noisy vessels'**
+  /// **'Less noisy\nvessels'**
   String get lets1Label;
 
   /// No description provided for @lets1Text.
   ///
   /// In en, this message translates to:
-  /// **'For example, replace propellers'**
+  /// **'For example,\nreplace\npropellers'**
   String get lets1Text;
 
   /// No description provided for @lets2Label.
   ///
   /// In en, this message translates to:
-  /// **'Avoid sensitive areas'**
+  /// **'Avoid\nsensitive\nareas'**
   String get lets2Label;
 
   /// No description provided for @lets2Text.
   ///
   /// In en, this message translates to:
-  /// **'Adapt to ocean life'**
+  /// **'Adapt to\nocean life'**
   String get lets2Text;
 
   /// No description provided for @lets3Label.
   ///
   /// In en, this message translates to:
-  /// **'Alternative Energy'**
+  /// **'Alternative\nEnergy'**
   String get lets3Label;
 
   /// No description provided for @lets3Text.
   ///
   /// In en, this message translates to:
-  /// **'Support renewables instead of oil drilling'**
+  /// **'Support\nrenewables\ninstead of oil\ndrilling'**
   String get lets3Text;
+
+  /// No description provided for @seismicAirGun.
+  ///
+  /// In en, this message translates to:
+  /// **'Seismic\nAir Gun'**
+  String get seismicAirGun;
+
+  /// No description provided for @containerShip.
+  ///
+  /// In en, this message translates to:
+  /// **'Container\nShip'**
+  String get containerShip;
+
+  /// No description provided for @offshoreDrillRig.
+  ///
+  /// In en, this message translates to:
+  /// **'Offshore\nDrill Rig'**
+  String get offshoreDrillRig;
+
+  /// No description provided for @blueWhaleDB.
+  ///
+  /// In en, this message translates to:
+  /// **'Blue\nWhale'**
+  String get blueWhaleDB;
+
+  /// No description provided for @jetEngine.
+  ///
+  /// In en, this message translates to:
+  /// **'Jet\nEngine'**
+  String get jetEngine;
+
+  /// No description provided for @talkingToFriend.
+  ///
+  /// In en, this message translates to:
+  /// **'Talking to\na friend'**
+  String get talkingToFriend;
+
+  /// No description provided for @painfulHumanEar.
+  ///
+  /// In en, this message translates to:
+  /// **'Painful to the\nhuman ear'**
+  String get painfulHumanEar;
 
   /// No description provided for @sameCO2Captured.
   ///
@@ -685,7 +841,7 @@ abstract class AppLocalizations {
   /// No description provided for @bePartOfThisStory.
   ///
   /// In en, this message translates to:
-  /// **'And now, leave your mark on our walls.\nBe part of this story. :)'**
+  /// **'And now, leave your  mark on our walls.\nBe part of this story. :)'**
   String get bePartOfThisStory;
 }
 

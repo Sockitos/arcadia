@@ -1,23 +1,36 @@
+import 'dart:io';
+
 import 'package:arcadia_app/l10n/app_localizations.dart';
 import 'package:arcadia_app/router/router.dart';
+import 'package:arcadia_app/utils/logger.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:window_manager/window_manager.dart';
 
-final localeProvider = StateProvider<Locale>((ref) => const Locale('en'));
+final localeProvider = StateProvider<Locale>((ref) => const Locale('pt'));
+
+final loggerProvider = Provider<Logger>((ref) => throw UnimplementedError());
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  final directory = await getApplicationDocumentsDirectory();
+  final file = File('${directory.path}/log.txt');
   await windowManager.ensureInitialized();
-  const windowOptions = WindowOptions(size: Size(1920, 1080));
+  const windowOptions = WindowOptions(fullScreen: true);
   windowManager.waitUntilReadyToShow(windowOptions, () async {
     await windowManager.show();
     await windowManager.focus();
   });
 
-  runApp(const ProviderScope(child: MyApp()));
+  runApp(
+    ProviderScope(
+      overrides: [loggerProvider.overrideWithValue(Logger(file: file)..init())],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends ConsumerWidget {
@@ -26,9 +39,18 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp.router(
+      scrollBehavior: const MaterialScrollBehavior().copyWith(
+        dragDevices: {
+          PointerDeviceKind.mouse,
+          PointerDeviceKind.touch,
+          PointerDeviceKind.stylus,
+          PointerDeviceKind.unknown
+        },
+      ),
       debugShowCheckedModeBanner: false,
       routerDelegate: router.routerDelegate,
       routeInformationParser: router.routeInformationParser,
+      routeInformationProvider: router.routeInformationProvider,
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
