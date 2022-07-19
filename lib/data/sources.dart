@@ -17,59 +17,31 @@ const sources = <int, List<Source>>{
   ],
   2: [
     Source(
-      title: '“Blue Whale”, Marine Mammal Center',
+      title:
+          '“This is how humans have affected whale populations over the years”, World Economic Forum',
       url:
-          'https://www.marinemammalcenter.org/animal-care/learn-about-marine-mammals/cetaceans/blue-whale',
+          'https://www.weforum.org/agenda/2019/10/whales-endangered-species-conservation-whaling/',
+    ),
+    Source(
+      title:
+          '“Future recovery of baleen whales is imperiled by climate change”, Global Change Biology',
+      url: 'https://onlinelibrary.wiley.com/doi/pdf/10.1111/gcb.14573',
     ),
   ],
   3: [
     Source(
       title:
-          '“This is how humans have affected whale populations over the years”, World Economic Forum',
-      url:
-          'https://www.weforum.org/agenda/2019/10/whales-endangered-species-conservation-whaling/',
+          '“Future recovery of baleen whales is imperiled by climate change”, Global Change Biology',
+      url: 'https://onlinelibrary.wiley.com/doi/pdf/10.1111/gcb.14573',
     ),
     Source(
       title:
-          '“Future recovery of baleen whales is imperiled by climate change”, Global Change Biology',
-      url: 'https://onlinelibrary.wiley.com/doi/pdf/10.1111/gcb.14573',
+          '“This is how humans have affected whale populations over the years”, World Economic Forum',
+      url:
+          'https://www.weforum.org/agenda/2019/10/whales-endangered-species-conservation-whaling/',
     ),
   ],
   4: [
-    Source(
-      title:
-          '“Future recovery of baleen whales is imperiled by climate change”, Global Change Biology',
-      url: 'https://onlinelibrary.wiley.com/doi/pdf/10.1111/gcb.14573',
-    ),
-    Source(
-      title:
-          '“This is how humans have affected whale populations over the years”, World Economic Forum',
-      url:
-          'https://www.weforum.org/agenda/2019/10/whales-endangered-species-conservation-whaling/',
-    ),
-  ],
-  5: [
-    Source(
-      title:
-          '“Nature’s Solution to Climate Change”, International Monetary Fund',
-      url:
-          'https://www.imf.org/Publications/fandd/issues/2019/12/natures-solution-to-climate-change-chami#author',
-    ),
-    Source(
-      title: '“How much is a whale worth”, National Geographic',
-      url:
-          'https://www.nationalgeographic.com/environment/article/how-much-is-a-whale-worth',
-    ),
-    Source(
-      title: '“What are phytoplankton?”, National Ocean Service',
-      url: 'https://oceanservice.noaa.gov/facts/phyto.html',
-    ),
-    Source(
-      title: '“What are Phytoplankton?”, NASA Earth Observatory',
-      url: 'https://earthobservatory.nasa.gov/features/Phytoplankton',
-    ),
-  ],
-  6: [
     Source(
       title:
           '“Nature’s Solution to Climate Change”, International Monetary Fund',
@@ -95,28 +67,14 @@ const sources = <int, List<Source>>{
           'https://www.worldometers.info/co2-emissions/co2-emissions-by-country/',
     ),
   ],
-  7: [
-    Source(
-      title: '“Blue Whale”, Marine Mammal Center',
-      url:
-          'https://www.marinemammalcenter.org/animal-care/learn-about-marine-mammals/cetaceans/blue-whale',
-    ),
-  ],
-  8: [
-    Source(
-      title: '“Blue Whale”, Marine Mammal Center',
-      url:
-          'https://www.marinemammalcenter.org/animal-care/learn-about-marine-mammals/cetaceans/blue-whale',
-    ),
-  ],
-  9: [
+  5: [
     Source(
       title: '“Blue Whale”, National Geographic',
       url:
           'https://www.nationalgeographic.com/animals/mammals/facts/blue-whale',
     ),
   ],
-  10: [
+  6: [
     Source(
       title: '“How much is a whale worth”, National Geographic',
       url:
@@ -135,7 +93,7 @@ const sources = <int, List<Source>>{
           'https://www.imf.org/Publications/fandd/issues/2019/12/natures-solution-to-climate-change-chami#author',
     ),
   ],
-  11: [
+  7: [
     Source(
       title: '“Climate Solutions 101”, Project Drawdown',
       url: 'https://drawdown.org/climate-solutions-101/',
@@ -150,14 +108,14 @@ const sources = <int, List<Source>>{
       url: 'https://drawdown.org/solutions/plant-rich-diets',
     ),
   ],
-  12: [
+  8: [
     Source(
       title: '“Blue Whale”, National Geographic',
       url:
           'https://www.nationalgeographic.com/animals/mammals/facts/blue-whale',
     ),
   ],
-  13: [
+  9: [
     Source(
       title:
           '“Surprising Findings From New Research Into Microplastics In Whales”, Plastic Soup Foundation',
@@ -175,8 +133,13 @@ const sources = <int, List<Source>>{
       url:
           'https://www.blueoceansociety.org/blog/how-does-ocean-plastic-affect-whales/',
     ),
+    Source(
+      title:
+          '“Plastic and other microfibers in sediments, macroinvertebrates and shorebirds from three intertidal wetlands of southern Europe and west Africa”',
+      url: 'https://pubmed.ncbi.nlm.nih.gov/28797901/',
+    ),
   ],
-  14: [
+  10: [
     Source(
       title:
           '“This pregnant whale died with 50 pounds of plastic in her stomach”, National Geographic',
@@ -189,99 +152,7 @@ const sources = <int, List<Source>>{
           'https://www.blueoceansociety.org/blog/how-does-ocean-plastic-affect-whales/',
     ),
   ],
-  15: [
-    Source(
-      title: '“Plastic Pollution by Country”, World Population Review',
-      url:
-          'https://worldpopulationreview.com/country-rankings/plastic-pollution-by-country',
-    ),
-    Source(
-      title: '“Plastic Waste Generation”, Our World in Data',
-      url: 'https://ourworldindata.org/grapher/plastic-waste-generation-total',
-    ),
-    Source(
-      title: '“African Bush Elephant”, The Nature Conservancy',
-      url:
-          'https://www.nature.org/en-us/get-involved/how-to-help/animals-we-protect/african-bush-elephant/',
-    ),
-    Source(
-      title: '“7 Solutions To Ocean Plastic Pollution”, Oceanic Society',
-      url:
-          'https://www.oceanicsociety.org/resources/7-ways-to-reduce-ocean-plastic-pollution-today/',
-    ),
-    Source(
-      title:
-          '“Microplastics from textiles: towards a circular economy for textiles in Europe”, European Environment Agency',
-      url:
-          'https://www.eea.europa.eu/publications/microplastics-from-textiles-towards-a',
-    ),
-    Source(
-      title: '“Plastic Pollution by Country”, World Population Review',
-      url:
-          'https://worldpopulationreview.com/country-rankings/plastic-pollution-by-country',
-    ),
-  ],
-  16: [
-    Source(
-      title: '“Blue Whale”, National Geographic',
-      url:
-          'https://www.nationalgeographic.com/animals/mammals/facts/blue-whale',
-    ),
-    Source(
-      title:
-          '“Blue Whales Sing All Day When They Migrate and All Night When They Don’t”, Smithsonian Magazine',
-      url:
-          'https://www.smithsonianmag.com/smart-news/when-its-time-migrate-blue-whales-shift-timing-their-songs-new-study-reveals-180976021/',
-    ),
-  ],
-  17: [
-    Source(
-      title: '“Blue Whale”, National Geographic',
-      url:
-          'https://www.nationalgeographic.com/animals/mammals/facts/blue-whale',
-    ),
-    Source(
-      title:
-          '“Blue Whales Sing All Day When They Migrate and All Night When They Don’t”, Smithsonian Magazine',
-      url:
-          'https://www.smithsonianmag.com/smart-news/when-its-time-migrate-blue-whales-shift-timing-their-songs-new-study-reveals-180976021/',
-    ),
-  ],
-  18: [
-    Source(
-      title: '“Blue Whale”, National Geographic',
-      url:
-          'https://www.nationalgeographic.com/animals/mammals/facts/blue-whale',
-    ),
-    Source(
-      title:
-          '“Blue Whales Sing All Day When They Migrate and All Night When They Don’t”, Smithsonian Magazine',
-      url:
-          'https://www.smithsonianmag.com/smart-news/when-its-time-migrate-blue-whales-shift-timing-their-songs-new-study-reveals-180976021/',
-    ),
-  ],
-  19: [
-    Source(
-      title: '“Blue Whale”, National Geographic',
-      url:
-          'https://www.nationalgeographic.com/animals/mammals/facts/blue-whale',
-    ),
-    Source(
-      title:
-          '“Blue Whales Sing All Day When They Migrate and All Night When They Don’t”, Smithsonian Magazine',
-      url:
-          'https://www.smithsonianmag.com/smart-news/when-its-time-migrate-blue-whales-shift-timing-their-songs-new-study-reveals-180976021/',
-    ),
-  ],
-  20: [
-    Source(
-      title:
-          '“Blue Whales Sing All Day When They Migrate and All Night When They Don’t”, Smithsonian Magazine',
-      url:
-          'https://www.smithsonianmag.com/smart-news/when-its-time-migrate-blue-whales-shift-timing-their-songs-new-study-reveals-180976021/',
-    ),
-  ],
-  21: [
+  11: [
     Source(
       title: 'Blue whale migration map: Aquamaps and WWF',
       url: 'https://www.aquamaps.org/',
@@ -307,7 +178,7 @@ const sources = <int, List<Source>>{
       url: 'https://nammco.no/by-catch-entanglement-and-ship-strike/',
     ),
   ],
-  22: [
+  12: [
     Source(
       title:
           '“Blue Whales Sing All Day When They Migrate and All Night When They Don’t”, Smithsonian Magazine',
@@ -315,7 +186,7 @@ const sources = <int, List<Source>>{
           'https://www.smithsonianmag.com/smart-news/when-its-time-migrate-blue-whales-shift-timing-their-songs-new-study-reveals-180976021/',
     ),
   ],
-  23: [
+  13: [
     Source(
       title:
           '“Blue Whales Sing All Day When They Migrate and All Night When They Don’t”, Smithsonian Magazine',
@@ -332,60 +203,20 @@ const sources = <int, List<Source>>{
           'https://dosits.org/galleries/audio-gallery/anthropogenic-sounds/ship/',
     ),
   ],
-  24: [
-    Source(
-      title: '“Ocean Noise”, Center for Biological Diversity',
-      url: 'https://www.biologicaldiversity.org/campaigns/ocean_noise/',
-    ),
-    Source(
-      title:
-          '“Why do whales beach themselves? We’re partially to blame.”, National Geographic',
-      url:
-          'https://www.nationalgeographic.com/animals/article/why-do-whales-beach-themselves',
-    ),
-    Source(
-      title:
-          '“Sounds in the Ocean”, National Oceanic and Atmospheric Administration',
-      url: 'https://www.fisheries.noaa.gov/national/science-data/sounds-ocean',
-    ),
-    Source(
-      title:
-          '“Ocean uproar: saving marine life from a barrage of noise”, Nature',
-      url: 'https://www.nature.com/articles/d41586-019-01098-6',
-    ),
-  ],
-  25: [
-    Source(
-      title:
-          '“Understanding Ocean Acoustics”, National Oceanic and Atmospheric Administration',
-      url:
-          'https://oceanexplorer.noaa.gov/explorations/sound01/background/acoustics/acoustics.html',
-    ),
-    Source(
-      title: '“Ocean Noise”, Center for Biological Diversity',
-      url: 'https://www.biologicaldiversity.org/campaigns/ocean_noise/',
-    ),
-    Source(
-      title:
-          '“A Collection of Sounds from the Sea”, National Oceanic and Atmospheric Administration',
-      url:
-          'https://oceanexplorer.noaa.gov/explorations/sound01/background/seasounds/seasounds.html',
-    ),
-    Source(
-      title:
-          '“Ocean uproar: saving marine life from a barrage of noise”, Nature',
-      url: 'https://www.nature.com/articles/d41586-019-01098-6',
-    ),
-  ],
-  26: [
+  14: [
     Source(
       title:
           '“The Ocean Carbon Sink and Climate Change”, International Journal of Environmental Science and Development',
       url:
           'https://www.researchgate.net/publication/334083793_The_Ocean_Carbon_Sink_and_Climate_Change_2019_Article',
     ),
+    Source(
+      title: '“Tejo: como matar um rio”',
+      url:
+          'https://www.dn.pt/edicao-do-dia/27-set-2020/tejo-como-matar-um-rio-12738645.html',
+    ),
   ],
-  27: [
+  15: [
     Source(
       title:
           '“The Ocean Carbon Sink and Climate Change”, International Journal of Environmental Science and Development',
@@ -402,21 +233,7 @@ const sources = <int, List<Source>>{
           'https://www.oceanicsociety.org/resources/7-ways-to-reduce-ocean-plastic-pollution-today/',
     ),
   ],
-  28: [
-    Source(
-      title: '“Blue Whale”, National Geographic',
-      url:
-          'https://www.nationalgeographic.com/animals/mammals/facts/blue-whale',
-    ),
-  ],
-  29: [
-    Source(
-      title: '“Blue Whale”, National Geographic',
-      url:
-          'https://www.nationalgeographic.com/animals/mammals/facts/blue-whale',
-    ),
-  ],
-  30: [
+  16: [
     Source(
       title:
           '“Nature’s Solution to Climate Change”, International Monetary Fund',

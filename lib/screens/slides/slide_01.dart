@@ -37,28 +37,42 @@ class Slide01 extends ConsumerWidget {
         final circleOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
-            curve: const Interval(0, 0.2, curve: Curves.easeIn),
+            curve: const Interval(0, 0.1, curve: Curves.easeIn),
             reverseCurve: reverseCurve,
           ),
         );
         final mapOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
-            curve: const Interval(0.2, 0.4, curve: Curves.easeIn),
+            curve: const Interval(0.1, 0.3, curve: Curves.easeIn),
             reverseCurve: reverseCurve,
           ),
         );
         final whaleOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
-            curve: const Interval(0.4, 0.6, curve: Curves.easeIn),
+            curve: const Interval(0.3, 0.5, curve: Curves.easeIn),
             reverseCurve: reverseCurve,
           ),
         );
         final hereOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
+            curve: const Interval(0.4, 0.6, curve: Curves.easeIn),
+            reverseCurve: reverseCurve,
+          ),
+        );
+        final bigwhaleOpacity = Tween<double>(begin: 0, end: 1).animate(
+          CurvedAnimation(
+            parent: controller,
             curve: const Interval(0.6, 0.8, curve: Curves.easeIn),
+            reverseCurve: reverseCurve,
+          ),
+        );
+        final smallwhaleOpacity = Tween<double>(begin: 0, end: 1).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: const Interval(0.8, 1, curve: Curves.easeIn),
             reverseCurve: reverseCurve,
           ),
         );
@@ -144,6 +158,18 @@ class Slide01 extends ConsumerWidget {
                 ),
               ),
             ),
+          ),
+          Positioned(
+            left: 1149,
+            top: 397,
+            child: Assets.images.props.slide01BigWhale
+                .image(opacity: bigwhaleOpacity),
+          ),
+          Positioned(
+            left: 1433,
+            top: 598,
+            child: Assets.images.props.slide01SmallWhale
+                .image(opacity: smallwhaleOpacity),
           ),
         ];
       },

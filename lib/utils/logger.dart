@@ -36,6 +36,12 @@ class Logger {
       _log('Country selected ($country) at slide $slide');
   void logYearSelected(int year, {required int slide}) =>
       _log('Year selected ($year) at slide $slide');
-  void logSliderValue(double value, {required int slide}) =>
+  void logHeightSelected(int height, {required int slide}) => _log(
+        'Height selected (${(height / 100).toStringAsFixed(2)}) at slide $slide',
+      );
+  void logSliderValue(String value, {required int slide}) =>
       _log('Slider value changed ($value) at slide $slide');
+  void logCoinFlip(String id, {required int slide}) => _log(
+        'Coin flipped ($id) at slide $slide',
+      );
 }

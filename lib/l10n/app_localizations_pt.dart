@@ -98,6 +98,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get populationsRecovering => 'As populações de baleias\njá estão a crescer :D';
 
   @override
+  String get changeDate => 'Altera\na data';
+
+  @override
   String get carbon => 'Carbono';
 
   @override
@@ -108,9 +111,6 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get feeding => 'alimentar';
-
-  @override
-  String get phytoplankton => 'fitoplâncton';
 
   @override
   String get chooseCountry => 'Escolhe o teu país:';
@@ -129,6 +129,9 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get tonsPerYear => '(em toneladas / por ano)';
+
+  @override
+  String get phytoplankton => 'Fitoplâncton';
 
   @override
   String get worldwide => 'mundialmente';
@@ -164,6 +167,18 @@ class AppLocalizationsPt extends AppLocalizations {
   String get you => 'Tu!';
 
   @override
+  String get whatsYourHeight => 'Que altura tens?';
+
+  @override
+  String get baltazarHas => 'O Baltazar tem';
+
+  @override
+  String get timesLength => 'vezes o teu\ncomprimento!';
+
+  @override
+  String get dontMentionWeight => 'E nem falamos\ndo peso ;)';
+
+  @override
   String get hadNoIdea => 'Não fazia ideia!';
 
   @override
@@ -179,16 +194,19 @@ class AppLocalizationsPt extends AppLocalizations {
   String get equivalentToCO2 => 'O equivalente ao\nCO2 absorvido por:';
 
   @override
+  String get touchCircleToFlipN => 'toca no\ncírculo branco\npara virar';
+
+  @override
   String get doOurPart => 'Temos de fazer a nossa parte!';
 
   @override
-  String get touchToFlip => 'toca para virar';
+  String get touchCircleToFlip => 'toca no círculo branco para virar';
 
   @override
   String get ourPart1Label => 'Reduz o\ndesperdício\nalimentar';
 
   @override
-  String get ourPart1Text => 'Responsável por 6%\nto total das emissões\nglobais';
+  String get ourPart1Text => 'Responsável por 6%\ndo total das emissões\nglobais';
 
   @override
   String get ourPart2Label => 'Come uma\ndieta rica em\nvegetais';
@@ -227,16 +245,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get microplastics => 'Microplásticos';
 
   @override
-  String get plasticWasteCreate => 'Resíduos plásticos criados';
+  String get tagusRiver => 'Rio Tejo';
 
   @override
-  String get whereYouFrom => 'De onde és?';
-
-  @override
-  String get tons => 'toneladas';
-
-  @override
-  String get adultAfricanElephants => 'Elefantes Africanos\nAdultos';
+  String get microplasticsFound => 'Grandes quantidades\nde microplásticos\nforam encontrados\nno lodo do\nestuário';
 
   @override
   String get whatCan => 'O que';
@@ -248,37 +260,22 @@ class AppLocalizationsPt extends AppLocalizations {
   String get canDo1Label => 'Leva um saco\nreutilizável\ncontigo';
 
   @override
-  String get canDo2Label => 'Respeita o\nambiente natural';
+  String get canDo2Label => 'Procura\nfibras naturais';
 
   @override
-  String get canDo2Text => 'e deixa-os mais\nlimpos do que\nencontraste';
+  String get canDo2Text => 'Fibras sintéticas como\no poliéster ou nylon\nlargam microfibras\nde plástico quando \nlavadas';
 
   @override
-  String get canDo3Label => 'Procura\nfibras naturais';
+  String get canDo3Label => 'Deixa de usar\nplásticos de\nuso único';
 
   @override
-  String get canDo3Text => 'Fibras sintéticas como\no poliéster ou nylon\nlargam microfibras\nde plástico quando \nlavadas';
+  String get canDo4Label => 'Compra\nfruta e\nvegetais não\nembalados\nem plástico';
 
   @override
-  String get canDo4Label => 'Deixa de usar\nplásticos de\nuso único';
+  String get canDo5Label => 'Quando não\nconsegues\nmesmo evitar\nusar plástico,\nrecicla-o depois';
 
   @override
-  String get canDo5Label => 'Compra\nfruta e\nvegetais não\nembalados\nem plástico';
-
-  @override
-  String get canDo6Label => 'Quando não\nconsegues\nmesmo evitar\nusar plástico,\nrecicla-o depois';
-
-  @override
-  String get baltazarMigration => 'A migração do Baltazar\n6,400 km/ano';
-
-  @override
-  String get feedingGrounds => 'zona de\nalimentação';
-
-  @override
-  String get breedingGround => 'zona de\nacasalamento';
-
-  @override
-  String get clickToSeeDistance => 'Clica para ver a distância\ndesde onde estás agora';
+  String get touchToFlip => 'toca para virar';
 
   @override
   String get migrationCorridors => 'Corredores de migração\nda Baleia Azul';
@@ -293,16 +290,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get weNeedTo => 'Precisamos de...';
 
   @override
-  String get needTo1Label => 'Abrandar\nos navios';
+  String get needTo1Label => 'Não deites\nmaterial de\npesca ou outro\nlixo no rio ou\nno mar';
 
   @override
-  String get needTo1Text => 'especialmente\nnos corredores\nmigratórios';
-
-  @override
-  String get needTo2Label => 'Evitar certas\nzonas em certas\nalturas do ano';
-
-  @override
-  String get needTo2Text => 'Adaptar aos padrões\nda vida marinha';
+  String get needTo2Label => 'Se fizeres turismo\nno mar, faz com\numa empresa\ncertificada';
 
   @override
   String get needTo3Label => 'Comprar\nprodutos locais';
@@ -317,64 +308,22 @@ class AppLocalizationsPt extends AppLocalizations {
   String get realOceanNoice => '(som real nos oceanos)';
 
   @override
-  String get soundVolumes => 'Volume dos Sons';
+  String get humanAction => 'A acção humana\ntambém está a\ncausar a subida do\nnível do mar, que\nestá a contaminar a\nágua doce do rio';
 
   @override
-  String get clickOnIcons => 'Clica\nnos icons';
-
-  @override
-  String get decibels => 'decibeis (dB)';
-
-  @override
-  String get letsReduce => 'Vamos reduzir';
-
-  @override
-  String get theNoise => 'o ruído';
-
-  @override
-  String get lets1Label => 'Navios\nmais\nsilenciosos';
-
-  @override
-  String get lets1Text => 'Por exemplo,\ntrocar hélices';
-
-  @override
-  String get lets2Label => 'Evitar\nzonas\nsensíveis';
-
-  @override
-  String get lets2Text => 'Adaptar à\nvida marinha';
-
-  @override
-  String get lets3Label => 'Energia\nalternativa';
-
-  @override
-  String get lets3Text => 'Apoiar energias\nrenováveis em\nvez de petróleo ';
-
-  @override
-  String get seismicAirGun => 'Canhão\nde ar\nsísmico';
-
-  @override
-  String get containerShip => 'Navio\nporta\ncontentores';
-
-  @override
-  String get offshoreDrillRig => 'Plataforma\npetrolífera';
-
-  @override
-  String get blueWhaleDB => 'Baleia\nAzul';
-
-  @override
-  String get jetEngine => 'Motor\nde Jato';
-
-  @override
-  String get talkingToFriend => 'Conversar\ncom amigo ';
-
-  @override
-  String get painfulHumanEar => 'Doloroso\npara o ouvido\nhumano';
+  String get tons => 'toneladas';
 
   @override
   String get sameCO2Captured => 'O mesmo CO2\nabsorvido por';
 
   @override
   String get treesInOnYear => 'árvores\nnum ano';
+
+  @override
+  String get year => 'ano';
+
+  @override
+  String get years => 'anos';
 
   @override
   String get letsDoThis => 'Vamos fazer\nisto juntos!';

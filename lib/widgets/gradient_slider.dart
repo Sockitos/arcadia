@@ -6,10 +6,20 @@ class GradientSlider extends StatelessWidget {
     super.key,
     required this.value,
     required this.onChanged,
+    this.startColor = AppColors.otherBlue,
+    this.endColor = AppColors.red,
+    this.min = 0,
+    this.max = 1,
+    this.divisions,
   });
 
   final double value;
   final ValueChanged<double> onChanged;
+  final Color startColor;
+  final Color endColor;
+  final double min;
+  final double max;
+  final int? divisions;
 
   @override
   Widget build(BuildContext context) {
@@ -18,15 +28,9 @@ class GradientSlider extends StatelessWidget {
       height: 28,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
-        gradient: const LinearGradient(
-          colors: [
-            Color(0xFF007DBB),
-            AppColors.red,
-          ],
-          stops: [
-            0.25,
-            0.75,
-          ],
+        gradient: LinearGradient(
+          colors: [startColor, endColor],
+          stops: const [0.25, 0.75],
         ),
       ),
       child: SliderTheme(
@@ -39,6 +43,9 @@ class GradientSlider extends StatelessWidget {
           ),
         ),
         child: Slider(
+          min: min,
+          max: max,
+          divisions: divisions,
           value: value,
           onChanged: onChanged,
         ),

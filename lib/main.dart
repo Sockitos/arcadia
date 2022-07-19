@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:window_manager/window_manager.dart';
 
 final localeProvider = StateProvider<Locale>((ref) => const Locale('pt'));
 
@@ -18,12 +17,12 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final directory = await getApplicationDocumentsDirectory();
   final file = File('${directory.path}/log.txt');
-  await windowManager.ensureInitialized();
-  const windowOptions = WindowOptions(fullScreen: true);
-  windowManager.waitUntilReadyToShow(windowOptions, () async {
-    await windowManager.show();
-    await windowManager.focus();
-  });
+  // await windowManager.ensureInitialized();
+  // const windowOptions = WindowOptions(fullScreen: true);
+  // windowManager.waitUntilReadyToShow(windowOptions, () async {
+  //   await windowManager.show();
+  //   await windowManager.focus();
+  // });
 
   runApp(
     ProviderScope(

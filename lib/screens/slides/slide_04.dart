@@ -1,13 +1,17 @@
+import 'dart:math';
+
+import 'package:arcadia_app/data/co2_emissions.dart';
 import 'package:arcadia_app/gen/gen.dart';
 import 'package:arcadia_app/l10n/app_localizations.dart';
 import 'package:arcadia_app/main.dart';
 import 'package:arcadia_app/style/colors.dart';
 import 'package:arcadia_app/widgets/dropdown_button.dart';
-import 'package:arcadia_app/widgets/line.dart';
 import 'package:arcadia_app/widgets/slide.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_arc_text/flutter_arc_text.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:intl/intl.dart';
 
 class Slide04 extends HookConsumerWidget {
   const Slide04({
@@ -21,7 +25,8 @@ class Slide04 extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final year = useState(1997);
+    final country = useState('Portugal');
+    final tons = co2Emissions[country.value] ?? 0;
     final logger = ref.read(loggerProvider);
     final locale = ref.watch(localeProvider);
     return Slide(
@@ -31,6 +36,7 @@ class Slide04 extends HookConsumerWidget {
           ? Assets.audios.en.slide04
           : Assets.audios.pt.slide04,
       onAudioEnd: onAudioEnd,
+      propsDuration: const Duration(seconds: 18),
       propsBuilder: (context, controller) {
         final l10n = AppLocalizations.of(context)!;
         const reverseCurve = Interval(0, 1, curve: Curves.easeOut);
@@ -43,45 +49,89 @@ class Slide04 extends HookConsumerWidget {
         final circleOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
-            curve: const Interval(0, 0.2, curve: Curves.easeIn),
+            curve: const Interval(0, 0.2 * 1 / 18, curve: Curves.easeIn),
+            reverseCurve: reverseCurve,
+          ),
+        );
+        final circleEnvironmentOpacity =
+            Tween<double>(begin: 0, end: 1).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: const Interval(
+              0.2 * 1 / 18,
+              0.4 * 1 / 18,
+              curve: Curves.easeIn,
+            ),
             reverseCurve: reverseCurve,
           ),
         );
         final whalesOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
-            curve: const Interval(0.2, 0.3, curve: Curves.easeIn),
+            curve: const Interval(
+              0.4 * 1 / 18,
+              0.6 * 1 / 18,
+              curve: Curves.easeIn,
+            ),
             reverseCurve: reverseCurve,
           ),
         );
-        final whalesEffectsOpacity = Tween<double>(begin: 0, end: 1).animate(
+        final circleInfoOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
-            curve: const Interval(0.4, 0.5, curve: Curves.easeIn),
+            curve: const Interval(
+              0.6 * 1 / 18,
+              0.8 * 1 / 18,
+              curve: Curves.easeIn,
+            ),
             reverseCurve: reverseCurve,
           ),
         );
-        final chartCircleOpacity = Tween<double>(begin: 0, end: 1).animate(
+        final chartBackgroundOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
-            curve: const Interval(0.5, 0.6, curve: Curves.easeIn),
+            curve: const Interval(
+              17 / 18,
+              17 / 18 + 0.2 * 1 / 18,
+              curve: Curves.easeIn,
+            ),
             reverseCurve: reverseCurve,
           ),
         );
-        final chartOpacity = Tween<double>(begin: 0, end: 1).animate(
+        final chartTitleOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
-            curve: const Interval(0.6, 0.8, curve: Curves.easeIn),
+            curve: const Interval(
+              17 / 18 + 0.2 * 1 / 18,
+              17 / 18 + 0.4 * 1 / 18,
+              curve: Curves.easeIn,
+            ),
             reverseCurve: reverseCurve,
           ),
         );
-        final chartExtraOpacity = Tween<double>(begin: 0, end: 1).animate(
+        final chartBubblesOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
-            curve: const Interval(0.8, 0.9, curve: Curves.easeIn),
+            curve: const Interval(
+              17 / 18 + 0.4 * 1 / 18,
+              17 / 18 + 0.6 * 1 / 18,
+              curve: Curves.easeIn,
+            ),
             reverseCurve: reverseCurve,
           ),
         );
+        final chartInputOpacity = Tween<double>(begin: 0, end: 1).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: const Interval(
+              17 / 18 + 0.6 * 1 / 18,
+              17 / 18 + 0.8 * 1 / 18,
+              curve: Curves.easeIn,
+            ),
+            reverseCurve: reverseCurve,
+          ),
+        );
+
         return [
           Positioned(
             left: 183,
@@ -96,371 +146,8 @@ class Slide04 extends HookConsumerWidget {
                 .image(opacity: fishesOpacity),
           ),
           Positioned(
-            left: 914,
-            top: 184,
-            child: FadeTransition(
-              opacity: chartCircleOpacity,
-              child: DecoratedBox(
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: AppColors.lightBlue20,
-                ),
-                child: SizedBox(
-                  width: 683,
-                  height: 683,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      const SizedBox(height: 80),
-                      FadeTransition(
-                        opacity: chartCircleOpacity,
-                        child: Text(
-                          l10n.populationOverTime,
-                          style: const TextStyle(
-                            fontFamily: FontFamily.poppins,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 24,
-                            height: 1.2,
-                            color: AppColors.darkBlue,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ),
-                      Expanded(
-                        child: Stack(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 47),
-                              child: Column(
-                                children: [
-                                  const Spacer(),
-                                  FadeTransition(
-                                    opacity: chartOpacity,
-                                    child: DefaultTextStyle(
-                                      style: const TextStyle(
-                                        fontFamily: FontFamily.poppins,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 17,
-                                        height: 1.2,
-                                        color: AppColors.darkBlue,
-                                      ),
-                                      child: IntrinsicHeight(
-                                        child: Center(
-                                          child: Row(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.stretch,
-                                            mainAxisSize: MainAxisSize.min,
-                                            children: [
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.end,
-                                                children: const [
-                                                  SizedBox(height: 6),
-                                                  Text('100,000'),
-                                                  Spacer(),
-                                                  Text('40,000'),
-                                                  SizedBox(height: 39),
-                                                  Text('0'),
-                                                  SizedBox(height: 33),
-                                                ],
-                                              ),
-                                              const SizedBox(width: 6),
-                                              IntrinsicWidth(
-                                                child: Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment
-                                                          .stretch,
-                                                  children: [
-                                                    Assets.images.props
-                                                        .slide04Chart
-                                                        .image(),
-                                                    SizedBox(
-                                                      height: 30,
-                                                      child: Row(
-                                                        children: const [
-                                                          SizedBox(width: 30),
-                                                          Text('1900'),
-                                                          Spacer(),
-                                                          Text('1950'),
-                                                          Spacer(),
-                                                          Text('2000'),
-                                                          Spacer(),
-                                                          Text('2050'),
-                                                          SizedBox(width: 84),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 170),
-                                ],
-                              ),
-                            ),
-                            Positioned(
-                              bottom: 390,
-                              left: 210,
-                              child: FadeTransition(
-                                opacity: chartExtraOpacity,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      l10n.commercialWhalingPeak,
-                                      style: const TextStyle(
-                                        fontFamily: FontFamily.poppins,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 16,
-                                        height: 1.2,
-                                        color: AppColors.darkBlue,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    const DecoratedBox(
-                                      decoration: BoxDecoration(
-                                        border: Border(
-                                          top: BorderSide(
-                                            color: AppColors.darkBlue,
-                                            width: 2,
-                                          ),
-                                          left: BorderSide(
-                                            color: AppColors.darkBlue,
-                                            width: 2,
-                                          ),
-                                          right: BorderSide(
-                                            color: AppColors.darkBlue,
-                                            width: 2,
-                                          ),
-                                        ),
-                                      ),
-                                      child: SizedBox(
-                                        height: 6,
-                                        width: 80,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Positioned(
-                              bottom: 205,
-                              left: 210 + 46 * 2.12,
-                              child: FadeTransition(
-                                opacity: chartExtraOpacity,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      l10n.nearExtinction,
-                                      style: const TextStyle(
-                                        fontFamily: FontFamily.poppins,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 16,
-                                        height: 1.2,
-                                        color: AppColors.darkBlue,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    const Line(
-                                      color: AppColors.darkBlue,
-                                      axis: Axis.vertical,
-                                      size: Size(2, 192),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Positioned(
-                              bottom: 205,
-                              left: 210 + 86 * 2.12,
-                              child: FadeTransition(
-                                opacity: chartExtraOpacity,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      l10n.commercialWhalingBan,
-                                      style: const TextStyle(
-                                        fontFamily: FontFamily.poppins,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16,
-                                        height: 1.2,
-                                        color: AppColors.darkBlue,
-                                      ),
-                                    ),
-                                    const Text(
-                                      '1986',
-                                      style: TextStyle(
-                                        fontFamily: FontFamily.poppins,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16,
-                                        height: 1.2,
-                                        color: AppColors.red,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    const Line(
-                                      color: AppColors.darkBlue,
-                                      axis: Axis.vertical,
-                                      size: Size(2, 110),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Positioned(
-                              bottom: 205,
-                              left: 210 + 122 * 2.12,
-                              child: FadeTransition(
-                                opacity: chartExtraOpacity,
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      l10n.numbersSlowlyRising,
-                                      style: const TextStyle(
-                                        fontFamily: FontFamily.poppins,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 16,
-                                        height: 1.2,
-                                        color: AppColors.darkBlue,
-                                      ),
-                                    ),
-                                    Text(
-                                      l10n.today,
-                                      style: const TextStyle(
-                                        fontFamily: FontFamily.poppins,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16,
-                                        height: 1.2,
-                                        color: AppColors.red,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    const Line(
-                                      color: AppColors.darkBlue,
-                                      axis: Axis.vertical,
-                                      size: Size(2, 60),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Positioned(
-                              top: 450,
-                              left: 210 + (year.value - 1900) * 2.12 + 1,
-                              child: FadeTransition(
-                                opacity: chartExtraOpacity,
-                                child: SizedBox.shrink(
-                                  child: OverflowBox(
-                                    maxHeight: 400,
-                                    maxWidth: 400,
-                                    child: Column(
-                                      children: [
-                                        Assets.images.props.slide04Baby.image(),
-                                        const Line(
-                                          color: AppColors.orange,
-                                          axis: Axis.vertical,
-                                          size: Size(2, 62),
-                                        ),
-                                        const SizedBox(height: 40),
-                                        const Line(
-                                          color: AppColors.orange,
-                                          axis: Axis.vertical,
-                                          size: Size(2, 20),
-                                        ),
-                                        const SizedBox(height: 10),
-                                        Text(
-                                          l10n.youBorn,
-                                          style: const TextStyle(
-                                            fontFamily: FontFamily.poppins,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 16,
-                                            height: 1.2,
-                                            color: AppColors.darkBlue,
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                        const SizedBox(height: 2),
-                                        Text(
-                                          year.value <= 1966
-                                              ? l10n.notLongUntilBan
-                                              : year.value <= 1986
-                                                  ? l10n.populationsGrowSoon
-                                                  : l10n.populationsRecovering,
-                                          style: const TextStyle(
-                                            fontFamily: FontFamily.poppins,
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 16,
-                                            height: 1.2,
-                                            color: AppColors.darkBlue,
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Positioned(
-                              top: 20,
-                              right: 100,
-                              child: FadeTransition(
-                                opacity: chartExtraOpacity,
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      l10n.whenBorn,
-                                      style: const TextStyle(
-                                        fontFamily: FontFamily.poppins,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 16,
-                                        height: 1.2,
-                                        color: AppColors.darkBlue,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 10),
-                                    SizedBox(
-                                      width: 100,
-                                      child: DropdownField<int>(
-                                        value: year.value,
-                                        onChanged: (value) {
-                                          if (value != null) {
-                                            logger.logYearSelected(
-                                              value,
-                                              slide: 4,
-                                            );
-                                          }
-                                          year.value = value ?? year.value;
-                                        },
-                                        options: [
-                                          for (var i = 1900; i < 2023; i++) i
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            left: 458,
-            top: 217,
+            left: 704,
+            top: 172,
             child: FadeTransition(
               opacity: circleOpacity,
               child: DecoratedBox(
@@ -476,22 +163,562 @@ class Slide04 extends HookConsumerWidget {
             ),
           ),
           Positioned(
-            left: 365,
-            top: 559,
-            child: Assets.images.props.slide04BigWhale
-                .image(opacity: whalesOpacity),
+            left: 784.5,
+            top: 328.5,
+            child: Assets.images.props.slide04CircleEnvironment
+                .image(opacity: circleEnvironmentOpacity),
           ),
           Positioned(
-            left: 304.5,
-            top: 373.5,
+            left: 868,
+            top: 293,
+            child: Assets.images.props.slide04CircleArrows
+                .image(opacity: circleInfoOpacity),
+          ),
+          Positioned(
+            left: 790,
+            top: 272,
+            child: FadeTransition(
+              opacity: circleInfoOpacity,
+              child: Transform.rotate(
+                angle: -pi / 10,
+                child: Text(
+                  l10n.carbon,
+                  style: const TextStyle(
+                    fontFamily: FontFamily.quotesScript,
+                    fontSize: 30,
+                    color: AppColors.red,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            left: 922,
+            top: 270,
+            child: FadeTransition(
+              opacity: circleInfoOpacity,
+              child: Transform.rotate(
+                angle: pi / 10,
+                child: Text(
+                  l10n.oxygen,
+                  style: const TextStyle(
+                    fontFamily: FontFamily.quotesScript,
+                    fontSize: 30,
+                    color: Color(0xFF007DBB),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            left: 1220,
+            top: 600,
+            child: FadeTransition(
+              opacity: circleInfoOpacity,
+              child: ArcText(
+                radius: 200,
+                startAngle: -pi / 4,
+                text: l10n.breathing,
+                textStyle: TextStyle(
+                  fontFamily: FontFamily.quotesScript,
+                  fontSize: 38,
+                  color: AppColors.lightBlue.withOpacity(0.5),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            left: 1000,
+            top: 500,
+            child: FadeTransition(
+              opacity: circleInfoOpacity,
+              child: ArcText(
+                radius: 200,
+                startAngle: pi,
+                placement: Placement.inside,
+                direction: Direction.counterClockwise,
+                text: l10n.feeding,
+                textStyle: TextStyle(
+                  fontFamily: FontFamily.quotesScript,
+                  fontSize: 38,
+                  color: AppColors.lightBlue.withOpacity(0.5),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            left: 1178,
+            top: 457,
+            child: FadeTransition(
+              opacity: whalesOpacity,
+              child: Assets.images.props.slide04BigWhale.image(),
+            ),
+          ),
+          Positioned(
+            left: 1050,
+            top: 930,
+            child: FadeTransition(
+              opacity: circleInfoOpacity,
+              child: ArcText(
+                radius: 150,
+                startAngle: -pi / 10,
+                startAngleAlignment: StartAngleAlignment.center,
+                text: l10n.myPoo,
+                textStyle: TextStyle(
+                  fontFamily: FontFamily.quotesScript,
+                  fontSize: 30,
+                  color: AppColors.lightBlue.withOpacity(0.5),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            left: 1045,
+            top: 960,
+            child: FadeTransition(
+              opacity: circleInfoOpacity,
+              child: ArcText(
+                radius: 200,
+                startAngle: -pi / 10,
+                startAngleAlignment: StartAngleAlignment.center,
+                placement: Placement.inside,
+                text: l10n.isImportant,
+                textStyle: TextStyle(
+                  fontFamily: FontFamily.quotesScript,
+                  fontSize: 30,
+                  color: AppColors.lightBlue.withOpacity(0.5),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            left: 1070.5,
+            top: 807.5,
+            child: Assets.images.props.slide04Important
+                .image(opacity: circleInfoOpacity),
+          ),
+          Positioned(
+            left: 1122,
+            top: 777,
             child: Assets.images.props.slide04SmallWhale
                 .image(opacity: whalesOpacity),
           ),
           Positioned(
-            left: 440.5,
-            top: 296.5,
-            child: Assets.images.props.slide04SmallWhaleEffects
-                .image(opacity: whalesEffectsOpacity),
+            left: 304,
+            top: 327,
+            child: FadeTransition(
+              opacity: chartBackgroundOpacity,
+              child: DecoratedBox(
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: AppColors.lightBlue15,
+                ),
+                child: SizedBox(
+                  height: 570,
+                  width: 570,
+                  child: Center(
+                    child: FadeTransition(
+                      opacity: chartTitleOpacity,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const SizedBox(height: 35),
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const DecoratedBox(
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: AppColors.red,
+                                ),
+                                child: SizedBox(
+                                  height: 16,
+                                  width: 16,
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              Text(
+                                'CO₂ ${l10n.emitted}',
+                                style: const TextStyle(
+                                  fontFamily: FontFamily.poppins,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                  height: 1.2,
+                                  color: AppColors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 2),
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const DecoratedBox(
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: AppColors.lightBlue,
+                                ),
+                                child: SizedBox(
+                                  height: 16,
+                                  width: 16,
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              Text(
+                                'CO₂ ${l10n.absorbed}',
+                                style: const TextStyle(
+                                  fontFamily: FontFamily.poppins,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 20,
+                                  height: 1.2,
+                                  color: AppColors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 10),
+                          Text(
+                            l10n.tonsPerYear,
+                            style: const TextStyle(
+                              fontFamily: FontFamily.poppins,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 17,
+                              height: 1.1,
+                              color: AppColors.black,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            left: 400.6,
+            top: 438.5,
+            child: Assets.images.props.slide04CircleBubbles
+                .image(opacity: chartBubblesOpacity),
+          ),
+          Positioned(
+            left: 680,
+            top: 750,
+            child: FadeTransition(
+              opacity: chartBubblesOpacity,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    l10n.equivalent,
+                    style: const TextStyle(
+                      fontFamily: FontFamily.poppins,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 15,
+                      height: 1.2,
+                      color: AppColors.black,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    l10n.amazonForests,
+                    style: const TextStyle(
+                      fontFamily: FontFamily.poppins,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      height: 1.2,
+                      color: AppColors.black,
+                    ),
+                  )
+                ],
+              ),
+            ),
+          ),
+          Positioned(
+            left: 366.5,
+            top: 359,
+            child: Assets.images.props.slide04ChartArrows
+                .image(opacity: chartBubblesOpacity),
+          ),
+          Positioned(
+            left: 346,
+            top: 717.7,
+            child: FadeTransition(
+              opacity: chartBubblesOpacity,
+              child: DecoratedBox(
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: AppColors.lightBlue,
+                ),
+                child: SizedBox(
+                  height: 129,
+                  width: 129,
+                  child: DefaultTextStyle(
+                    style: const TextStyle(
+                      fontFamily: FontFamily.poppins,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      height: 1.1,
+                      color: AppColors.white,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text('425'),
+                        Text(l10n.billion),
+                        Text(
+                          l10n.trees,
+                          style: const TextStyle(color: AppColors.black),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            left: 485.3,
+            top: 693.3,
+            child: FadeTransition(
+              opacity: chartBubblesOpacity,
+              child: DecoratedBox(
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: AppColors.lightBlue,
+                ),
+                child: SizedBox(
+                  height: 129,
+                  width: 129,
+                  child: DefaultTextStyle(
+                    style: const TextStyle(
+                      fontFamily: FontFamily.poppins,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      height: 1.1,
+                      color: AppColors.white,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text('425'),
+                        Text(l10n.billion),
+                        Text(
+                          l10n.trees,
+                          style: const TextStyle(color: AppColors.black),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            left: 418,
+            top: 836.7,
+            child: FadeTransition(
+              opacity: chartBubblesOpacity,
+              child: DecoratedBox(
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: AppColors.lightBlue,
+                ),
+                child: SizedBox(
+                  height: 129,
+                  width: 129,
+                  child: DefaultTextStyle(
+                    style: const TextStyle(
+                      fontFamily: FontFamily.poppins,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      height: 1.1,
+                      color: AppColors.white,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text('425'),
+                        Text(l10n.billion),
+                        Text(
+                          l10n.trees,
+                          style: const TextStyle(color: AppColors.black),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            left: 555,
+            top: 811.7,
+            child: FadeTransition(
+              opacity: chartBubblesOpacity,
+              child: DecoratedBox(
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: AppColors.lightBlue,
+                ),
+                child: SizedBox(
+                  height: 129,
+                  width: 129,
+                  child: DefaultTextStyle(
+                    style: const TextStyle(
+                      fontFamily: FontFamily.poppins,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      height: 1.1,
+                      color: AppColors.white,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text('425'),
+                        Text(l10n.billion),
+                        Text(
+                          l10n.trees,
+                          style: const TextStyle(color: AppColors.black),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            left: 589,
+            top: 468,
+            child: FadeTransition(
+              opacity: chartBubblesOpacity,
+              child: DecoratedBox(
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: AppColors.lightBlue,
+                ),
+                child: SizedBox(
+                  height: 258,
+                  width: 258,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        l10n.phytoplankton,
+                        style: const TextStyle(
+                          fontFamily: FontFamily.poppins,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          height: 1.2,
+                          color: AppColors.black,
+                        ),
+                      ),
+                      const SizedBox(height: 5),
+                      Text(
+                        l10n.worldwide,
+                        style: const TextStyle(
+                          fontFamily: FontFamily.poppins,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16,
+                          height: 1.2,
+                          color: AppColors.black,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      const Text(
+                        '37,000,000,000',
+                        style: TextStyle(
+                          fontFamily: FontFamily.poppins,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 23,
+                          height: 1.2,
+                          color: AppColors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            left: 478,
+            top: 624,
+            child: FadeTransition(
+              opacity: chartBubblesOpacity,
+              child: SizedBox.shrink(
+                child: OverflowBox(
+                  maxHeight: 1000,
+                  maxWidth: 1000,
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 300),
+                    height: max(sqrt(tons * pow(129, 2) / 37000000000) * 2, 5),
+                    width: max(sqrt(tons * pow(129, 2) / 37000000000) * 2, 5),
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: AppColors.red,
+                      backgroundBlendMode: BlendMode.multiply,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            left: 267,
+            top: 431,
+            child: FadeTransition(
+              opacity: chartInputOpacity,
+              child: Column(
+                children: [
+                  Text(
+                    l10n.chooseCountry,
+                    style: const TextStyle(
+                      fontFamily: FontFamily.poppins,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 17,
+                      height: 1.2,
+                      color: AppColors.black,
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  SizedBox(
+                    width: 200,
+                    child: DropdownField<String>(
+                      value: country.value,
+                      onChanged: (value) {
+                        if (value != null) {
+                          logger.logCountrySelected(
+                            value,
+                            slide: 6,
+                          );
+                        }
+                        country.value = value ?? country.value;
+                      },
+                      options: co2Emissions.keys.toList(),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Text(
+                    NumberFormat.decimalPattern().format(tons),
+                    style: const TextStyle(
+                      fontFamily: FontFamily.poppins,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 23,
+                      height: 1.2,
+                      color: AppColors.red,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Positioned(
+            left: 233,
+            top: 367.5,
+            child: Assets.images.props.slide04InteractionArrow
+                .image(opacity: chartInputOpacity),
           ),
         ];
       },

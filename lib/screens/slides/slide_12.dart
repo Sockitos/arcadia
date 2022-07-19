@@ -1,12 +1,7 @@
-import 'dart:math';
-
 import 'package:arcadia_app/gen/gen.dart';
-import 'package:arcadia_app/l10n/app_localizations.dart';
 import 'package:arcadia_app/main.dart';
-import 'package:arcadia_app/style/colors.dart';
 import 'package:arcadia_app/widgets/slide.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_arc_text/flutter_arc_text.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class Slide12 extends ConsumerWidget {
@@ -33,72 +28,81 @@ class Slide12 extends ConsumerWidget {
       onAudioEnd: onAudioEnd,
       propsBuilder: (context, controller) {
         const reverseCurve = Interval(0, 1, curve: Curves.easeOut);
-        final whaleOpacity = Tween<double>(begin: 0, end: 1).animate(
+        final islandOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
             curve: const Interval(0, 0.2, curve: Curves.easeIn),
             reverseCurve: reverseCurve,
           ),
         );
-        final foodOpacity = Tween<double>(begin: 0, end: 1).animate(
+        final leftWhaleOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
             curve: const Interval(0.2, 0.4, curve: Curves.easeIn),
             reverseCurve: reverseCurve,
           ),
         );
-        final zoomOpacity = Tween<double>(begin: 0, end: 1).animate(
+        final rightWhaleOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
             curve: const Interval(0.4, 0.6, curve: Curves.easeIn),
             reverseCurve: reverseCurve,
           ),
         );
-        final textOpacity = Tween<double>(begin: 0, end: 1).animate(
+        final whalesSoundOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
             curve: const Interval(0.6, 0.8, curve: Curves.easeIn),
             reverseCurve: reverseCurve,
           ),
         );
+        final bounceSoundOpacity = Tween<double>(begin: 0, end: 1).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: const Interval(0.8, 0.9, curve: Curves.easeIn),
+            reverseCurve: reverseCurve,
+          ),
+        );
 
         return [
           Positioned(
-            left: 798.5,
-            top: 225,
-            child: Assets.images.props.slide12Food.image(opacity: foodOpacity),
-          ),
-          Positioned(
-            left: 210,
-            top: 493.5,
-            child:
-                Assets.images.props.slide12Whale.image(opacity: whaleOpacity),
-          ),
-          Positioned(
-            left: 1091,
-            top: 539,
-            child:
-                Assets.images.props.slide12FoodZoom.image(opacity: zoomOpacity),
-          ),
-          Positioned(
-            left: 1180,
-            top: 560,
+            left: 250.5,
+            top: 20,
             child: FadeTransition(
-              opacity: textOpacity,
-              child: ArcText(
-                radius: 250,
-                startAngle: 160 * pi / 180,
-                startAngleAlignment: StartAngleAlignment.center,
-                placement: Placement.inside,
-                direction: Direction.counterClockwise,
-                text: AppLocalizations.of(context)!.krill,
-                textStyle: TextStyle(
-                  fontFamily: FontFamily.quotesScript,
-                  fontSize: 40,
-                  color: AppColors.lightBlue.withOpacity(0.5),
-                ),
-              ),
+              opacity: islandOpacity,
+              child: Assets.images.props.slide12Island
+                  .image(opacity: islandOpacity),
             ),
+          ),
+          Positioned(
+            left: 437,
+            top: 346,
+            child: Assets.images.props.slide12LeftWhale
+                .image(opacity: leftWhaleOpacity),
+          ),
+          Positioned(
+            left: 1352.5,
+            top: 254,
+            child: Assets.images.props.slide12RightWhale
+                .image(opacity: rightWhaleOpacity),
+          ),
+          Positioned(
+            left: 979,
+            top: 397,
+            child: Assets.images.props.slide12LeftSound
+                .image(opacity: whalesSoundOpacity),
+          ),
+          Positioned(
+            left: 1290,
+            top: 293.5,
+            child: Assets.images.props.slide12RightSound
+                .image(opacity: whalesSoundOpacity),
+          ),
+          Positioned(
+            left: 1260,
+            top: 660,
+            child: Assets.images.props.slide12SoundBounce
+                .image(opacity: bounceSoundOpacity),
           ),
         ];
       },

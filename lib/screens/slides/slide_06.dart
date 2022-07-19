@@ -1,20 +1,16 @@
 import 'dart:math';
 
-import 'package:arcadia_app/data/co2_emissions.dart';
 import 'package:arcadia_app/gen/gen.dart';
 import 'package:arcadia_app/l10n/app_localizations.dart';
 import 'package:arcadia_app/main.dart';
 import 'package:arcadia_app/style/colors.dart';
-import 'package:arcadia_app/utils/extensions.dart';
-import 'package:arcadia_app/widgets/dropdown_button.dart';
+import 'package:arcadia_app/widgets/flip_coin.dart';
 import 'package:arcadia_app/widgets/slide.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_arc_text/flutter_arc_text.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:intl/intl.dart';
 
-class Slide06 extends HookConsumerWidget {
+class Slide06 extends ConsumerWidget {
   const Slide06({
     super.key,
     required this.currentSlide,
@@ -26,9 +22,6 @@ class Slide06 extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final country = useState('Portugal');
-    final tons = co2Emissions[country.value] ?? 0;
-    final logger = ref.read(loggerProvider);
     final locale = ref.watch(localeProvider);
     return Slide(
       slide: 6,
@@ -40,553 +33,135 @@ class Slide06 extends HookConsumerWidget {
       propsBuilder: (context, controller) {
         final l10n = AppLocalizations.of(context)!;
         const reverseCurve = Interval(0, 1, curve: Curves.easeOut);
-        final fishesOpacity = Tween<double>(begin: 0, end: 1).animate(
+        final whaleOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
-            curve: const Interval(0, 0, curve: Curves.easeIn),
-          ),
-        );
-        final circleOpacity = Tween<double>(begin: 0, end: 1).animate(
-          CurvedAnimation(
-            parent: controller,
-            curve: const Interval(0, 0.2, curve: Curves.easeIn),
+            curve: const Interval(0, 0.1, curve: Curves.easeIn),
             reverseCurve: reverseCurve,
           ),
         );
-        final circleEnvironmentOpacity =
-            Tween<double>(begin: 0, end: 1).animate(
+        final co2Opacity = Tween<double>(begin: 0, end: 1).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: const Interval(0.1, 0.2, curve: Curves.easeIn),
+            reverseCurve: reverseCurve,
+          ),
+        );
+        final cardOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
             curve: const Interval(0.2, 0.3, curve: Curves.easeIn),
             reverseCurve: reverseCurve,
           ),
         );
-        final whalesOpacity = Tween<double>(begin: 0, end: 1).animate(
+        final titleOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
             curve: const Interval(0.3, 0.4, curve: Curves.easeIn),
             reverseCurve: reverseCurve,
           ),
         );
-        final circleInfoOpacity = Tween<double>(begin: 0, end: 1).animate(
+        final graphOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
             curve: const Interval(0.4, 0.5, curve: Curves.easeIn),
             reverseCurve: reverseCurve,
           ),
         );
-        final chartBackgroundOpacity = Tween<double>(begin: 0, end: 1).animate(
+        final whalesOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
             curve: const Interval(0.5, 0.6, curve: Curves.easeIn),
             reverseCurve: reverseCurve,
           ),
         );
-        final chartTitleOpacity = Tween<double>(begin: 0, end: 1).animate(
+        final treesOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
             curve: const Interval(0.6, 0.7, curve: Curves.easeIn),
             reverseCurve: reverseCurve,
           ),
         );
-        final chartBubblesOpacity = Tween<double>(begin: 0, end: 1).animate(
+        final fishOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
-            curve: const Interval(0.7, 0.9, curve: Curves.easeIn),
-            reverseCurve: reverseCurve,
-          ),
-        );
-        final chartInputOpacity = Tween<double>(begin: 0, end: 1).animate(
-          CurvedAnimation(
-            parent: controller,
-            curve: const Interval(0.9, 1, curve: Curves.easeIn),
+            curve: const Interval(0.7, 0.8, curve: Curves.easeIn),
             reverseCurve: reverseCurve,
           ),
         );
 
         return [
           Positioned(
-            left: 183,
-            top: 133,
-            child: Assets.images.props.slide02Fishes1
-                .image(opacity: fishesOpacity),
+            left: 532.7,
+            top: 85.1,
+            child: Assets.images.props.slide06TopLeftArrow
+                .image(opacity: co2Opacity),
           ),
           Positioned(
-            left: 1523,
-            top: 877,
-            child: Assets.images.props.slide02Fishes3
-                .image(opacity: fishesOpacity),
-          ),
-          Positioned(
-            left: 706,
-            top: 175,
+            left: 517.2,
+            top: 57.5,
             child: FadeTransition(
-              opacity: circleOpacity,
-              child: DecoratedBox(
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: AppColors.lightBlue20,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(2),
-                  child: Assets.images.props.slide06Circle.image(),
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            left: 784.5,
-            top: 328.5,
-            child: Assets.images.props.slide06CircleEnvironment
-                .image(opacity: circleEnvironmentOpacity),
-          ),
-          Positioned(
-            left: 868,
-            top: 293,
-            child: Assets.images.props.slide06CircleArrows
-                .image(opacity: circleInfoOpacity),
-          ),
-          Positioned(
-            left: 790,
-            top: 272,
-            child: FadeTransition(
-              opacity: circleInfoOpacity,
-              child: Transform.rotate(
-                angle: -pi / 10,
-                child: Text(
-                  l10n.carbon,
+              opacity: co2Opacity,
+              child: RichText(
+                text: TextSpan(
                   style: const TextStyle(
                     fontFamily: FontFamily.quotesScript,
-                    fontSize: 30,
                     color: AppColors.red,
+                    fontSize: 32,
                   ),
+                  children: [
+                    const TextSpan(text: 'CO'),
+                    WidgetSpan(
+                      child: Transform.translate(
+                        offset: const Offset(0, 2),
+                        child: const Text(
+                          '2',
+                          style: TextStyle(
+                            fontFamily: FontFamily.quotesScript,
+                            color: AppColors.red,
+                            fontSize: 20,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
           ),
           Positioned(
-            left: 922,
-            top: 270,
+            left: 1503.3,
+            top: 46.9,
+            child: Assets.images.props.slide06TopRightTopArrow
+                .image(opacity: co2Opacity),
+          ),
+          Positioned(
+            left: 1524.9,
+            top: 10,
             child: FadeTransition(
-              opacity: circleInfoOpacity,
+              opacity: co2Opacity,
               child: Transform.rotate(
-                angle: pi / 10,
-                child: Text(
-                  l10n.oxygen,
-                  style: const TextStyle(
-                    fontFamily: FontFamily.quotesScript,
-                    fontSize: 30,
-                    color: Color(0xFF007DBB),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            left: 880,
-            top: 630,
-            child: FadeTransition(
-              opacity: circleInfoOpacity,
-              child: ArcText(
-                radius: 200,
-                startAngle: -pi / 20,
-                text: l10n.phytoplankton,
-                textStyle: TextStyle(
-                  fontFamily: FontFamily.quotesScript,
-                  fontSize: 38,
-                  color: AppColors.lightBlue.withOpacity(0.5),
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            left: 1178,
-            top: 457,
-            child: FadeTransition(
-              opacity: whalesOpacity,
-              child: Assets.images.props.slide06BigWhale.image(),
-            ),
-          ),
-          Positioned(
-            left: 1050,
-            top: 930,
-            child: FadeTransition(
-              opacity: circleInfoOpacity,
-              child: ArcText(
-                radius: 150,
-                startAngle: -pi / 10,
-                startAngleAlignment: StartAngleAlignment.center,
-                text: l10n.myPoo,
-                textStyle: TextStyle(
-                  fontFamily: FontFamily.quotesScript,
-                  fontSize: 30,
-                  color: AppColors.lightBlue.withOpacity(0.5),
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            left: 1065,
-            top: 960,
-            child: FadeTransition(
-              opacity: circleInfoOpacity,
-              child: ArcText(
-                radius: 200,
-                startAngle: -pi / 10,
-                startAngleAlignment: StartAngleAlignment.center,
-                placement: Placement.inside,
-                text: l10n.isImportant,
-                textStyle: TextStyle(
-                  fontFamily: FontFamily.quotesScript,
-                  fontSize: 30,
-                  color: AppColors.lightBlue.withOpacity(0.5),
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            left: 1070.5,
-            top: 807.5,
-            child: Assets.images.props.slide06Important
-                .image(opacity: circleInfoOpacity),
-          ),
-          Positioned(
-            left: 1122,
-            top: 777,
-            child: Assets.images.props.slide06SmallWhale
-                .image(opacity: whalesOpacity),
-          ),
-          Positioned(
-            left: 306,
-            top: 327,
-            child: FadeTransition(
-              opacity: chartBackgroundOpacity,
-              child: DecoratedBox(
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: AppColors.lightBlue15,
-                ),
-                child: SizedBox(
-                  height: 570,
-                  width: 570,
-                  child: Center(
-                    child: FadeTransition(
-                      opacity: chartTitleOpacity,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const SizedBox(height: 35),
-                          Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              const DecoratedBox(
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: AppColors.red,
-                                ),
-                                child: SizedBox(
-                                  height: 16,
-                                  width: 16,
-                                ),
-                              ),
-                              const SizedBox(width: 8),
-                              Text(
-                                'CO₂ ${l10n.emitted}',
-                                style: const TextStyle(
-                                  fontFamily: FontFamily.poppins,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                  height: 1.2,
-                                  color: AppColors.black,
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 2),
-                          Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              const DecoratedBox(
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: AppColors.lightBlue,
-                                ),
-                                child: SizedBox(
-                                  height: 16,
-                                  width: 16,
-                                ),
-                              ),
-                              const SizedBox(width: 8),
-                              Text(
-                                'CO₂ ${l10n.absorbed}',
-                                style: const TextStyle(
-                                  fontFamily: FontFamily.poppins,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                  height: 1.2,
-                                  color: AppColors.black,
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(height: 10),
-                          Text(
-                            l10n.tonsPerYear,
-                            style: const TextStyle(
-                              fontFamily: FontFamily.poppins,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 17,
-                              height: 1.1,
-                              color: AppColors.black,
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            left: 400.6,
-            top: 438.5,
-            child: Assets.images.props.slide06CircleBubbles
-                .image(opacity: chartBubblesOpacity),
-          ),
-          Positioned(
-            left: 680,
-            top: 750,
-            child: FadeTransition(
-              opacity: chartBubblesOpacity,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    l10n.equivalent,
+                angle: -0.041283333333 * pi,
+                child: RichText(
+                  text: TextSpan(
                     style: const TextStyle(
-                      fontFamily: FontFamily.poppins,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 15,
-                      height: 1.2,
-                      color: AppColors.black,
+                      fontFamily: FontFamily.quotesScript,
+                      color: AppColors.red,
+                      fontSize: 32,
                     ),
-                  ),
-                  const SizedBox(height: 2),
-                  Text(
-                    l10n.amazonForests,
-                    style: const TextStyle(
-                      fontFamily: FontFamily.poppins,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      height: 1.2,
-                      color: AppColors.black,
-                    ),
-                  )
-                ],
-              ),
-            ),
-          ),
-          Positioned(
-            left: 366.5,
-            top: 359,
-            child: Assets.images.props.slide06ChartArrows
-                .image(opacity: chartBubblesOpacity),
-          ),
-          Positioned(
-            left: 346,
-            top: 717.7,
-            child: FadeTransition(
-              opacity: chartBubblesOpacity,
-              child: DecoratedBox(
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: AppColors.lightBlue,
-                ),
-                child: SizedBox(
-                  height: 129,
-                  width: 129,
-                  child: DefaultTextStyle(
-                    style: const TextStyle(
-                      fontFamily: FontFamily.poppins,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      height: 1.1,
-                      color: AppColors.white,
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text('425'),
-                        Text(l10n.billion),
-                        Text(
-                          l10n.trees,
-                          style: const TextStyle(color: AppColors.black),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            left: 485.3,
-            top: 693.3,
-            child: FadeTransition(
-              opacity: chartBubblesOpacity,
-              child: DecoratedBox(
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: AppColors.lightBlue,
-                ),
-                child: SizedBox(
-                  height: 129,
-                  width: 129,
-                  child: DefaultTextStyle(
-                    style: const TextStyle(
-                      fontFamily: FontFamily.poppins,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      height: 1.1,
-                      color: AppColors.white,
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text('425'),
-                        Text(l10n.billion),
-                        Text(
-                          l10n.trees,
-                          style: const TextStyle(color: AppColors.black),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            left: 418,
-            top: 836.7,
-            child: FadeTransition(
-              opacity: chartBubblesOpacity,
-              child: DecoratedBox(
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: AppColors.lightBlue,
-                ),
-                child: SizedBox(
-                  height: 129,
-                  width: 129,
-                  child: DefaultTextStyle(
-                    style: const TextStyle(
-                      fontFamily: FontFamily.poppins,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      height: 1.1,
-                      color: AppColors.white,
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text('425'),
-                        Text(l10n.billion),
-                        Text(
-                          l10n.trees,
-                          style: const TextStyle(color: AppColors.black),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            left: 555,
-            top: 811.7,
-            child: FadeTransition(
-              opacity: chartBubblesOpacity,
-              child: DecoratedBox(
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: AppColors.lightBlue,
-                ),
-                child: SizedBox(
-                  height: 129,
-                  width: 129,
-                  child: DefaultTextStyle(
-                    style: const TextStyle(
-                      fontFamily: FontFamily.poppins,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      height: 1.1,
-                      color: AppColors.white,
-                    ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text('425'),
-                        Text(l10n.billion),
-                        Text(
-                          l10n.trees,
-                          style: const TextStyle(color: AppColors.black),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            left: 589,
-            top: 468,
-            child: FadeTransition(
-              opacity: chartBubblesOpacity,
-              child: DecoratedBox(
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: AppColors.lightBlue,
-                ),
-                child: SizedBox(
-                  height: 258,
-                  width: 258,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        l10n.phytoplankton.capitalize(),
-                        style: const TextStyle(
-                          fontFamily: FontFamily.poppins,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20,
-                          height: 1.2,
-                          color: AppColors.black,
-                        ),
-                      ),
-                      const SizedBox(height: 5),
-                      Text(
-                        l10n.worldwide,
-                        style: const TextStyle(
-                          fontFamily: FontFamily.poppins,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16,
-                          height: 1.2,
-                          color: AppColors.black,
-                        ),
-                      ),
-                      const SizedBox(height: 10),
-                      const Text(
-                        '37,000,000,000',
-                        style: TextStyle(
-                          fontFamily: FontFamily.poppins,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 23,
-                          height: 1.2,
-                          color: AppColors.white,
+                      const TextSpan(text: 'CO'),
+                      WidgetSpan(
+                        child: Transform.translate(
+                          offset: const Offset(0, 2),
+                          child: const Text(
+                            '2',
+                            style: TextStyle(
+                              fontFamily: FontFamily.quotesScript,
+                              color: AppColors.red,
+                              fontSize: 20,
+                            ),
+                          ),
                         ),
                       ),
                     ],
@@ -596,22 +171,318 @@ class Slide06 extends HookConsumerWidget {
             ),
           ),
           Positioned(
-            left: 478,
-            top: 624,
+            left: 1428.3,
+            top: 105.3,
+            child: Assets.images.props.slide06TopRightBottomArrow
+                .image(opacity: co2Opacity),
+          ),
+          Positioned(
+            left: 1387.1,
+            top: 120.8,
             child: FadeTransition(
-              opacity: chartBubblesOpacity,
-              child: SizedBox.shrink(
-                child: OverflowBox(
-                  maxHeight: 1000,
-                  maxWidth: 1000,
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    height: max(sqrt(tons * pow(129, 2) / 37000000000) * 2, 5),
-                    width: max(sqrt(tons * pow(129, 2) / 37000000000) * 2, 5),
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
+              opacity: co2Opacity,
+              child: Transform.rotate(
+                angle: -1.9744888889 * pi,
+                child: RichText(
+                  text: TextSpan(
+                    style: const TextStyle(
+                      fontFamily: FontFamily.quotesScript,
                       color: AppColors.red,
-                      backgroundBlendMode: BlendMode.multiply,
+                      fontSize: 32,
+                    ),
+                    children: [
+                      const TextSpan(text: 'CO'),
+                      WidgetSpan(
+                        child: Transform.translate(
+                          offset: const Offset(0, 2),
+                          child: const Text(
+                            '2',
+                            style: TextStyle(
+                              fontFamily: FontFamily.quotesScript,
+                              color: AppColors.red,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            left: 981,
+            top: 294,
+            child: FadeTransition(
+              opacity: cardOpacity,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: AppColors.lightBlue20,
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: SizedBox(
+                  width: 756,
+                  height: 580,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 40,
+                      vertical: 50,
+                    ),
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            const Spacer(),
+                            ColoredBox(
+                              color: Colors.red,
+                              child: FadeTransition(
+                                opacity: titleOpacity,
+                                child: Column(
+                                  children: [
+                                    Text(
+                                      l10n.carbonDeepWhenTheyDie,
+                                      style: const TextStyle(
+                                        fontFamily: FontFamily.poppins,
+                                        fontWeight: FontWeight.bold,
+                                        color: AppColors.darkBlue,
+                                        fontSize: 21,
+                                        height: 1.2,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                    Text(
+                                      l10n.tonsPerYear,
+                                      style: const TextStyle(
+                                        fontFamily: FontFamily.poppins,
+                                        color: AppColors.darkBlue,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 17,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            const Spacer(flex: 2),
+                          ],
+                        ),
+                        Expanded(
+                          child: Stack(
+                            alignment: Alignment.bottomCenter,
+                            children: [
+                              Row(
+                                children: [
+                                  const Spacer(),
+                                  ColoredBox(
+                                    color: Colors.red,
+                                    child: FadeTransition(
+                                      opacity: graphOpacity,
+                                      child: Stack(
+                                        alignment: Alignment.topCenter,
+                                        children: [
+                                          const DecoratedBox(
+                                            decoration: BoxDecoration(
+                                              color: AppColors.lightBlue,
+                                              shape: BoxShape.circle,
+                                            ),
+                                            child: SizedBox(
+                                              width: 278,
+                                              height: 278,
+                                            ),
+                                          ),
+                                          Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: const [
+                                              DecoratedBox(
+                                                decoration: BoxDecoration(
+                                                  color: AppColors.lightBlue,
+                                                  shape: BoxShape.circle,
+                                                  backgroundBlendMode:
+                                                      BlendMode.multiply,
+                                                ),
+                                                child: SizedBox(
+                                                  width: 121,
+                                                  height: 121,
+                                                  child: Center(
+                                                    child: Text(
+                                                      '30,000',
+                                                      style: TextStyle(
+                                                        fontFamily:
+                                                            FontFamily.poppins,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color: AppColors.white,
+                                                        fontSize: 21,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+                                              SizedBox(height: 48),
+                                              Text(
+                                                '160,000',
+                                                style: TextStyle(
+                                                  fontFamily:
+                                                      FontFamily.poppins,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: AppColors.white,
+                                                  fontSize: 28,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Expanded(
+                                    flex: 2,
+                                    child: FadeTransition(
+                                      opacity: graphOpacity,
+                                      child: Row(
+                                        children: [
+                                          const Spacer(),
+                                          Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Assets
+                                                  .images.props.slide07FlipArrow
+                                                  .image(),
+                                              const SizedBox(height: 4),
+                                              Text(
+                                                l10n.touchCircleToFlipN,
+                                                textAlign: TextAlign.center,
+                                                style: const TextStyle(
+                                                  fontFamily:
+                                                      FontFamily.poppins,
+                                                  color: AppColors.red,
+                                                  fontSize: 17,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Expanded(
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        FadeTransition(
+                                          opacity: whalesOpacity,
+                                          child: Column(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Assets.images.props
+                                                  .slide06SmallWhale
+                                                  .image(),
+                                              const SizedBox(height: 9),
+                                              Text(
+                                                l10n.whalesToday,
+                                                textAlign: TextAlign.center,
+                                                style: const TextStyle(
+                                                  fontFamily:
+                                                      FontFamily.poppins,
+                                                  color: AppColors.darkBlue,
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 17,
+                                                  height: 1.1,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        const SizedBox(height: 20),
+                                        FadeTransition(
+                                          opacity: whalesOpacity,
+                                          child: Column(
+                                            children: [
+                                              Assets.images.props
+                                                  .slide06GroupSmallWhales
+                                                  .image(),
+                                              const SizedBox(height: 9),
+                                              Text(
+                                                l10n.ifWhalesRecovered,
+                                                textAlign: TextAlign.center,
+                                                style: const TextStyle(
+                                                  fontFamily:
+                                                      FontFamily.poppins,
+                                                  color: AppColors.darkBlue,
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 17,
+                                                  height: 1.1,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(width: 278),
+                                  Expanded(
+                                    flex: 2,
+                                    child: Padding(
+                                      padding:
+                                          const EdgeInsets.only(right: 100),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          FadeTransition(
+                                            opacity: treesOpacity,
+                                            child: Text(
+                                              l10n.equivalentToCO2,
+                                              textAlign: TextAlign.center,
+                                              style: const TextStyle(
+                                                fontFamily: FontFamily.poppins,
+                                                color: AppColors.darkBlue,
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 17,
+                                                height: 1.1,
+                                              ),
+                                            ),
+                                          ),
+                                          const SizedBox(height: 20),
+                                          FadeTransition(
+                                            opacity: treesOpacity,
+                                            child: _InfoCoin(
+                                              id: 'tree',
+                                              image: Assets
+                                                  .images.props.slide06Tree
+                                                  .image(),
+                                              title: '1,378,380',
+                                              text: l10n.trees,
+                                            ),
+                                          ),
+                                          const SizedBox(height: 20),
+                                          FadeTransition(
+                                            opacity: treesOpacity,
+                                            child: _InfoCoin(
+                                              id: 'tree',
+                                              image: Assets.images.props
+                                                  .slide06GroupTrees
+                                                  .image(),
+                                              title: '7,351,400',
+                                              text: l10n.trees,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -619,56 +490,222 @@ class Slide06 extends HookConsumerWidget {
             ),
           ),
           Positioned(
-            left: 267,
-            top: 431,
+            left: 159.8,
+            top: 332,
+            child: Assets.images.props.slide05BigWhale
+                .image(opacity: whaleOpacity),
+          ),
+          Positioned(
+            left: 539,
+            top: 315,
+            child: Assets.images.props.slide06WhaleTopArrow
+                .image(opacity: co2Opacity),
+          ),
+          Positioned(
+            left: 482,
+            top: 308,
             child: FadeTransition(
-              opacity: chartInputOpacity,
-              child: Column(
-                children: [
-                  Text(
-                    l10n.chooseCountry,
+              opacity: co2Opacity,
+              child: Transform.rotate(
+                angle: -0.11477222222 * pi,
+                child: RichText(
+                  text: TextSpan(
                     style: const TextStyle(
-                      fontFamily: FontFamily.poppins,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 17,
-                      height: 1.2,
-                      color: AppColors.black,
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  SizedBox(
-                    width: 200,
-                    child: DropdownField<String>(
-                      value: country.value,
-                      onChanged: (value) {
-                        if (value != null) {
-                          logger.logCountrySelected(
-                            value,
-                            slide: 6,
-                          );
-                        }
-                        country.value = value ?? country.value;
-                      },
-                      options: co2Emissions.keys.toList(),
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  Text(
-                    NumberFormat.decimalPattern().format(tons),
-                    style: const TextStyle(
-                      fontFamily: FontFamily.poppins,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 23,
-                      height: 1.2,
+                      fontFamily: FontFamily.quotesScript,
                       color: AppColors.red,
+                      fontSize: 32,
                     ),
+                    children: [
+                      const TextSpan(text: 'CO'),
+                      WidgetSpan(
+                        child: Transform.translate(
+                          offset: const Offset(0, 2),
+                          child: const Text(
+                            '2',
+                            style: TextStyle(
+                              fontFamily: FontFamily.quotesScript,
+                              color: AppColors.red,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
+                ),
               ),
             ),
           ),
+          Positioned(
+            left: 847,
+            top: 519.9,
+            child: Assets.images.props.slide06WhaleBottomArrow
+                .image(opacity: co2Opacity),
+          ),
+          Positioned(
+            left: 875,
+            top: 554,
+            child: FadeTransition(
+              opacity: co2Opacity,
+              child: Transform.rotate(
+                angle: -0.060455555556 * pi,
+                child: RichText(
+                  text: TextSpan(
+                    style: const TextStyle(
+                      fontFamily: FontFamily.quotesScript,
+                      color: AppColors.red,
+                      fontSize: 32,
+                    ),
+                    children: [
+                      const TextSpan(text: 'CO'),
+                      WidgetSpan(
+                        child: Transform.translate(
+                          offset: const Offset(0, 2),
+                          child: const Text(
+                            '2',
+                            style: TextStyle(
+                              fontFamily: FontFamily.quotesScript,
+                              color: AppColors.red,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            left: 872.6,
+            top: 763.5,
+            child: Assets.images.props.slide05Fish.image(opacity: fishOpacity),
+          ),
+          Positioned(
+            left: 866.3,
+            top: 735.3,
+            child: Assets.images.props.slide06Tiny.image(opacity: fishOpacity),
+          ),
+          Positioned(
+            left: 834,
+            top: 1040,
+            child: FadeTransition(
+              opacity: fishOpacity,
+              child: ArcText(
+                radius: 300,
+                startAngle: -pi / 20,
+                text: l10n.hadNoIdea,
+                textStyle: const TextStyle(
+                  fontFamily: FontFamily.quotesScript,
+                  color: AppColors.lightBlue,
+                  fontSize: 30,
+                ),
+              ),
+            ),
+          ),
+          // Positioned(
+          //   left: 1160,
+          //   top: 560,
+          //   child: FadeTransition(
+          //     opacity: whalesOpacity,
+          //     child: const Line(
+          //       size: Size(065, 2),
+          //       color: AppColors.darkBlue,
+          //       axis: Axis.horizontal,
+          //     ),
+          //   ),
+          // ),
+          // Positioned(
+          //   left: 1160,
+          //   top: 695,
+          //   child: FadeTransition(
+          //     opacity: whalesOpacity,
+          //     child: const Line(
+          //       size: Size(52, 2),
+          //       color: AppColors.darkBlue,
+          //       axis: Axis.horizontal,
+          //     ),
+          //   ),
+          // ),
+          // Positioned(
+          //   left: 1345,
+          //   top: 600,
+          //   child: FadeTransition(
+          //     opacity: treesOpacity,
+          //     child: const Line(
+          //       size: Size(140, 2),
+          //       color: AppColors.darkGreen,
+          //       axis: Axis.horizontal,
+          //     ),
+          //   ),
+          // ),
+          // Positioned(
+          //   left: 1405,
+          //   top: 720,
+          //   child: FadeTransition(
+          //     opacity: treesOpacity,
+          //     child: const Line(
+          //       size: Size(75, 2),
+          //       color: AppColors.darkGreen,
+          //       axis: Axis.horizontal,
+          //     ),
+          //   ),
+          // ),
         ];
       },
+    );
+  }
+}
+
+class _InfoCoin extends ConsumerWidget {
+  const _InfoCoin({
+    required this.id,
+    required this.image,
+    required this.title,
+    required this.text,
+  });
+
+  final String id;
+  final Widget image;
+  final String title;
+  final String text;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final logger = ref.read(loggerProvider);
+    return FlipCoin(
+      onFlip: () => logger.logCoinFlip(id, slide: 6),
+      height: 130,
+      width: 130,
+      front: image,
+      back: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            title,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontFamily: FontFamily.poppins,
+              color: AppColors.blue,
+              fontWeight: FontWeight.bold,
+              fontSize: 23,
+              height: 1.2,
+            ),
+          ),
+          const SizedBox(height: 06),
+          Text(
+            text,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontFamily: FontFamily.poppins,
+              color: AppColors.blue,
+              fontSize: 17,
+              height: 1.2,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

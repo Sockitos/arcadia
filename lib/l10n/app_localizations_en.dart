@@ -98,6 +98,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get populationsRecovering => 'Whale populations\nare already recovering :D';
 
   @override
+  String get changeDate => 'Change\nthe date';
+
+  @override
   String get carbon => 'Carbon';
 
   @override
@@ -108,9 +111,6 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get feeding => 'feeding';
-
-  @override
-  String get phytoplankton => 'phytoplankton';
 
   @override
   String get chooseCountry => 'Choose your country:';
@@ -129,6 +129,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get tonsPerYear => '(in tons / per year)';
+
+  @override
+  String get phytoplankton => 'Phytoplankton';
 
   @override
   String get worldwide => 'worldwide';
@@ -164,6 +167,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get you => 'You!';
 
   @override
+  String get whatsYourHeight => 'What\'s your height?';
+
+  @override
+  String get baltazarHas => 'Baltazar has';
+
+  @override
+  String get timesLength => 'times your length!';
+
+  @override
+  String get dontMentionWeight => 'And we don\'t even\nmention weight ;)';
+
+  @override
   String get hadNoIdea => 'I had no idea!';
 
   @override
@@ -179,10 +194,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get equivalentToCO2 => 'That\'s equivalent to\nthe CO2 absorbed by:';
 
   @override
+  String get touchCircleToFlipN => 'touch white\ncircle to flip';
+
+  @override
   String get doOurPart => 'But we must do our part!';
 
   @override
-  String get touchToFlip => 'touch to flip';
+  String get touchCircleToFlip => 'touch white circle to flip';
 
   @override
   String get ourPart1Label => 'Reduce\nfood waste';
@@ -218,7 +236,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get ourPart6Label => 'Support\nequality';
 
   @override
-  String get ourPart6Text => 'Access to high-quality,\ninclusive education\nand voluntary\nreproductive\nhealthcare';
+  String get ourPart6Text => 'Access to high-quality,\nincl usive education\nand voluntary\nreproductive\nhealthcare';
 
   @override
   String get krill => 'Krill';
@@ -227,16 +245,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get microplastics => 'Microplastics';
 
   @override
-  String get plasticWasteCreate => 'Plastic waste created';
+  String get tagusRiver => 'Tagus river';
 
   @override
-  String get whereYouFrom => 'Where are you from?';
-
-  @override
-  String get tons => 'tons';
-
-  @override
-  String get adultAfricanElephants => 'Adult African\nElephants';
+  String get microplasticsFound => 'Large amounts of\nmicroplastics were\nfound in the sludge\nof the estuary';
 
   @override
   String get whatCan => 'What can';
@@ -248,37 +260,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get canDo1Label => 'Take a\nreusable bag\nwith you';
 
   @override
-  String get canDo2Label => 'Respect natural\nenvironments';
+  String get canDo2Label => 'Look for\nnatural fibres';
 
   @override
-  String get canDo2Text => 'and leave them\ncleaner then you\nfound them';
+  String get canDo2Text => 'Synthetic fibres like\npolyester & nylon\nrelease plastic\nmicrofibers when\nwashed';
 
   @override
-  String get canDo3Label => 'Look for\nnatural fibres';
+  String get canDo3Label => 'Stop using\nsingle-use\nplastics';
 
   @override
-  String get canDo3Text => 'Synthetic fibres like\npolyester & nylon\nrelease plastic\nmicrofibers when\nwashed';
+  String get canDo4Label => 'Buy vegies\n& fruit not\nwrapped in\nplastic';
 
   @override
-  String get canDo4Label => 'Stop using\nsingle-use\nplastics';
+  String get canDo5Label => 'When you can\'t\nreally avoid\nusing plastic,\nrecycle it after';
 
   @override
-  String get canDo5Label => 'Buy vegies\n& fruit not\nwrapped in\nplastic';
-
-  @override
-  String get canDo6Label => 'When you can\'t\nreally avoid\nusing plastic,\nrecycle it after';
-
-  @override
-  String get baltazarMigration => 'Baltazar\'s Migration\n6,400 km/year';
-
-  @override
-  String get feedingGrounds => 'feeding grounds';
-
-  @override
-  String get breedingGround => 'breeding grounds';
-
-  @override
-  String get clickToSeeDistance => 'Click to see distance\nfrom where you are from';
+  String get touchToFlip => 'touch to flip';
 
   @override
   String get migrationCorridors => 'Blue whales\nmigration corridors';
@@ -293,16 +290,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get weNeedTo => 'We need to...';
 
   @override
-  String get needTo1Label => 'Slow ships\ndown';
+  String get needTo1Label => 'Don\'t throw\nfishing gear or\nother garbage\nin the river or\nocean';
 
   @override
-  String get needTo1Text => 'especially in\nthe migration\ncorridors';
-
-  @override
-  String get needTo2Label => 'Avoid certain\nareas at\nparticular periods';
-
-  @override
-  String get needTo2Text => 'Adapt to marine\nlife patterns';
+  String get needTo2Label => 'If you do tourism\nin the sea, make\nsure it\'s certified\ncompany';
 
   @override
   String get needTo3Label => 'Buy\nlocal products';
@@ -317,64 +308,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get realOceanNoice => '(real ocean noise)';
 
   @override
-  String get soundVolumes => 'Sound Volumes';
+  String get humanAction => 'Human action is also\ncausing the sea level\nto rise, which is\ncontaminating the\nriver\'s fresh water';
 
   @override
-  String get clickOnIcons => 'Click on\nthe icons';
-
-  @override
-  String get decibels => 'decibels (dB)';
-
-  @override
-  String get letsReduce => 'Let\'s reduce';
-
-  @override
-  String get theNoise => 'the noise';
-
-  @override
-  String get lets1Label => 'Less noisy\nvessels';
-
-  @override
-  String get lets1Text => 'For example,\nreplace\npropellers';
-
-  @override
-  String get lets2Label => 'Avoid\nsensitive\nareas';
-
-  @override
-  String get lets2Text => 'Adapt to\nocean life';
-
-  @override
-  String get lets3Label => 'Alternative\nEnergy';
-
-  @override
-  String get lets3Text => 'Support\nrenewables\ninstead of oil\ndrilling';
-
-  @override
-  String get seismicAirGun => 'Seismic\nAir Gun';
-
-  @override
-  String get containerShip => 'Container\nShip';
-
-  @override
-  String get offshoreDrillRig => 'Offshore\nDrill Rig';
-
-  @override
-  String get blueWhaleDB => 'Blue\nWhale';
-
-  @override
-  String get jetEngine => 'Jet\nEngine';
-
-  @override
-  String get talkingToFriend => 'Talking to\na friend';
-
-  @override
-  String get painfulHumanEar => 'Painful to the\nhuman ear';
+  String get tons => 'tons';
 
   @override
   String get sameCO2Captured => 'The same CO₂\n captured by';
 
   @override
   String get treesInOnYear => 'trees in\none year';
+
+  @override
+  String get year => 'year';
+
+  @override
+  String get years => 'years';
 
   @override
   String get letsDoThis => 'Let\'s do this\ntogether!';

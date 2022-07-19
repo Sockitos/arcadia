@@ -11,7 +11,7 @@ class DropdownField<T> extends StatelessWidget {
     this.optionToString,
   });
 
-  final T value;
+  final T? value;
   final ValueChanged<T?>? onChanged;
   final List<T> options;
   final String Function(T)? optionToString;
