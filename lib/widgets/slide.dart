@@ -1,9 +1,5 @@
-import 'dart:async';
-
-import 'package:arcadia_app/utils/hooks.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:just_audio/just_audio.dart';
 
 typedef SlidePropsBuilder = List<Widget> Function(
   BuildContext context,
@@ -62,36 +58,36 @@ class Slide extends HookWidget {
     final showProps = currentSlide == slide;
     final playAudio = currentSlide == slide;
 
-    final player = useAudioPlayer();
-    useEffect(
-      () {
-        if (audioPath != null) player.setAsset(audioPath!);
-        return;
-      },
-      [audioPath],
-    );
-    useEffect(
-      () {
-        StreamSubscription? sub;
-        if (playAudio) {
-          if (audioPath != null) {
-            player.play();
-            sub = player.processingStateStream.listen((state) {
-              if (state == ProcessingState.completed) onAudioEnd();
-            });
-          } else {
-            onAudioEnd();
-          }
-        } else {
-          if (player.playing) {
-            sub?.cancel();
-            player.stop().then((_) => player.seek(Duration.zero));
-          }
-        }
-        return sub?.cancel;
-      },
-      [playAudio, audioPath],
-    );
+    // final player = useAudioPlayer();
+    // useEffect(
+    //   () {
+    //     if (audioPath != null) player.setAsset(audioPath!);
+    //     return;
+    //   },
+    //   [audioPath],
+    // );
+    // useEffect(
+    //   () {
+    //     StreamSubscription? sub;
+    //     if (playAudio) {
+    //       if (audioPath != null) {
+    //         player.play();
+    //         sub = player.processingStateStream.listen((state) {
+    //           if (state == ProcessingState.completed) onAudioEnd();
+    //         });
+    //       } else {
+    //         onAudioEnd();
+    //       }
+    //     } else {
+    //       if (player.playing) {
+    //         sub?.cancel();
+    //         player.stop().then((_) => player.seek(Duration.zero));
+    //       }
+    //     }
+    //     return sub?.cancel;
+    //   },
+    //   [playAudio, audioPath],
+    // );
 
     return Stack(
       children: [

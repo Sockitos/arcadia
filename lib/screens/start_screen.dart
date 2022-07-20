@@ -244,6 +244,24 @@ class StartScreen extends HookWidget {
               ],
             ),
           ),
+          Positioned(
+            right: 10,
+            top: 10,
+            child: Consumer(
+              builder: (context, ref, _) {
+                final count = ref.watch(countProvider);
+                return Text(
+                  '${count + 1}',
+                  style: const TextStyle(
+                    fontFamily: FontFamily.poppins,
+                    fontSize: 17,
+                    height: 1,
+                    color: AppColors.darkBlue,
+                  ),
+                );
+              },
+            ),
+          ),
         ],
       ),
     );
