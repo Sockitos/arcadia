@@ -8,25 +8,40 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:window_manager/window_manager.dart';
 
 final localeProvider = StateProvider<Locale>((ref) => const Locale('pt'));
 
 final loggerProvider = Provider<Logger>((ref) => throw UnimplementedError());
 
+final countProvider = StateProvider<int>((ref) => throw UnimplementedError());
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final directory = await getApplicationDocumentsDirectory();
   final file = File('${directory.path}/log.txt');
-  // await windowManager.ensureInitialized();
-  // const windowOptions = WindowOptions(fullScreen: true);
-  // windowManager.waitUntilReadyToShow(windowOptions, () async {
-  //   await windowManager.show();
-  //   await windowManager.focus();
-  // });
+  final countFile = File('${directory.path}/log_count.txt');
+  final count = countFile.existsSync()
+      ? int.tryParse(countFile.readAsStringSync()) ?? 0
+      : 0;
+  await windowManager.ensureInitialized();
+  const windowOptions = WindowOptions(fullScreen: true);
+  windowManager.waitUntilReadyToShow(windowOptions, () async {
+    await windowManager.show();
+    await windowManager.focus();
+  });
 
   runApp(
     ProviderScope(
-      overrides: [loggerProvider.overrideWithValue(Logger(file: file)..init())],
+      overrides: [
+        loggerProvider.overrideWithValue(
+          Logger(
+            file: file,
+            countFile: countFile,
+          )..init(),
+        ),
+        countProvider.overrideWithValue(StateController(count)),
+      ],
       child: const MyApp(),
     ),
   );

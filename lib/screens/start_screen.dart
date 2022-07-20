@@ -106,7 +106,11 @@ class StartScreen extends HookWidget {
                         width: 6,
                       ),
                       onTap: () {
-                        ref.read(loggerProvider).logStart();
+                        final logger = ref.read(loggerProvider);
+                        final count = ref.read(countProvider) + 1;
+                        ref.read(countProvider.state).state = count;
+                        logger.logCount(count);
+                        logger.logStart(count);
                         context.go('/slideshow');
                       },
                       child: Text(

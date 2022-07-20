@@ -4,6 +4,7 @@ import 'package:arcadia_app/gen/gen.dart';
 import 'package:arcadia_app/l10n/app_localizations.dart';
 import 'package:arcadia_app/main.dart';
 import 'package:arcadia_app/style/colors.dart';
+import 'package:arcadia_app/widgets/animated_indicator.dart';
 import 'package:arcadia_app/widgets/dropdown_button.dart';
 import 'package:arcadia_app/widgets/line.dart';
 import 'package:arcadia_app/widgets/slide.dart';
@@ -559,7 +560,7 @@ class Slide05 extends HookConsumerWidget {
                         if (value != null) {
                           logger.logHeightSelected(
                             value,
-                            slide: 4,
+                            slide: 5,
                           );
                         }
                         height.value = value ?? height.value;
@@ -576,8 +577,10 @@ class Slide05 extends HookConsumerWidget {
           Positioned(
             left: 1675,
             top: 331,
-            child: Assets.images.props.slide05InteractionArrow
-                .image(opacity: inputOpacity),
+            child: AnimatedIndicator(
+              indicator: Assets.images.props.slide05InteractionArrow
+                  .image(opacity: inputOpacity),
+            ),
           ),
         ];
       },

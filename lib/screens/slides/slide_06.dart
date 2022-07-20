@@ -5,6 +5,7 @@ import 'package:arcadia_app/l10n/app_localizations.dart';
 import 'package:arcadia_app/main.dart';
 import 'package:arcadia_app/style/colors.dart';
 import 'package:arcadia_app/widgets/flip_coin.dart';
+import 'package:arcadia_app/widgets/line.dart';
 import 'package:arcadia_app/widgets/slide.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_arc_text/flutter_arc_text.dart';
@@ -225,156 +226,157 @@ class Slide06 extends ConsumerWidget {
                   width: 756,
                   height: 580,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 40,
-                      vertical: 50,
-                    ),
+                    padding: const EdgeInsets.fromLTRB(40, 50, 40, 0),
                     child: Column(
                       children: [
                         Row(
                           children: [
-                            const Spacer(),
-                            ColoredBox(
-                              color: Colors.red,
-                              child: FadeTransition(
-                                opacity: titleOpacity,
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      l10n.carbonDeepWhenTheyDie,
-                                      style: const TextStyle(
-                                        fontFamily: FontFamily.poppins,
-                                        fontWeight: FontWeight.bold,
-                                        color: AppColors.darkBlue,
-                                        fontSize: 21,
-                                        height: 1.2,
+                            SizedBox(
+                              width: 540,
+                              child: Center(
+                                child: FadeTransition(
+                                  opacity: titleOpacity,
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        l10n.carbonDeepWhenTheyDie,
+                                        style: const TextStyle(
+                                          fontFamily: FontFamily.poppins,
+                                          fontWeight: FontWeight.bold,
+                                          color: AppColors.darkBlue,
+                                          fontSize: 21,
+                                          height: 1.2,
+                                        ),
+                                        textAlign: TextAlign.center,
                                       ),
-                                      textAlign: TextAlign.center,
-                                    ),
-                                    Text(
-                                      l10n.tonsPerYear,
-                                      style: const TextStyle(
-                                        fontFamily: FontFamily.poppins,
-                                        color: AppColors.darkBlue,
-                                        fontWeight: FontWeight.w500,
-                                        fontSize: 17,
+                                      Text(
+                                        l10n.tonsPerYear,
+                                        style: const TextStyle(
+                                          fontFamily: FontFamily.poppins,
+                                          color: AppColors.darkBlue,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: 17,
+                                        ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
-                            const Spacer(flex: 2),
+                            const Spacer(),
                           ],
                         ),
                         Expanded(
                           child: Stack(
                             alignment: Alignment.bottomCenter,
                             children: [
-                              Row(
-                                children: [
-                                  const Spacer(),
-                                  ColoredBox(
-                                    color: Colors.red,
-                                    child: FadeTransition(
-                                      opacity: graphOpacity,
-                                      child: Stack(
-                                        alignment: Alignment.topCenter,
-                                        children: [
-                                          const DecoratedBox(
-                                            decoration: BoxDecoration(
-                                              color: AppColors.lightBlue,
-                                              shape: BoxShape.circle,
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 80),
+                                child: Row(
+                                  children: [
+                                    SizedBox(
+                                      width: 540,
+                                      child: FadeTransition(
+                                        opacity: graphOpacity,
+                                        child: Stack(
+                                          alignment: Alignment.topCenter,
+                                          children: [
+                                            const DecoratedBox(
+                                              decoration: BoxDecoration(
+                                                color: AppColors.lightBlue,
+                                                shape: BoxShape.circle,
+                                              ),
+                                              child: SizedBox(
+                                                width: 278,
+                                                height: 278,
+                                              ),
                                             ),
-                                            child: SizedBox(
-                                              width: 278,
-                                              height: 278,
-                                            ),
-                                          ),
-                                          Column(
-                                            mainAxisSize: MainAxisSize.min,
-                                            children: const [
-                                              DecoratedBox(
-                                                decoration: BoxDecoration(
-                                                  color: AppColors.lightBlue,
-                                                  shape: BoxShape.circle,
-                                                  backgroundBlendMode:
-                                                      BlendMode.multiply,
-                                                ),
-                                                child: SizedBox(
-                                                  width: 121,
-                                                  height: 121,
-                                                  child: Center(
-                                                    child: Text(
-                                                      '30,000',
-                                                      style: TextStyle(
-                                                        fontFamily:
-                                                            FontFamily.poppins,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: AppColors.white,
-                                                        fontSize: 21,
+                                            Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: const [
+                                                DecoratedBox(
+                                                  decoration: BoxDecoration(
+                                                    color: AppColors.lightBlue,
+                                                    shape: BoxShape.circle,
+                                                    backgroundBlendMode:
+                                                        BlendMode.multiply,
+                                                  ),
+                                                  child: SizedBox(
+                                                    width: 121,
+                                                    height: 121,
+                                                    child: Center(
+                                                      child: Text(
+                                                        '30,000',
+                                                        style: TextStyle(
+                                                          fontFamily: FontFamily
+                                                              .poppins,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color:
+                                                              AppColors.white,
+                                                          fontSize: 21,
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
                                                 ),
-                                              ),
-                                              SizedBox(height: 48),
-                                              Text(
-                                                '160,000',
-                                                style: TextStyle(
-                                                  fontFamily:
-                                                      FontFamily.poppins,
-                                                  fontWeight: FontWeight.bold,
-                                                  color: AppColors.white,
-                                                  fontSize: 28,
+                                                SizedBox(height: 48),
+                                                Text(
+                                                  '160,000',
+                                                  style: TextStyle(
+                                                    fontFamily:
+                                                        FontFamily.poppins,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: AppColors.white,
+                                                    fontSize: 28,
+                                                  ),
                                                 ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
+                                              ],
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  Expanded(
-                                    flex: 2,
-                                    child: FadeTransition(
-                                      opacity: graphOpacity,
-                                      child: Row(
-                                        children: [
-                                          const Spacer(),
-                                          Column(
-                                            mainAxisSize: MainAxisSize.min,
-                                            children: [
-                                              Assets
-                                                  .images.props.slide07FlipArrow
-                                                  .image(),
-                                              const SizedBox(height: 4),
-                                              Text(
-                                                l10n.touchCircleToFlipN,
-                                                textAlign: TextAlign.center,
-                                                style: const TextStyle(
-                                                  fontFamily:
-                                                      FontFamily.poppins,
-                                                  color: AppColors.red,
-                                                  fontSize: 17,
+                                    Expanded(
+                                      child: FadeTransition(
+                                        opacity: graphOpacity,
+                                        child: Row(
+                                          children: [
+                                            const Spacer(),
+                                            Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Assets.images.props
+                                                    .slide07FlipArrow
+                                                    .image(),
+                                                const SizedBox(height: 4),
+                                                Text(
+                                                  l10n.touchCircleToFlipN,
+                                                  textAlign: TextAlign.center,
+                                                  style: const TextStyle(
+                                                    fontFamily:
+                                                        FontFamily.poppins,
+                                                    color: AppColors.red,
+                                                    fontSize: 17,
+                                                  ),
                                                 ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
+                                              ],
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                               Row(
-                                crossAxisAlignment: CrossAxisAlignment.end,
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
                                 children: [
                                   Expanded(
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
+                                        const SizedBox(height: 115),
                                         FadeTransition(
                                           opacity: whalesOpacity,
                                           child: Column(
@@ -399,7 +401,7 @@ class Slide06 extends ConsumerWidget {
                                             ],
                                           ),
                                         ),
-                                        const SizedBox(height: 20),
+                                        const SizedBox(height: 48),
                                         FadeTransition(
                                           opacity: whalesOpacity,
                                           child: Column(
@@ -429,55 +431,109 @@ class Slide06 extends ConsumerWidget {
                                   const SizedBox(width: 278),
                                   Expanded(
                                     flex: 2,
-                                    child: Padding(
-                                      padding:
-                                          const EdgeInsets.only(right: 100),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          FadeTransition(
-                                            opacity: treesOpacity,
-                                            child: Text(
-                                              l10n.equivalentToCO2,
-                                              textAlign: TextAlign.center,
-                                              style: const TextStyle(
-                                                fontFamily: FontFamily.poppins,
-                                                color: AppColors.darkBlue,
-                                                fontWeight: FontWeight.w500,
-                                                fontSize: 17,
-                                                height: 1.1,
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            const SizedBox(height: 58),
+                                            FadeTransition(
+                                              opacity: treesOpacity,
+                                              child: Text(
+                                                l10n.equivalentToCO2,
+                                                textAlign: TextAlign.center,
+                                                style: const TextStyle(
+                                                  fontFamily:
+                                                      FontFamily.poppins,
+                                                  color: AppColors.darkBlue,
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: 17,
+                                                  height: 1.1,
+                                                ),
                                               ),
                                             ),
-                                          ),
-                                          const SizedBox(height: 20),
-                                          FadeTransition(
-                                            opacity: treesOpacity,
-                                            child: _InfoCoin(
-                                              id: 'tree',
-                                              image: Assets
-                                                  .images.props.slide06Tree
-                                                  .image(),
-                                              title: '1,378,380',
-                                              text: l10n.trees,
+                                            const SizedBox(height: 20),
+                                            FadeTransition(
+                                              opacity: treesOpacity,
+                                              child: _InfoCoin(
+                                                id: 'tree',
+                                                shouldHint: true,
+                                                image: Assets
+                                                    .images.props.slide06Tree
+                                                    .image(),
+                                                title: '1,378,380',
+                                                text: l10n.trees,
+                                              ),
                                             ),
-                                          ),
-                                          const SizedBox(height: 20),
-                                          FadeTransition(
-                                            opacity: treesOpacity,
-                                            child: _InfoCoin(
-                                              id: 'tree',
-                                              image: Assets.images.props
-                                                  .slide06GroupTrees
-                                                  .image(),
-                                              title: '7,351,400',
-                                              text: l10n.trees,
+                                            const SizedBox(height: 20),
+                                            FadeTransition(
+                                              opacity: treesOpacity,
+                                              child: _InfoCoin(
+                                                id: 'trees',
+                                                image: Assets.images.props
+                                                    .slide06GroupTrees
+                                                    .image(),
+                                                title: '7,351,400',
+                                                text: l10n.trees,
+                                              ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
+                                          ],
+                                        ),
+                                        const Spacer(),
+                                      ],
                                     ),
                                   ),
                                 ],
+                              ),
+                              Positioned(
+                                left: 110,
+                                top: 153,
+                                child: FadeTransition(
+                                  opacity: whalesOpacity,
+                                  child: const Line(
+                                    size: Size(110, 2),
+                                    color: AppColors.darkBlue,
+                                    axis: Axis.horizontal,
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                left: 110,
+                                top: 283,
+                                child: FadeTransition(
+                                  opacity: whalesOpacity,
+                                  child: const Line(
+                                    size: Size(52, 2),
+                                    color: AppColors.darkBlue,
+                                    axis: Axis.horizontal,
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                left: 304,
+                                top: 178,
+                                child: FadeTransition(
+                                  opacity: treesOpacity,
+                                  child: const Line(
+                                    size: Size(110, 2),
+                                    color: AppColors.darkGreen,
+                                    axis: Axis.horizontal,
+                                  ),
+                                ),
+                              ),
+                              Positioned(
+                                left: 330,
+                                top: 330,
+                                child: FadeTransition(
+                                  opacity: treesOpacity,
+                                  child: const Line(
+                                    size: Size(84, 2),
+                                    color: AppColors.darkGreen,
+                                    axis: Axis.horizontal,
+                                  ),
+                                ),
                               ),
                             ],
                           ),
@@ -604,54 +660,6 @@ class Slide06 extends ConsumerWidget {
               ),
             ),
           ),
-          // Positioned(
-          //   left: 1160,
-          //   top: 560,
-          //   child: FadeTransition(
-          //     opacity: whalesOpacity,
-          //     child: const Line(
-          //       size: Size(065, 2),
-          //       color: AppColors.darkBlue,
-          //       axis: Axis.horizontal,
-          //     ),
-          //   ),
-          // ),
-          // Positioned(
-          //   left: 1160,
-          //   top: 695,
-          //   child: FadeTransition(
-          //     opacity: whalesOpacity,
-          //     child: const Line(
-          //       size: Size(52, 2),
-          //       color: AppColors.darkBlue,
-          //       axis: Axis.horizontal,
-          //     ),
-          //   ),
-          // ),
-          // Positioned(
-          //   left: 1345,
-          //   top: 600,
-          //   child: FadeTransition(
-          //     opacity: treesOpacity,
-          //     child: const Line(
-          //       size: Size(140, 2),
-          //       color: AppColors.darkGreen,
-          //       axis: Axis.horizontal,
-          //     ),
-          //   ),
-          // ),
-          // Positioned(
-          //   left: 1405,
-          //   top: 720,
-          //   child: FadeTransition(
-          //     opacity: treesOpacity,
-          //     child: const Line(
-          //       size: Size(75, 2),
-          //       color: AppColors.darkGreen,
-          //       axis: Axis.horizontal,
-          //     ),
-          //   ),
-          // ),
         ];
       },
     );
@@ -664,42 +672,47 @@ class _InfoCoin extends ConsumerWidget {
     required this.image,
     required this.title,
     required this.text,
+    this.shouldHint = false,
   });
 
   final String id;
   final Widget image;
   final String title;
   final String text;
+  final bool shouldHint;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final logger = ref.read(loggerProvider);
     return FlipCoin(
       onFlip: () => logger.logCoinFlip(id, slide: 6),
+      shouldHint: shouldHint,
       height: 130,
       width: 130,
       front: image,
       back: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          const SizedBox(height: 2),
           Text(
             title,
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontFamily: FontFamily.poppins,
-              color: AppColors.blue,
+              color: AppColors.green,
               fontWeight: FontWeight.bold,
-              fontSize: 23,
+              fontSize: 21,
               height: 1.2,
             ),
           ),
-          const SizedBox(height: 06),
+          const SizedBox(height: 2),
           Text(
             text,
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontFamily: FontFamily.poppins,
-              color: AppColors.blue,
+              fontWeight: FontWeight.bold,
+              color: AppColors.darkBlue,
               fontSize: 17,
               height: 1.2,
             ),

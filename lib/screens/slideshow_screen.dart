@@ -69,7 +69,7 @@ class SlideshowScreen extends HookConsumerWidget {
         currentSlide.addListener(cancel);
         return;
       }
-      if (currentSlide.value == 31) {
+      if (currentSlide.value == 17) {
         logger.logEnd();
         final timer = Timer(
           const Duration(minutes: 2),
@@ -201,7 +201,10 @@ class SlideshowScreen extends HookConsumerWidget {
                         slideCount: 17,
                         stops: slidesWithStops,
                         currentSlide: currentSlide.value,
-                        onSlideTap: (slide) => currentSlide.value = slide,
+                        onSlideTap: (slide) {
+                          logger.logJumpSlide(currentSlide.value, slide);
+                          currentSlide.value = slide;
+                        },
                       ),
                       const SizedBox(width: 30),
                       HookBuilder(
@@ -222,58 +225,78 @@ class SlideshowScreen extends HookConsumerWidget {
                           );
                           useEffect(
                             () {
+                              var forceStop = false;
+                              void repeat(AnimationStatus status) {
+                                if (isAudioPlaying) return;
+                                if (status == AnimationStatus.completed) {
+                                  controller.reverse();
+                                } else if (status ==
+                                    AnimationStatus.dismissed) {
+                                  Future.delayed(
+                                    const Duration(seconds: 3),
+                                    () {
+                                      if (forceStop) return;
+                                      controller.forward();
+                                    },
+                                  );
+                                }
+                              }
+
                               if (!isAudioPlaying) {
                                 controller.forward();
-                                void repeat(AnimationStatus status) {
-                                  if (status == AnimationStatus.completed) {
-                                    controller.reverse();
-                                  } else if (status ==
-                                      AnimationStatus.dismissed) {
-                                    Future.delayed(
-                                      const Duration(seconds: 1),
-                                      controller.forward,
-                                    );
-                                  }
-                                }
-
                                 controller.addStatusListener(repeat);
                                 return () {
                                   controller.removeStatusListener(repeat);
+                                  forceStop = true;
                                   controller.reset();
                                 };
                               }
-                              return () {};
+                              return () => forceStop = true;
                             },
                             [isAudioPlaying],
                           );
                           return SlideTransition(
                             position: animation,
-                            child: CircleButton(
-                              height: 52,
-                              width: 52,
-                              border: Border.all(
-                                color:
-                                    currentSlide.value == 31 || isAudioPlaying
+                            child: HookBuilder(
+                              builder: (context) {
+                                final forceEnable = useState(false);
+                                useEffect(() {
+                                  void reset() => forceEnable.value = false;
+                                  currentSlide.addListener(reset);
+                                  return () =>
+                                      currentSlide.removeListener(reset);
+                                });
+                                return CircleButton(
+                                  height: 52,
+                                  width: 52,
+                                  border: Border.all(
+                                    color: currentSlide.value == 31 ||
+                                            (isAudioPlaying &&
+                                                !forceEnable.value)
                                         ? AppColors.blue.withOpacity(0.2)
                                         : AppColors.blue,
-                                width: 2,
-                              ),
-                              onTap: currentSlide.value == 31 || isAudioPlaying
-                                  ? null
-                                  : () {
-                                      logger.logManualNextSlide(
-                                        currentSlide.value,
-                                      );
-                                      currentSlide.value++;
-                                    },
-                              child: Arrow(
-                                size: const Size(28, 26),
-                                color:
-                                    currentSlide.value == 31 || isAudioPlaying
+                                    width: 2,
+                                  ),
+                                  onTap: currentSlide.value == 31 ||
+                                          (isAudioPlaying && !forceEnable.value)
+                                      ? () => forceEnable.value = true
+                                      : () {
+                                          logger.logManualNextSlide(
+                                            currentSlide.value,
+                                          );
+                                          currentSlide.value++;
+                                        },
+                                  child: Arrow(
+                                    size: const Size(28, 26),
+                                    color: currentSlide.value == 31 ||
+                                            (isAudioPlaying &&
+                                                !forceEnable.value)
                                         ? AppColors.blue.withOpacity(0.2)
                                         : AppColors.blue,
-                                direction: AxisDirection.right,
-                              ),
+                                    direction: AxisDirection.right,
+                                  ),
+                                );
+                              },
                             ),
                           );
                         },
@@ -433,6 +456,24 @@ class SlideshowScreen extends HookConsumerWidget {
                   ),
                 ),
               ],
+            ),
+          ),
+          Positioned(
+            right: 10,
+            top: 10,
+            child: Consumer(
+              builder: (context, ref, _) {
+                final count = ref.watch(countProvider);
+                return Text(
+                  '$count',
+                  style: const TextStyle(
+                    fontFamily: FontFamily.poppins,
+                    fontSize: 17,
+                    height: 1,
+                    color: AppColors.darkBlue,
+                  ),
+                );
+              },
             ),
           ),
         ],

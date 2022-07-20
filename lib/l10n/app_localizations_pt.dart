@@ -14,37 +14,37 @@ class AppLocalizationsPt extends AppLocalizations {
   String get start => 'Começar!';
 
   @override
-  String get credits => 'Credits';
+  String get credits => 'Créditos';
 
   @override
-  String get projectBy => 'Project by';
+  String get projectBy => 'Projeto por';
 
   @override
-  String get supervisedBy => 'Supervised by';
+  String get supervisedBy => 'Supervisionado por';
 
   @override
-  String get development => 'Development';
+  String get development => 'Desenvolvimento';
 
   @override
-  String get marineBiologyAdvisor => 'Marine Biology Advisor';
+  String get marineBiologyAdvisor => 'Consultor de Biologia Marinha';
 
   @override
-  String get narration => 'Narration';
+  String get narration => 'Narração';
 
   @override
-  String get standDesign => 'Stand design';
+  String get standDesign => 'Design do Stand';
 
   @override
-  String get standProduction => 'Stand production';
+  String get standProduction => 'Produção do Stand';
 
   @override
-  String get specialThanks => 'Special thanks to';
+  String get specialThanks => 'Agradecimentos especiais para';
 
   @override
-  String get madeFromRecycledPlastic => 'Material made from 100% recycled plastic.';
+  String get madeFromRecycledPlastic => 'Material feito a partir de plástico 100% reciclado';
 
   @override
-  String get and => 'and';
+  String get and => 'e';
 
   @override
   String get sources => 'Fontes';
@@ -188,7 +188,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get whalesToday => 'Baleias\nhoje';
 
   @override
-  String get ifWhalesRecovered => 'Se as\npopulações\nde baleias\nrecuperasse\naos números\nanteriores à\ncaça de baleias';
+  String get ifWhalesRecovered => 'Se as\npopulações\nde baleias\nrecuperassem\naos números\nanteriores à\ncaça de baleias';
 
   @override
   String get equivalentToCO2 => 'O equivalente ao\nCO2 absorvido por:';

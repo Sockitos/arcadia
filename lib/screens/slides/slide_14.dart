@@ -34,14 +34,21 @@ class Slide14 extends ConsumerWidget {
         final whaleOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
-            curve: const Interval(0, 0.4, curve: Curves.easeIn),
+            curve: const Interval(0, 0.2, curve: Curves.easeIn),
             reverseCurve: reverseCurve,
           ),
         );
         final effectsOpacity = Tween<double>(begin: 0, end: 1).animate(
           CurvedAnimation(
             parent: controller,
-            curve: const Interval(0.4, 0.8, curve: Curves.easeIn),
+            curve: const Interval(0.2, 0.4, curve: Curves.easeIn),
+            reverseCurve: reverseCurve,
+          ),
+        );
+        final circleOpacity = Tween<double>(begin: 0, end: 1).animate(
+          CurvedAnimation(
+            parent: controller,
+            curve: const Interval(0.4, 0.6, curve: Curves.easeIn),
             reverseCurve: reverseCurve,
           ),
         );
@@ -62,43 +69,46 @@ class Slide14 extends ConsumerWidget {
           Positioned(
             left: 1422,
             top: 306,
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(
-                  color: AppColors.lightBlue,
-                  width: 5,
+            child: FadeTransition(
+              opacity: circleOpacity,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(
+                    color: AppColors.lightBlue,
+                    width: 5,
+                  ),
                 ),
-              ),
-              child: SizedBox(
-                height: 234,
-                width: 234,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      l10n.tagusRiver,
-                      style: const TextStyle(
-                        fontFamily: FontFamily.poppins,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 26,
-                        height: 1.2,
-                        color: AppColors.lightBlue,
+                child: SizedBox(
+                  height: 234,
+                  width: 234,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        l10n.tagusRiver,
+                        style: const TextStyle(
+                          fontFamily: FontFamily.poppins,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 26,
+                          height: 1.2,
+                          color: AppColors.lightBlue,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 5),
-                    Text(
-                      l10n.humanAction,
-                      textAlign: TextAlign.center,
-                      style: const TextStyle(
-                        fontFamily: FontFamily.poppins,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 17,
-                        height: 1.2,
-                        color: AppColors.black,
+                      const SizedBox(height: 5),
+                      Text(
+                        l10n.humanAction,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontFamily: FontFamily.poppins,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 17,
+                          height: 1.2,
+                          color: AppColors.black,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

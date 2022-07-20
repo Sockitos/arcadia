@@ -2,6 +2,7 @@ import 'package:arcadia_app/gen/gen.dart';
 import 'package:arcadia_app/l10n/app_localizations.dart';
 import 'package:arcadia_app/main.dart';
 import 'package:arcadia_app/style/colors.dart';
+import 'package:arcadia_app/widgets/animated_indicator.dart';
 import 'package:arcadia_app/widgets/dropdown_button.dart';
 import 'package:arcadia_app/widgets/line.dart';
 import 'package:arcadia_app/widgets/slide.dart';
@@ -452,13 +453,13 @@ class Slide03 extends HookConsumerWidget {
                                           if (value != null) {
                                             logger.logYearSelected(
                                               value,
-                                              slide: 4,
+                                              slide: 3,
                                             );
                                           }
                                           year.value = value ?? year.value;
                                         },
                                         options: [
-                                          for (var i = 1900; i < 2023; i++) i
+                                          for (var i = 2020; i >= 1900; i--) i
                                         ],
                                       ),
                                     ),
@@ -478,8 +479,10 @@ class Slide03 extends HookConsumerWidget {
           Positioned(
             left: 1486.5,
             top: 272.5,
-            child: Assets.images.props.slide03InteractionArrow
-                .image(opacity: chartInputOpacity),
+            child: AnimatedIndicator(
+              indicator: Assets.images.props.slide03InteractionArrow
+                  .image(opacity: chartInputOpacity),
+            ),
           ),
           Positioned(
             left: 1547.5,

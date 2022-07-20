@@ -12,6 +12,7 @@ class FlipCoin extends HookWidget {
     required this.front,
     required this.back,
     this.onFlip,
+    this.shouldHint = false,
   });
 
   final double height;
@@ -19,10 +20,38 @@ class FlipCoin extends HookWidget {
   final Widget front;
   final Widget back;
   final VoidCallback? onFlip;
+  final bool shouldHint;
 
   @override
   Widget build(BuildContext context) {
     final controller = useFlipCardController();
+    useEffect(
+      () {
+        void reverse(AnimationStatus status) {
+          if (status == AnimationStatus.completed) {
+            Future.delayed(
+              const Duration(milliseconds: 500),
+              controller.controller?.reverse,
+            );
+          }
+          controller.controller?.removeStatusListener(reverse);
+        }
+
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (!shouldHint) return;
+          Future.delayed(
+            const Duration(seconds: 1),
+            () {
+              controller.controller?.forward();
+              controller.controller!.addStatusListener(reverse);
+            },
+          );
+        });
+        return () => controller.controller?.removeStatusListener(reverse);
+      },
+      [WidgetsBinding.instance],
+    );
+
     return FlipCard(
       onFlip: onFlip,
       controller: controller,

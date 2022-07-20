@@ -5,6 +5,7 @@ import 'package:arcadia_app/gen/gen.dart';
 import 'package:arcadia_app/l10n/app_localizations.dart';
 import 'package:arcadia_app/main.dart';
 import 'package:arcadia_app/style/colors.dart';
+import 'package:arcadia_app/widgets/animated_indicator.dart';
 import 'package:arcadia_app/widgets/dropdown_button.dart';
 import 'package:arcadia_app/widgets/slide.dart';
 import 'package:flutter/widgets.dart';
@@ -691,7 +692,7 @@ class Slide04 extends HookConsumerWidget {
                         if (value != null) {
                           logger.logCountrySelected(
                             value,
-                            slide: 6,
+                            slide: 4,
                           );
                         }
                         country.value = value ?? country.value;
@@ -717,8 +718,10 @@ class Slide04 extends HookConsumerWidget {
           Positioned(
             left: 233,
             top: 367.5,
-            child: Assets.images.props.slide04InteractionArrow
-                .image(opacity: chartInputOpacity),
+            child: AnimatedIndicator(
+              indicator: Assets.images.props.slide04InteractionArrow
+                  .image(opacity: chartInputOpacity),
+            ),
           ),
         ];
       },

@@ -255,6 +255,7 @@ class Slide11 extends ConsumerWidget {
               opacity: weNeedTo1Opacity,
               child: _InfoCoin(
                 id: 'fishing',
+                shouldHint: true,
                 radius: 103.5,
                 image: Assets.images.props.slide11Fishing.image(),
                 title: l10n.needTo1Label,
@@ -324,6 +325,7 @@ class _InfoCoin extends ConsumerWidget {
     required this.image,
     required this.title,
     this.text,
+    this.shouldHint = false,
   });
 
   final String id;
@@ -331,12 +333,14 @@ class _InfoCoin extends ConsumerWidget {
   final Image image;
   final String title;
   final String? text;
+  final bool shouldHint;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final logger = ref.read(loggerProvider);
     return FlipCoin(
       onFlip: () => logger.logCoinFlip(id, slide: 11),
+      shouldHint: shouldHint,
       height: radius * 2,
       width: radius * 2,
       front: image,

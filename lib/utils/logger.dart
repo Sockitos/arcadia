@@ -1,9 +1,13 @@
 import 'dart:io';
 
 class Logger {
-  Logger({required this.file});
+  Logger({
+    required this.file,
+    required this.countFile,
+  });
 
   final File file;
+  final File countFile;
   IOSink? _fileSink;
 
   Future<void> init() async {
@@ -15,12 +19,16 @@ class Logger {
     _fileSink?.close();
   }
 
+  void logCount(int count) {
+    countFile.writeAsString('$count');
+  }
+
   void _log(String data) {
     final now = DateTime.now();
     _fileSink?.writeln('[$now] $data');
   }
 
-  void logStart() => _log('Start');
+  void logStart(int count) => _log('Start ($count}');
   void logEnd() => _log('End');
   void logSources(int slide) => _log('Sources at slide $slide');
   void logLeave(int slide) => _log('Leave at slide $slide');
@@ -32,6 +40,8 @@ class Logger {
       _log('Next slide $slide -> ${slide + 1}');
   void logAutoNextSlide(int slide) =>
       _log('(Auto) Next slide $slide -> ${slide + 1}');
+  void logJumpSlide(int currentSlide, int targetSlide) =>
+      _log('Jump slide $currentSlide -> $targetSlide');
   void logCountrySelected(String country, {required int slide}) =>
       _log('Country selected ($country) at slide $slide');
   void logYearSelected(int year, {required int slide}) =>

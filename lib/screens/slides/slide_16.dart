@@ -113,7 +113,7 @@ class Slide16 extends ConsumerWidget {
               opacity: infoOpacity,
               child: HookBuilder(
                 builder: (context) {
-                  final years = useState(89);
+                  final years = useState(1);
                   return Column(
                     children: [
                       DecoratedBox(
@@ -139,7 +139,7 @@ class Slide16 extends ConsumerWidget {
                                 const SizedBox(height: 10),
                                 Text(l10n.sameCO2Captured),
                                 Text(
-                                  '${years.value * 17}',
+                                  '${years.value * 18}',
                                   style: const TextStyle(
                                     fontFamily: FontFamily.poppins,
                                     fontWeight: FontWeight.bold,
@@ -164,13 +164,13 @@ class Slide16 extends ConsumerWidget {
                         startColor: AppColors.lightBlue,
                         endColor: AppColors.otherBlue,
                         min: 1,
-                        max: 89,
-                        divisions: 88,
+                        max: 87,
+                        divisions: 86,
                         value: years.value.toDouble(),
                         onChanged: (value) {
                           logger.logSliderValue(
                             value.round().toString(),
-                            slide: 11,
+                            slide: 16,
                           );
                           years.value = value.round();
                         },
@@ -190,7 +190,7 @@ class Slide16 extends ConsumerWidget {
                             children: [
                               Text('1 ${l10n.year}'),
                               const Spacer(),
-                              Text('89 ${l10n.years}'),
+                              Text('87 ${l10n.years}'),
                             ],
                           ),
                         ),
