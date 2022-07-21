@@ -1,5 +1,9 @@
+import 'dart:async';
+
+import 'package:arcadia_app/utils/hooks.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:just_audio/just_audio.dart';
 
 typedef SlidePropsBuilder = List<Widget> Function(
   BuildContext context,
