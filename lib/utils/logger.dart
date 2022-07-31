@@ -1,7 +1,17 @@
 import 'dart:io';
 
-class Logger {
-  Logger({
+abstract class LoggerOutput {
+  void init() {}
+
+  void log(String data);
+
+  void logCount(int count);
+
+  void dispose() {}
+}
+
+class LoggerFileOutput extends LoggerOutput {
+  LoggerFileOutput({
     required this.file,
     required this.countFile,
   });
@@ -10,22 +20,52 @@ class Logger {
   final File countFile;
   IOSink? _fileSink;
 
-  Future<void> init() async {
+  @override
+  void init() {
     _fileSink = file.openWrite(mode: FileMode.writeOnlyAppend);
   }
 
+  @override
+  void log(String data) {}
+
+  @override
+  void logCount(int count) {}
+
+  @override
   void dispose() {
     _fileSink?.flush();
     _fileSink?.close();
   }
+}
 
-  void logCount(int count) {
-    countFile.writeAsString('$count');
-  }
+class LoggerDBOutput extends LoggerOutput {
+  @override
+  void init() {}
+
+  @override
+  void log(String data) {}
+
+  @override
+  void logCount(int count) {}
+
+  @override
+  void dispose() {}
+}
+
+class Logger {
+  Logger({required this.output});
+
+  final LoggerOutput output;
+
+  void init() => output.init();
+
+  void dispose() => output.dispose();
+
+  void logCount(int count) => output.logCount(count);
 
   void _log(String data) {
     final now = DateTime.now();
-    _fileSink?.writeln('[$now] $data');
+    output.log('[$now] $data');
   }
 
   void logStart(int count) => _log('Start ($count}');

@@ -5,6 +5,7 @@ import 'package:arcadia_app/l10n/app_localizations.dart';
 import 'package:arcadia_app/main.dart';
 import 'package:arcadia_app/style/colors.dart';
 import 'package:arcadia_app/widgets/circle_button.dart';
+import 'package:arcadia_app/widgets/screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
@@ -17,7 +18,7 @@ class StartScreen extends HookWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final showCredits = useState(false);
-    return Scaffold(
+    return Screen(
       body: Stack(
         children: [
           SizedBox.expand(

@@ -1,13 +1,15 @@
-import 'dart:io';
+import 'dart:io' as io;
 
 import 'package:arcadia_app/l10n/app_localizations.dart';
 import 'package:arcadia_app/router/router.dart';
 import 'package:arcadia_app/utils/logger.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:universal_html/html.dart';
 import 'package:window_manager/window_manager.dart';
 
 final localeProvider = StateProvider<Locale>((ref) => const Locale('pt'));
@@ -18,27 +20,40 @@ final countProvider = StateProvider<int>((ref) => throw UnimplementedError());
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final directory = await getApplicationDocumentsDirectory();
-  final file = File('${directory.path}/log.txt');
-  final countFile = File('${directory.path}/log_count.txt');
-  final count = countFile.existsSync()
-      ? int.tryParse(countFile.readAsStringSync()) ?? 0
-      : 0;
-  await windowManager.ensureInitialized();
-  const windowOptions = WindowOptions(fullScreen: true);
-  windowManager.waitUntilReadyToShow(windowOptions, () async {
-    await windowManager.show();
-    await windowManager.focus();
-  });
+
+  final int count;
+  final Logger logger;
+
+  if (kIsWeb) {
+    document.documentElement?.requestFullscreen();
+    count = 0;
+    logger = Logger(output: LoggerDBOutput());
+  } else {
+    await windowManager.ensureInitialized();
+    const windowOptions = WindowOptions(fullScreen: true);
+    windowManager.waitUntilReadyToShow(windowOptions, () async {
+      await windowManager.show();
+      await windowManager.focus();
+    });
+    final directory = await getApplicationDocumentsDirectory();
+    final file = io.File('${directory.path}/log.txt');
+    final countFile = io.File('${directory.path}/log_count.txt');
+    count = countFile.existsSync()
+        ? int.tryParse(countFile.readAsStringSync()) ?? 0
+        : 0;
+    logger = Logger(
+      output: LoggerFileOutput(
+        file: file,
+        countFile: countFile,
+      ),
+    );
+  }
 
   runApp(
     ProviderScope(
       overrides: [
         loggerProvider.overrideWithValue(
-          Logger(
-            file: file,
-            countFile: countFile,
-          )..init(),
+          logger..init(),
         ),
         countProvider.overrideWithValue(StateController(count)),
       ],

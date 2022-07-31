@@ -24,6 +24,7 @@ import 'package:arcadia_app/screens/slides/slide_17.dart';
 import 'package:arcadia_app/style/colors.dart';
 import 'package:arcadia_app/widgets/arrow.dart';
 import 'package:arcadia_app/widgets/circle_button.dart';
+import 'package:arcadia_app/widgets/screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
@@ -91,7 +92,7 @@ class SlideshowScreen extends HookConsumerWidget {
       currentSlide.value++;
     }
 
-    return Scaffold(
+    return Screen(
       body: Stack(
         children: [
           Slide01(
