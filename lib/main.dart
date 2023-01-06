@@ -55,7 +55,7 @@ Future<void> main() async {
         loggerProvider.overrideWithValue(
           logger..init(),
         ),
-        countProvider.overrideWithValue(StateController(count)),
+        countProvider.overrideWith((ref) => count),
       ],
       child: const MyApp(),
     ),
