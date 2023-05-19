@@ -73,7 +73,7 @@ class Slide extends HookWidget {
     useEffect(
       () {
         // ignore: cancel_subscriptions
-        StreamSubscription? sub;
+        StreamSubscription<ProcessingState>? sub;
         if (playAudio) {
           if (audioPath != null) {
             player.play();

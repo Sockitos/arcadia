@@ -62,7 +62,6 @@ class _ArrowPainter extends CustomPainter {
         path.lineTo(0, size.height - size.width / 2);
         path.moveTo(size.width / 2, size.height);
         path.lineTo(size.width, size.height - size.width / 2);
-        break;
       case AxisDirection.left:
         path.moveTo(size.width, size.height / 2);
         path.lineTo(0, size.height / 2);
@@ -70,7 +69,6 @@ class _ArrowPainter extends CustomPainter {
         path.lineTo(0 + size.height / 2, 0);
         path.moveTo(0, size.height / 2);
         path.lineTo(0 + size.height / 2, size.height);
-        break;
       case AxisDirection.right:
         path.moveTo(0, size.height / 2);
         path.lineTo(size.width, size.height / 2);
@@ -78,7 +76,6 @@ class _ArrowPainter extends CustomPainter {
         path.lineTo(size.width - size.height / 2, 0);
         path.moveTo(size.width, size.height / 2);
         path.lineTo(size.width - size.height / 2, size.height);
-        break;
       case AxisDirection.up:
         path.moveTo(size.width / 2, size.height);
         path.lineTo(size.width / 2, 0);
@@ -86,7 +83,6 @@ class _ArrowPainter extends CustomPainter {
         path.lineTo(0, 0 + size.width / 2);
         path.moveTo(size.width / 2, 0);
         path.lineTo(size.width, 0 + size.width / 2);
-        break;
     }
 
     canvas.drawPath(path, paint);

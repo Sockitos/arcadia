@@ -19,6 +19,7 @@ dependencies:
   intl: ^0.18.0
   json_annotation: ^4.8.1
   just_audio: ^0.9.33
+  just_audio_windows: ^0.2.0
   path_provider: ^2.0.15
   qr_flutter: ^4.1.0
   universal_html: ^2.2.2

@@ -58,12 +58,10 @@ class _LinePainter extends CustomPainter {
         final p1 = Offset(size.width / 2, 0);
         final p2 = Offset(size.width / 2, size.height);
         canvas.drawLine(p1, p2, paint);
-        break;
       case Axis.horizontal:
         final p1 = Offset(0, size.height / 2);
         final p2 = Offset(size.width, size.height / 2);
         canvas.drawLine(p1, p2, paint);
-        break;
     }
   }
 

@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io' as io;
 
 import 'package:arcadia_app/l10n/app_localizations.dart';
@@ -25,16 +26,18 @@ Future<void> main() async {
   final Logger logger;
 
   if (kIsWeb) {
-    document.documentElement?.requestFullscreen();
+    unawaited(document.documentElement?.requestFullscreen());
     count = 0;
     logger = Logger(output: LoggerDBOutput());
   } else {
     await windowManager.ensureInitialized();
     const windowOptions = WindowOptions(fullScreen: true);
-    windowManager.waitUntilReadyToShow(windowOptions, () async {
-      await windowManager.show();
-      await windowManager.focus();
-    });
+    unawaited(
+      windowManager.waitUntilReadyToShow(windowOptions, () async {
+        await windowManager.show();
+        await windowManager.focus();
+      }),
+    );
     final directory = await getApplicationDocumentsDirectory();
     final file = io.File('${directory.path}/log.txt');
     final countFile = io.File('${directory.path}/log_count.txt');
