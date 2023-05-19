@@ -166,10 +166,10 @@ class Slide03 extends HookConsumerWidget {
                                                 CrossAxisAlignment.stretch,
                                             mainAxisSize: MainAxisSize.min,
                                             children: [
-                                              Column(
+                                              const Column(
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.end,
-                                                children: const [
+                                                children: [
                                                   SizedBox(height: 6),
                                                   Text('100,000'),
                                                   Spacer(),
@@ -189,10 +189,10 @@ class Slide03 extends HookConsumerWidget {
                                                     Assets.images.props
                                                         .slide03Chart
                                                         .image(),
-                                                    SizedBox(
+                                                    const SizedBox(
                                                       height: 30,
                                                       child: Row(
-                                                        children: const [
+                                                        children: [
                                                           SizedBox(width: 30),
                                                           Text('1900'),
                                                           Spacer(),

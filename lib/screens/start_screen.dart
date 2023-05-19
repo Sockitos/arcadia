@@ -44,7 +44,7 @@ class StartScreen extends HookWidget {
                             color: AppColors.darkBlue,
                             width: 2,
                           ),
-                          onTap: () => ref.read(localeProvider.state).state =
+                          onTap: () => ref.read(localeProvider.notifier).state =
                               const Locale('en'),
                           child: Text(
                             'EN',
@@ -68,7 +68,7 @@ class StartScreen extends HookWidget {
                             color: AppColors.darkBlue,
                             width: 2,
                           ),
-                          onTap: () => ref.read(localeProvider.state).state =
+                          onTap: () => ref.read(localeProvider.notifier).state =
                               const Locale('pt'),
                           child: Text(
                             'PT',
@@ -109,7 +109,7 @@ class StartScreen extends HookWidget {
                       onTap: () {
                         final logger = ref.read(loggerProvider);
                         final count = ref.read(countProvider) + 1;
-                        ref.read(countProvider.state).state = count;
+                        ref.read(countProvider.notifier).state = count;
                         logger.logCount(count);
                         logger.logStart(count);
                         context.go('/slideshow');
@@ -149,8 +149,8 @@ class StartScreen extends HookWidget {
                         onPressed: () => showCredits.value = !showCredits.value,
                         style: ElevatedButton.styleFrom(
                           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                          primary: AppColors.white,
-                          onPrimary: AppColors.darkBlue,
+                          backgroundColor: AppColors.white,
+                          foregroundColor: AppColors.darkBlue,
                           minimumSize: const Size(0, 36),
                           shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.vertical(

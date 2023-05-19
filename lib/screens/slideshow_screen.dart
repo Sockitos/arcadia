@@ -337,7 +337,7 @@ class SlideshowScreen extends HookConsumerWidget {
                     },
                     style: TextButton.styleFrom(
                       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      primary: AppColors.darkBlue,
+                      foregroundColor: AppColors.darkBlue,
                       minimumSize: const Size(0, 36),
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.vertical(
@@ -393,8 +393,8 @@ class SlideshowScreen extends HookConsumerWidget {
                         onPressed: () => showSources.value = !showSources.value,
                         style: ElevatedButton.styleFrom(
                           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                          primary: AppColors.white,
-                          onPrimary: AppColors.darkBlue,
+                          backgroundColor: AppColors.white,
+                          foregroundColor: AppColors.darkBlue,
                           minimumSize: const Size(0, 36),
                           shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.vertical(
@@ -443,7 +443,7 @@ class SlideshowScreen extends HookConsumerWidget {
                                       textAlign: TextAlign.center,
                                     ),
                                     const SizedBox(height: 15),
-                                    QrImage(
+                                    QrImageView(
                                       data: s.url,
                                       size: 200,
                                     ),

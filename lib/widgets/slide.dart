@@ -72,6 +72,7 @@ class Slide extends HookWidget {
     );
     useEffect(
       () {
+        // ignore: cancel_subscriptions
         StreamSubscription? sub;
         if (playAudio) {
           if (audioPath != null) {
@@ -84,7 +85,6 @@ class Slide extends HookWidget {
           }
         } else {
           if (player.playing) {
-            sub?.cancel();
             player.stop().then((_) => player.seek(Duration.zero));
           }
         }

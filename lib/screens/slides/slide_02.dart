@@ -161,10 +161,10 @@ class Slide02 extends ConsumerWidget {
                                               CrossAxisAlignment.stretch,
                                           mainAxisSize: MainAxisSize.min,
                                           children: [
-                                            Column(
+                                            const Column(
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.end,
-                                              children: const [
+                                              children: [
                                                 SizedBox(height: 6),
                                                 Text('100,000'),
                                                 Spacer(),
@@ -183,10 +183,10 @@ class Slide02 extends ConsumerWidget {
                                                   Assets
                                                       .images.props.slide02Chart
                                                       .image(),
-                                                  SizedBox(
+                                                  const SizedBox(
                                                     height: 30,
                                                     child: Row(
-                                                      children: const [
+                                                      children: [
                                                         SizedBox(width: 30),
                                                         Text('1900'),
                                                         Spacer(),

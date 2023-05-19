@@ -278,10 +278,10 @@ class Slide06 extends ConsumerWidget {
                                       width: 540,
                                       child: FadeTransition(
                                         opacity: graphOpacity,
-                                        child: Stack(
+                                        child: const Stack(
                                           alignment: Alignment.topCenter,
                                           children: [
-                                            const DecoratedBox(
+                                            DecoratedBox(
                                               decoration: BoxDecoration(
                                                 color: AppColors.lightBlue,
                                                 shape: BoxShape.circle,
@@ -293,7 +293,7 @@ class Slide06 extends ConsumerWidget {
                                             ),
                                             Column(
                                               mainAxisSize: MainAxisSize.min,
-                                              children: const [
+                                              children: [
                                                 DecoratedBox(
                                                   decoration: BoxDecoration(
                                                     color: AppColors.lightBlue,
