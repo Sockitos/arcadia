@@ -68,7 +68,8 @@ class Logger {
     output.log('[$now] $data');
   }
 
-  void logStart(int count) => _log('Start ($count}');
+  void logStart(int count, String condition) =>
+      _log('Start ($count - $condition)');
   void logEnd() => _log('End');
   void logSources(int slide) => _log('Sources at slide $slide');
   void logLeave(int slide) => _log('Leave at slide $slide');

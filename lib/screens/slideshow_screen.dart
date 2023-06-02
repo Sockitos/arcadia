@@ -3,43 +3,57 @@ import 'dart:async';
 import 'package:arcadia_app/data/sources.dart';
 import 'package:arcadia_app/gen/gen.dart';
 import 'package:arcadia_app/l10n/app_localizations.dart';
-import 'package:arcadia_app/main.dart';
-import 'package:arcadia_app/screens/slides/slide_01.dart';
-import 'package:arcadia_app/screens/slides/slide_02.dart';
-import 'package:arcadia_app/screens/slides/slide_03.dart';
-import 'package:arcadia_app/screens/slides/slide_04.dart';
-import 'package:arcadia_app/screens/slides/slide_05.dart';
-import 'package:arcadia_app/screens/slides/slide_06.dart';
-import 'package:arcadia_app/screens/slides/slide_07.dart';
-import 'package:arcadia_app/screens/slides/slide_08.dart';
-import 'package:arcadia_app/screens/slides/slide_09.dart';
-import 'package:arcadia_app/screens/slides/slide_10.dart';
-import 'package:arcadia_app/screens/slides/slide_11.dart';
-import 'package:arcadia_app/screens/slides/slide_12.dart';
-import 'package:arcadia_app/screens/slides/slide_13.dart';
-import 'package:arcadia_app/screens/slides/slide_14.dart';
-import 'package:arcadia_app/screens/slides/slide_15.dart';
-import 'package:arcadia_app/screens/slides/slide_16.dart';
-import 'package:arcadia_app/screens/slides/slide_17.dart';
+import 'package:arcadia_app/providers.dart';
+import 'package:arcadia_app/screens/slides/a.dart' as a;
+import 'package:arcadia_app/screens/slides/b.dart' as b;
 import 'package:arcadia_app/style/colors.dart';
 import 'package:arcadia_app/widgets/arrow.dart';
 import 'package:arcadia_app/widgets/circle_button.dart';
 import 'package:arcadia_app/widgets/screen.dart';
+import 'package:arcadia_app/widgets/slide.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
-const slidesWithStops = [3, 4, 5, 6, 7, 10, 11, 13, 16];
-
-class SlideshowScreen extends HookConsumerWidget {
+class SlideshowScreen extends ConsumerWidget {
   const SlideshowScreen({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final List<Slide> slides;
+    final List<int> stops;
+    final condition = ref.watch(conditionProvider);
+    if (condition == 'B') {
+      slides = b.slides;
+      stops = b.stops;
+    } else {
+      slides = a.slides;
+      stops = a.stops;
+    }
+    return Slideshow(
+      slides: slides,
+      stops: stops,
+    );
+  }
+}
+
+class Slideshow extends HookConsumerWidget {
+  const Slideshow({
+    super.key,
+    required this.slides,
+    required this.stops,
+  });
+
+  final List<Slide> slides;
+  final List<int> stops;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
     final logger = ref.read(loggerProvider);
+    final locale = ref.read(localeProvider);
 
     final showSources = useState(false);
     final currentSlide = useState(1);
@@ -53,7 +67,7 @@ class SlideshowScreen extends HookConsumerWidget {
     void onAudioEnd() {
       audioPlaying.value = false;
       if (showSources.value) return;
-      if (slidesWithStops.contains(currentSlide.value)) {
+      if (stops.contains(currentSlide.value)) {
         final timer = Timer(
           const Duration(minutes: 5),
           () {
@@ -70,7 +84,7 @@ class SlideshowScreen extends HookConsumerWidget {
         currentSlide.addListener(cancel);
         return;
       }
-      if (currentSlide.value == 17) {
+      if (currentSlide.value == slides.length) {
         logger.logEnd();
         final timer = Timer(
           const Duration(minutes: 2),
@@ -95,74 +109,17 @@ class SlideshowScreen extends HookConsumerWidget {
     return Screen(
       body: Stack(
         children: [
-          Slide01(
-            currentSlide: currentSlide.value,
-            onAudioEnd: onAudioEnd,
-          ),
-          Slide02(
-            currentSlide: currentSlide.value,
-            onAudioEnd: onAudioEnd,
-          ),
-          Slide03(
-            currentSlide: currentSlide.value,
-            onAudioEnd: onAudioEnd,
-          ),
-          Slide04(
-            currentSlide: currentSlide.value,
-            onAudioEnd: onAudioEnd,
-          ),
-          Slide05(
-            currentSlide: currentSlide.value,
-            onAudioEnd: onAudioEnd,
-          ),
-          Slide06(
-            currentSlide: currentSlide.value,
-            onAudioEnd: onAudioEnd,
-          ),
-          Slide07(
-            currentSlide: currentSlide.value,
-            onAudioEnd: onAudioEnd,
-          ),
-          Slide08(
-            currentSlide: currentSlide.value,
-            onAudioEnd: onAudioEnd,
-          ),
-          Slide09(
-            currentSlide: currentSlide.value,
-            onAudioEnd: onAudioEnd,
-          ),
-          Slide10(
-            currentSlide: currentSlide.value,
-            onAudioEnd: onAudioEnd,
-          ),
-          Slide11(
-            currentSlide: currentSlide.value,
-            onAudioEnd: onAudioEnd,
-          ),
-          Slide12(
-            currentSlide: currentSlide.value,
-            onAudioEnd: onAudioEnd,
-          ),
-          Slide13(
-            currentSlide: currentSlide.value,
-            onAudioEnd: onAudioEnd,
-          ),
-          Slide14(
-            currentSlide: currentSlide.value,
-            onAudioEnd: onAudioEnd,
-          ),
-          Slide15(
-            currentSlide: currentSlide.value,
-            onAudioEnd: onAudioEnd,
-          ),
-          Slide16(
-            currentSlide: currentSlide.value,
-            onAudioEnd: onAudioEnd,
-          ),
-          Slide17(
-            currentSlide: currentSlide.value,
-            onAudioEnd: onAudioEnd,
-          ),
+          for (var i = 0; i < slides.length; i++)
+            SlideBuilder(
+              slide: i + 1,
+              currentSlide: currentSlide.value,
+              background: slides[i].background,
+              audioPath: slides[i].audioPaths[locale.languageCode],
+              propsBuilder: slides[i].propsBuilder,
+              onAudioEnd: onAudioEnd,
+              backgroundDuration: slides[i].backgroundDuration,
+              propsDuration: slides[i].propsDuration,
+            ),
           Positioned.fill(
             bottom: 15,
             child: Align(
@@ -199,8 +156,8 @@ class SlideshowScreen extends HookConsumerWidget {
                       ),
                       const SizedBox(width: 30),
                       ChapterIndicator(
-                        slideCount: 17,
-                        stops: slidesWithStops,
+                        slideCount: slides.length,
+                        stops: stops,
                         currentSlide: currentSlide.value,
                         onSlideTap: (slide) {
                           logger.logJumpSlide(currentSlide.value, slide);
@@ -417,41 +374,37 @@ class SlideshowScreen extends HookConsumerWidget {
                   elevation: 4,
                   child: SizedBox(
                     width: 500,
-                    child: Scrollbar(
-                      thumbVisibility: true,
-                      child: Center(
-                        child: ListView(
-                          shrinkWrap: true,
-                          padding: const EdgeInsets.all(30),
-                          children: [
-                            for (final s
-                                in sources[currentSlide.value] ?? <Source>[])
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 20),
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      s.title,
-                                      style: const TextStyle(
-                                        fontFamily: FontFamily.poppins,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16,
-                                        height: 1.2,
-                                        color: AppColors.black,
-                                      ),
-                                      textAlign: TextAlign.center,
+                    child: Center(
+                      child: ListView(
+                        shrinkWrap: true,
+                        padding: const EdgeInsets.all(30),
+                        children: [
+                          for (final s
+                              in sources[currentSlide.value] ?? <Source>[])
+                            Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 20),
+                              child: Column(
+                                children: [
+                                  Text(
+                                    s.title,
+                                    style: const TextStyle(
+                                      fontFamily: FontFamily.poppins,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16,
+                                      height: 1.2,
+                                      color: AppColors.black,
                                     ),
-                                    const SizedBox(height: 15),
-                                    QrImageView(
-                                      data: s.url,
-                                      size: 200,
-                                    ),
-                                  ],
-                                ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                  const SizedBox(height: 15),
+                                  QrImageView(
+                                    data: s.url,
+                                    size: 200,
+                                  ),
+                                ],
                               ),
-                          ],
-                        ),
+                            ),
+                        ],
                       ),
                     ),
                   ),
@@ -465,8 +418,9 @@ class SlideshowScreen extends HookConsumerWidget {
             child: Consumer(
               builder: (context, ref, _) {
                 final count = ref.watch(countProvider);
+                final condition = ref.watch(conditionProvider);
                 return Text(
-                  '$count',
+                  '$count - $condition',
                   style: const TextStyle(
                     fontFamily: FontFamily.poppins,
                     fontSize: 17,

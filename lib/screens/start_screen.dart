@@ -1,8 +1,6 @@
-import 'dart:developer';
-
 import 'package:arcadia_app/gen/gen.dart';
 import 'package:arcadia_app/l10n/app_localizations.dart';
-import 'package:arcadia_app/main.dart';
+import 'package:arcadia_app/providers.dart';
 import 'package:arcadia_app/style/colors.dart';
 import 'package:arcadia_app/widgets/circle_button.dart';
 import 'package:arcadia_app/widgets/screen.dart';
@@ -109,9 +107,10 @@ class StartScreen extends HookWidget {
                       onTap: () {
                         final logger = ref.read(loggerProvider);
                         final count = ref.read(countProvider) + 1;
+                        final condition = ref.read(conditionProvider);
                         ref.read(countProvider.notifier).state = count;
                         logger.logCount(count);
-                        logger.logStart(count);
+                        logger.logStart(count, condition);
                         context.go('/slideshow');
                       },
                       child: Text(
@@ -251,13 +250,18 @@ class StartScreen extends HookWidget {
             child: Consumer(
               builder: (context, ref, _) {
                 final count = ref.watch(countProvider);
-                return Text(
-                  '${count + 1}',
-                  style: const TextStyle(
-                    fontFamily: FontFamily.poppins,
-                    fontSize: 17,
-                    height: 1,
-                    color: AppColors.darkBlue,
+                final condition = ref.watch(conditionProvider);
+                return GestureDetector(
+                  onTap: () => ref.read(conditionProvider.notifier).state =
+                      condition == 'A' ? 'B' : 'A',
+                  child: Text(
+                    '$count - $condition',
+                    style: const TextStyle(
+                      fontFamily: FontFamily.poppins,
+                      fontSize: 17,
+                      height: 1,
+                      color: AppColors.darkBlue,
+                    ),
                   ),
                 );
               },
@@ -281,7 +285,6 @@ class Credit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    log(MediaQuery.of(context).size.toString());
     return RichText(
       text: TextSpan(
         style: const TextStyle(

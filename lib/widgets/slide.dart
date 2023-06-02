@@ -1,17 +1,38 @@
 import 'dart:async';
 
+import 'package:arcadia_app/providers.dart';
 import 'package:arcadia_app/utils/hooks.dart';
+import 'package:arcadia_app/utils/logger.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:just_audio/just_audio.dart';
 
 typedef SlidePropsBuilder = List<Widget> Function(
   BuildContext context,
   AnimationController controller,
+  bool isActive,
+  Logger logger,
 );
 
-class Slide extends HookWidget {
+class Slide {
   const Slide({
+    this.background,
+    this.audioPaths = const {},
+    required this.propsBuilder,
+    this.backgroundDuration = const Duration(milliseconds: 300),
+    this.propsDuration = const Duration(milliseconds: 1000),
+  });
+
+  final ImageProvider? background;
+  final Map<String, String> audioPaths;
+  final SlidePropsBuilder propsBuilder;
+  final Duration backgroundDuration;
+  final Duration propsDuration;
+}
+
+class SlideBuilder extends HookConsumerWidget {
+  const SlideBuilder({
     super.key,
     required this.slide,
     required this.currentSlide,
@@ -57,7 +78,7 @@ class Slide extends HookWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final showBackground = currentSlide >= slide;
     final showProps = currentSlide == slide;
     final playAudio = currentSlide == slide;
@@ -145,7 +166,12 @@ class Slide extends HookWidget {
             return is0
                 ? const SizedBox()
                 : Stack(
-                    children: propsBuilder(context, controller),
+                    children: propsBuilder(
+                      context,
+                      controller,
+                      currentSlide == slide,
+                      ref.read(loggerProvider),
+                    ),
                   );
           },
         ),

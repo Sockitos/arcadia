@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io' as io;
 
 import 'package:arcadia_app/l10n/app_localizations.dart';
+import 'package:arcadia_app/providers.dart';
 import 'package:arcadia_app/router/router.dart';
 import 'package:arcadia_app/utils/logger.dart';
 import 'package:flutter/foundation.dart';
@@ -10,14 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:universal_html/html.dart';
 import 'package:window_manager/window_manager.dart';
-
-final localeProvider = StateProvider<Locale>((ref) => const Locale('pt'));
-
-final loggerProvider = Provider<Logger>((ref) => throw UnimplementedError());
-
-final countProvider = StateProvider<int>((ref) => throw UnimplementedError());
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +20,7 @@ Future<void> main() async {
   final Logger logger;
 
   if (kIsWeb) {
-    unawaited(document.documentElement?.requestFullscreen());
+    // unawaited(document.documentElement?.requestFullscreen());
     count = 0;
     logger = Logger(output: LoggerDBOutput());
   } else {
