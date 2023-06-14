@@ -93,7 +93,6 @@ class SlideBuilder extends HookWidget {
         StreamSubscription<ProcessingState>? sub;
         if (playAudio) {
           if (audioPath != null) {
-            player.setVolume(0);
             player.play();
             sub = player.processingStateStream.listen((state) {
               if (state == ProcessingState.completed) onAudioEnd();
