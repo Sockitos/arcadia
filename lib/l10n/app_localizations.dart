@@ -483,6 +483,12 @@ abstract class AppLocalizations {
   /// **'touch white circle to flip'**
   String get touchCircleToFlip;
 
+  /// No description provided for @flipAlreadyDo.
+  ///
+  /// In en, this message translates to:
+  /// **'flip the ones you already do!'**
+  String get flipAlreadyDo;
+
   /// No description provided for @ourPart1Label.
   ///
   /// In en, this message translates to:
@@ -540,20 +546,8 @@ abstract class AppLocalizations {
   /// No description provided for @ourPart5Text.
   ///
   /// In en, this message translates to:
-  /// **'Try to refurbish or repurpose existing\nitems'**
+  /// **'Try to refurbish\nor repurpose existing\nitems'**
   String get ourPart5Text;
-
-  /// No description provided for @ourPart6Label.
-  ///
-  /// In en, this message translates to:
-  /// **'Support\nequality'**
-  String get ourPart6Label;
-
-  /// No description provided for @ourPart6Text.
-  ///
-  /// In en, this message translates to:
-  /// **'Access to high-quality,\nincl usive education\nand voluntary\nreproductive\nhealthcare'**
-  String get ourPart6Text;
 
   /// No description provided for @krill.
   ///
@@ -567,18 +561,6 @@ abstract class AppLocalizations {
   /// **'Microplastics'**
   String get microplastics;
 
-  /// No description provided for @tagusRiver.
-  ///
-  /// In en, this message translates to:
-  /// **'Tagus river'**
-  String get tagusRiver;
-
-  /// No description provided for @microplasticsFound.
-  ///
-  /// In en, this message translates to:
-  /// **'Large amounts of\nmicroplastics were\nfound in the sludge\nof the estuary'**
-  String get microplasticsFound;
-
   /// No description provided for @whatCan.
   ///
   /// In en, this message translates to:
@@ -591,12 +573,6 @@ abstract class AppLocalizations {
   /// **'you do?'**
   String get youDo;
 
-  /// No description provided for @canDo1Label.
-  ///
-  /// In en, this message translates to:
-  /// **'Take a\nreusable bag\nwith you'**
-  String get canDo1Label;
-
   /// No description provided for @canDo2Label.
   ///
   /// In en, this message translates to:
@@ -608,12 +584,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Synthetic fibres like\npolyester & nylon\nrelease plastic\nmicrofibers when\nwashed'**
   String get canDo2Text;
-
-  /// No description provided for @canDo3Label.
-  ///
-  /// In en, this message translates to:
-  /// **'Stop using\nsingle-use\nplastics'**
-  String get canDo3Label;
 
   /// No description provided for @canDo4Label.
   ///
@@ -657,12 +627,6 @@ abstract class AppLocalizations {
   /// **'We need to...'**
   String get weNeedTo;
 
-  /// No description provided for @needTo1Label.
-  ///
-  /// In en, this message translates to:
-  /// **'Don\'t throw\nfishing gear or\nother garbage\nin the river or\nocean'**
-  String get needTo1Label;
-
   /// No description provided for @needTo2Label.
   ///
   /// In en, this message translates to:
@@ -681,29 +645,23 @@ abstract class AppLocalizations {
   /// **'Support local\neconomies and\navoid long\ntransport'**
   String get needTo3Text;
 
-  /// No description provided for @noiceVolume.
-  ///
-  /// In en, this message translates to:
-  /// **'Noise volume'**
-  String get noiceVolume;
-
-  /// No description provided for @realOceanNoice.
-  ///
-  /// In en, this message translates to:
-  /// **'(real ocean noise)'**
-  String get realOceanNoice;
-
-  /// No description provided for @humanAction.
-  ///
-  /// In en, this message translates to:
-  /// **'Human action is also\ncausing the sea level\nto rise, which is\ncontaminating the\nriver\'s fresh water'**
-  String get humanAction;
-
   /// No description provided for @tons.
   ///
   /// In en, this message translates to:
   /// **'tons'**
   String get tons;
+
+  /// No description provided for @reminderOfThings.
+  ///
+  /// In en, this message translates to:
+  /// **'A reminder of things you can help with!'**
+  String get reminderOfThings;
+
+  /// No description provided for @someThings.
+  ///
+  /// In en, this message translates to:
+  /// **'Some things you can help with!'**
+  String get someThings;
 
   /// No description provided for @sameCO2Captured.
   ///
@@ -735,11 +693,11 @@ abstract class AppLocalizations {
   /// **'Let\'s do this\ntogether!'**
   String get letsDoThis;
 
-  /// No description provided for @bePartOfThisStory.
+  /// No description provided for @bePartOfThisJourney.
   ///
   /// In en, this message translates to:
-  /// **'And now, leave your  mark on our walls.\nBe part of this story. :)'**
-  String get bePartOfThisStory;
+  /// **'Be part of this journey.'**
+  String get bePartOfThisJourney;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

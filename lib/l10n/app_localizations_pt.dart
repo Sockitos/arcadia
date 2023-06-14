@@ -200,6 +200,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get touchCircleToFlip => 'toca no círculo branco para virar';
 
   @override
+  String get flipAlreadyDo => 'clica e vira as acções que já fazes!';
+
+  @override
   String get ourPart1Label => 'Reduz o\ndesperdício\nalimentar';
 
   @override
@@ -230,22 +233,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get ourPart5Text => 'Tenta arranjar ou dar\nnova vida a produtos\nexistentes';
 
   @override
-  String get ourPart6Label => 'Apoia a\nigualdade';
-
-  @override
-  String get ourPart6Text => 'Acesso a educação\ninclusiva de\nqualidade e a saúde\nreprodutiva\nvoluntária';
-
-  @override
   String get krill => 'Krill';
 
   @override
   String get microplastics => 'Microplásticos';
-
-  @override
-  String get tagusRiver => 'Rio Tejo';
-
-  @override
-  String get microplasticsFound => 'Grandes quantidades\nde microplásticos\nforam encontrados\nno lodo do\nestuário';
 
   @override
   String get whatCan => 'O que';
@@ -254,16 +245,10 @@ class AppLocalizationsPt extends AppLocalizations {
   String get youDo => 'podes fazer?';
 
   @override
-  String get canDo1Label => 'Leva um saco\nreutilizável\ncontigo';
-
-  @override
   String get canDo2Label => 'Procura\nfibras naturais';
 
   @override
   String get canDo2Text => 'Fibras sintéticas como\no poliéster ou nylon\nlargam microfibras\nde plástico quando \nlavadas';
-
-  @override
-  String get canDo3Label => 'Deixa de usar\nplásticos de\nuso único';
 
   @override
   String get canDo4Label => 'Compra\nfruta e\nvegetais não\nembalados\nem plástico';
@@ -287,9 +272,6 @@ class AppLocalizationsPt extends AppLocalizations {
   String get weNeedTo => 'Precisamos de...';
 
   @override
-  String get needTo1Label => 'Não deites\nmaterial de\npesca ou outro\nlixo no rio ou\nno mar';
-
-  @override
   String get needTo2Label => 'Se fizeres turismo\nno mar, faz com\numa empresa\ncertificada';
 
   @override
@@ -299,16 +281,13 @@ class AppLocalizationsPt extends AppLocalizations {
   String get needTo3Text => 'Apoiar a\neconomia local e\nevitar transporte\nlongo';
 
   @override
-  String get noiceVolume => 'Volume de ruído';
-
-  @override
-  String get realOceanNoice => '(som real nos oceanos)';
-
-  @override
-  String get humanAction => 'A acção humana\ntambém está a\ncausar a subida do\nnível do mar, que\nestá a contaminar a\nágua doce do rio';
-
-  @override
   String get tons => 'toneladas';
+
+  @override
+  String get reminderOfThings => 'Um lembrete de algumas acções com que podes ajudar!';
+
+  @override
+  String get someThings => 'Algumas acções com que podes ajudar!';
 
   @override
   String get sameCO2Captured => 'O mesmo CO2\nabsorvido por';
@@ -326,5 +305,5 @@ class AppLocalizationsPt extends AppLocalizations {
   String get letsDoThis => 'Vamos fazer\nisto juntos!';
 
   @override
-  String get bePartOfThisStory => 'E agora, deixa a tua marca nas nossas paredes.\nFaz parte desta história. :)';
+  String get bePartOfThisJourney => 'Be part of this journey.';
 }

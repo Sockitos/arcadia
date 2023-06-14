@@ -200,6 +200,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get touchCircleToFlip => 'touch white circle to flip';
 
   @override
+  String get flipAlreadyDo => 'flip the ones you already do!';
+
+  @override
   String get ourPart1Label => 'Reduce\nfood waste';
 
   @override
@@ -227,13 +230,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get ourPart5Label => 'Buy\nless stuff';
 
   @override
-  String get ourPart5Text => 'Try to refurbish or repurpose existing\nitems';
-
-  @override
-  String get ourPart6Label => 'Support\nequality';
-
-  @override
-  String get ourPart6Text => 'Access to high-quality,\nincl usive education\nand voluntary\nreproductive\nhealthcare';
+  String get ourPart5Text => 'Try to refurbish\nor repurpose existing\nitems';
 
   @override
   String get krill => 'Krill';
@@ -242,28 +239,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get microplastics => 'Microplastics';
 
   @override
-  String get tagusRiver => 'Tagus river';
-
-  @override
-  String get microplasticsFound => 'Large amounts of\nmicroplastics were\nfound in the sludge\nof the estuary';
-
-  @override
   String get whatCan => 'What can';
 
   @override
   String get youDo => 'you do?';
 
   @override
-  String get canDo1Label => 'Take a\nreusable bag\nwith you';
-
-  @override
   String get canDo2Label => 'Look for\nnatural fibres';
 
   @override
   String get canDo2Text => 'Synthetic fibres like\npolyester & nylon\nrelease plastic\nmicrofibers when\nwashed';
-
-  @override
-  String get canDo3Label => 'Stop using\nsingle-use\nplastics';
 
   @override
   String get canDo4Label => 'Buy vegies\n& fruit not\nwrapped in\nplastic';
@@ -287,9 +272,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get weNeedTo => 'We need to...';
 
   @override
-  String get needTo1Label => 'Don\'t throw\nfishing gear or\nother garbage\nin the river or\nocean';
-
-  @override
   String get needTo2Label => 'If you do tourism\nin the sea, make\nsure it\'s certified\ncompany';
 
   @override
@@ -299,16 +281,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get needTo3Text => 'Support local\neconomies and\navoid long\ntransport';
 
   @override
-  String get noiceVolume => 'Noise volume';
-
-  @override
-  String get realOceanNoice => '(real ocean noise)';
-
-  @override
-  String get humanAction => 'Human action is also\ncausing the sea level\nto rise, which is\ncontaminating the\nriver\'s fresh water';
-
-  @override
   String get tons => 'tons';
+
+  @override
+  String get reminderOfThings => 'A reminder of things you can help with!';
+
+  @override
+  String get someThings => 'Some things you can help with!';
 
   @override
   String get sameCO2Captured => 'The same CO₂\n captured by';
@@ -326,5 +305,5 @@ class AppLocalizationsEn extends AppLocalizations {
   String get letsDoThis => 'Let\'s do this\ntogether!';
 
   @override
-  String get bePartOfThisStory => 'And now, leave your  mark on our walls.\nBe part of this story. :)';
+  String get bePartOfThisJourney => 'Be part of this journey.';
 }

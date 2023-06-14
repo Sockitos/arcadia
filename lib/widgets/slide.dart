@@ -1,18 +1,14 @@
 import 'dart:async';
 
-import 'package:arcadia_app/providers.dart';
 import 'package:arcadia_app/utils/hooks.dart';
-import 'package:arcadia_app/utils/logger.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:just_audio/just_audio.dart';
 
 typedef SlidePropsBuilder = List<Widget> Function(
   BuildContext context,
   AnimationController controller,
   bool isActive,
-  Logger logger,
 );
 
 class Slide {
@@ -31,7 +27,7 @@ class Slide {
   final Duration propsDuration;
 }
 
-class SlideBuilder extends HookConsumerWidget {
+class SlideBuilder extends HookWidget {
   const SlideBuilder({
     super.key,
     required this.slide,
@@ -78,7 +74,7 @@ class SlideBuilder extends HookConsumerWidget {
   }
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     final showBackground = currentSlide >= slide;
     final showProps = currentSlide == slide;
     final playAudio = currentSlide == slide;
@@ -97,6 +93,7 @@ class SlideBuilder extends HookConsumerWidget {
         StreamSubscription<ProcessingState>? sub;
         if (playAudio) {
           if (audioPath != null) {
+            player.setVolume(0);
             player.play();
             sub = player.processingStateStream.listen((state) {
               if (state == ProcessingState.completed) onAudioEnd();
@@ -170,7 +167,6 @@ class SlideBuilder extends HookConsumerWidget {
                       context,
                       controller,
                       currentSlide == slide,
-                      ref.read(loggerProvider),
                     ),
                   );
           },

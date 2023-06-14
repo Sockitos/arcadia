@@ -38,9 +38,14 @@ flutter:
     - assets/images/
     - assets/images/backgrounds/
     - assets/images/props/
-    - assets/audios/
-    - assets/audios/en/
-    - assets/audios/pt/
+    - assets/audios/en/a/
+    - assets/audios/en/b/
+    - assets/audios/en/dates/
+    - assets/audios/en/countries/
+    - assets/audios/pt/a/
+    - assets/audios/pt/b/
+    - assets/audios/pt/dates/
+    - assets/audios/pt/countries/
   fonts:
     - family: Poppins
       fonts:

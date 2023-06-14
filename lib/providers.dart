@@ -9,3 +9,18 @@ final loggerProvider = Provider<Logger>((ref) => throw UnimplementedError());
 final countProvider = StateProvider<int>((ref) => throw UnimplementedError());
 
 final conditionProvider = StateProvider<String>((ref) => 'A');
+
+final coinsProvider =
+    StateNotifierProvider<CoinsNotifier, Set<String>>((ref) => CoinsNotifier());
+
+class CoinsNotifier extends StateNotifier<Set<String>> {
+  CoinsNotifier() : super({});
+
+  void flip(String id) {
+    if (state.contains(id)) {
+      state.remove(id);
+    } else {
+      state.add(id);
+    }
+  }
+}

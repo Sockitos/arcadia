@@ -7,20 +7,20 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 class FlipCoin extends HookWidget {
   const FlipCoin({
     super.key,
-    required this.height,
-    required this.width,
+    required this.radius,
     required this.front,
     required this.back,
     this.onFlip,
     this.shouldHint = false,
+    this.side = CardSide.FRONT,
   });
 
-  final double height;
-  final double width;
+  final double radius;
   final Widget front;
   final Widget back;
   final VoidCallback? onFlip;
   final bool shouldHint;
+  final CardSide side;
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +56,7 @@ class FlipCoin extends HookWidget {
       onFlip: onFlip,
       controller: controller,
       flipOnTouch: false,
+      side: side,
       front: Material(
         type: MaterialType.circle,
         color: AppColors.white,
@@ -63,8 +64,8 @@ class FlipCoin extends HookWidget {
           onTap: controller.toggleCard,
           customBorder: const CircleBorder(),
           child: SizedBox(
-            height: height,
-            width: width,
+            height: radius * 2,
+            width: radius * 2,
             child: Center(child: front),
           ),
         ),
@@ -76,8 +77,8 @@ class FlipCoin extends HookWidget {
           onTap: controller.toggleCard,
           customBorder: const CircleBorder(),
           child: SizedBox(
-            height: height,
-            width: width,
+            height: radius * 2,
+            width: radius * 2,
             child: Center(child: back),
           ),
         ),

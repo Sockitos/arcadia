@@ -5,7 +5,7 @@
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
-// ignore_for_file: directives_ordering,unnecessary_import
+// ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal,deprecated_member_use
 
 import 'package:flutter/widgets.dart';
 
@@ -13,13 +13,6 @@ class $AssetsAudiosGen {
   const $AssetsAudiosGen();
 
   $AssetsAudiosEnGen get en => const $AssetsAudiosEnGen();
-
-  /// File path: assets/audios/ocean_natural.mp3
-  String get oceanNatural => 'assets/audios/ocean_natural.mp3';
-
-  /// File path: assets/audios/ocean_noise.mp3
-  String get oceanNoise => 'assets/audios/ocean_noise.mp3';
-
   $AssetsAudiosPtGen get pt => const $AssetsAudiosPtGen();
 }
 
@@ -36,110 +29,27 @@ class $AssetsImagesGen {
   AssetGenImage get iti => const AssetGenImage('assets/images/iti.png');
 
   $AssetsImagesPropsGen get props => const $AssetsImagesPropsGen();
+
+  /// List of all assets
+  List<AssetGenImage> get values => [fct, iti];
 }
 
 class $AssetsAudiosEnGen {
   const $AssetsAudiosEnGen();
 
-  /// File path: assets/audios/en/slide_01.mp3
-  String get slide01 => 'assets/audios/en/slide_01.mp3';
-
-  /// File path: assets/audios/en/slide_02.mp3
-  String get slide02 => 'assets/audios/en/slide_02.mp3';
-
-  /// File path: assets/audios/en/slide_03.mp3
-  String get slide03 => 'assets/audios/en/slide_03.mp3';
-
-  /// File path: assets/audios/en/slide_04.mp3
-  String get slide04 => 'assets/audios/en/slide_04.mp3';
-
-  /// File path: assets/audios/en/slide_05.mp3
-  String get slide05 => 'assets/audios/en/slide_05.mp3';
-
-  /// File path: assets/audios/en/slide_06.mp3
-  String get slide06 => 'assets/audios/en/slide_06.mp3';
-
-  /// File path: assets/audios/en/slide_08.mp3
-  String get slide08 => 'assets/audios/en/slide_08.mp3';
-
-  /// File path: assets/audios/en/slide_09.mp3
-  String get slide09 => 'assets/audios/en/slide_09.mp3';
-
-  /// File path: assets/audios/en/slide_10.mp3
-  String get slide10 => 'assets/audios/en/slide_10.mp3';
-
-  /// File path: assets/audios/en/slide_11.mp3
-  String get slide11 => 'assets/audios/en/slide_11.mp3';
-
-  /// File path: assets/audios/en/slide_12.mp3
-  String get slide12 => 'assets/audios/en/slide_12.mp3';
-
-  /// File path: assets/audios/en/slide_13.mp3
-  String get slide13 => 'assets/audios/en/slide_13.mp3';
-
-  /// File path: assets/audios/en/slide_14.mp3
-  String get slide14 => 'assets/audios/en/slide_14.mp3';
-
-  /// File path: assets/audios/en/slide_15.mp3
-  String get slide15 => 'assets/audios/en/slide_15.mp3';
-
-  /// File path: assets/audios/en/slide_16.mp3
-  String get slide16 => 'assets/audios/en/slide_16.mp3';
-
-  /// File path: assets/audios/en/slide_17.mp3
-  String get slide17 => 'assets/audios/en/slide_17.mp3';
+  $AssetsAudiosEnAGen get a => const $AssetsAudiosEnAGen();
+  $AssetsAudiosEnBGen get b => const $AssetsAudiosEnBGen();
+  $AssetsAudiosEnCountriesGen get countries =>
+      const $AssetsAudiosEnCountriesGen();
 }
 
 class $AssetsAudiosPtGen {
   const $AssetsAudiosPtGen();
 
-  /// File path: assets/audios/pt/slide_01.mp3
-  String get slide01 => 'assets/audios/pt/slide_01.mp3';
-
-  /// File path: assets/audios/pt/slide_02.mp3
-  String get slide02 => 'assets/audios/pt/slide_02.mp3';
-
-  /// File path: assets/audios/pt/slide_03.mp3
-  String get slide03 => 'assets/audios/pt/slide_03.mp3';
-
-  /// File path: assets/audios/pt/slide_04.mp3
-  String get slide04 => 'assets/audios/pt/slide_04.mp3';
-
-  /// File path: assets/audios/pt/slide_05.mp3
-  String get slide05 => 'assets/audios/pt/slide_05.mp3';
-
-  /// File path: assets/audios/pt/slide_06.mp3
-  String get slide06 => 'assets/audios/pt/slide_06.mp3';
-
-  /// File path: assets/audios/pt/slide_08.mp3
-  String get slide08 => 'assets/audios/pt/slide_08.mp3';
-
-  /// File path: assets/audios/pt/slide_09.mp3
-  String get slide09 => 'assets/audios/pt/slide_09.mp3';
-
-  /// File path: assets/audios/pt/slide_10.mp3
-  String get slide10 => 'assets/audios/pt/slide_10.mp3';
-
-  /// File path: assets/audios/pt/slide_11.mp3
-  String get slide11 => 'assets/audios/pt/slide_11.mp3';
-
-  /// File path: assets/audios/pt/slide_12.mp3
-  String get slide12 => 'assets/audios/pt/slide_12.mp3';
-
-  /// File path: assets/audios/pt/slide_13.mp3
-  String get slide13 => 'assets/audios/pt/slide_13.mp3';
-
-  /// File path: assets/audios/pt/slide_14.mp3
-  String get slide14 => 'assets/audios/pt/slide_14.mp3';
-
-  /// File path: assets/audios/pt/slide_15.mp3
-  String get slide15 => 'assets/audios/pt/slide_15.mp3';
-
-  /// File path: assets/audios/pt/slide_16.mp3
-  String get slide16 => 'assets/audios/pt/slide_16.mp3';
-
-  /// File path: assets/audios/pt/slide_17.mp3
-  String get slide17 => 'assets/audios/pt/slide_17.mp3';
+  $AssetsAudiosPtAGen get a => const $AssetsAudiosPtAGen();
+  $AssetsAudiosPtBGen get b => const $AssetsAudiosPtBGen();
+  $AssetsAudiosPtCountriesGen get countries =>
+      const $AssetsAudiosPtCountriesGen();
 }
 
 class $AssetsImagesBackgroundsGen {
@@ -169,13 +79,13 @@ class $AssetsImagesBackgroundsGen {
   AssetGenImage get slide14 =>
       const AssetGenImage('assets/images/backgrounds/slide_14.png');
 
-  /// File path: assets/images/backgrounds/slide_16.png
-  AssetGenImage get slide16 =>
-      const AssetGenImage('assets/images/backgrounds/slide_16.png');
-
   /// File path: assets/images/backgrounds/start.png
   AssetGenImage get start =>
       const AssetGenImage('assets/images/backgrounds/start.png');
+
+  /// List of all assets
+  List<AssetGenImage> get values =>
+      [slide01, slide05, slide08, slide11, slide12, slide14, start];
 }
 
 class $AssetsImagesPropsGen {
@@ -437,10 +347,6 @@ class $AssetsImagesPropsGen {
   AssetGenImage get slide08Whale =>
       const AssetGenImage('assets/images/props/slide_08_whale.png');
 
-  /// File path: assets/images/props/slide_09_arrow.png
-  AssetGenImage get slide09Arrow =>
-      const AssetGenImage('assets/images/props/slide_09_arrow.png');
-
   /// File path: assets/images/props/slide_09_food.png
   AssetGenImage get slide09Food =>
       const AssetGenImage('assets/images/props/slide_09_food.png');
@@ -549,109 +455,427 @@ class $AssetsImagesPropsGen {
   AssetGenImage get slide11WhaleEffects =>
       const AssetGenImage('assets/images/props/slide_11_whale_effects.png');
 
-  /// File path: assets/images/props/slide_12_island.png
-  AssetGenImage get slide12Island =>
-      const AssetGenImage('assets/images/props/slide_12_island.png');
+  /// File path: assets/images/props/slide_12_whale.png
+  AssetGenImage get slide12Whale =>
+      const AssetGenImage('assets/images/props/slide_12_whale.png');
 
-  /// File path: assets/images/props/slide_12_left_sound.png
-  AssetGenImage get slide12LeftSound =>
-      const AssetGenImage('assets/images/props/slide_12_left_sound.png');
+  /// File path: assets/images/props/slide_12_whale_effects.png
+  AssetGenImage get slide12WhaleEffects =>
+      const AssetGenImage('assets/images/props/slide_12_whale_effects.png');
 
-  /// File path: assets/images/props/slide_12_left_whale.png
-  AssetGenImage get slide12LeftWhale =>
-      const AssetGenImage('assets/images/props/slide_12_left_whale.png');
+  /// File path: assets/images/props/slide_14_arrow.png
+  AssetGenImage get slide14Arrow =>
+      const AssetGenImage('assets/images/props/slide_14_arrow.png');
 
-  /// File path: assets/images/props/slide_12_right_sound.png
-  AssetGenImage get slide12RightSound =>
-      const AssetGenImage('assets/images/props/slide_12_right_sound.png');
+  /// File path: assets/images/props/slide_14_arrow_curved.png
+  AssetGenImage get slide14ArrowCurved =>
+      const AssetGenImage('assets/images/props/slide_14_arrow_curved.png');
 
-  /// File path: assets/images/props/slide_12_right_whale.png
-  AssetGenImage get slide12RightWhale =>
-      const AssetGenImage('assets/images/props/slide_12_right_whale.png');
+  /// File path: assets/images/props/slide_14_dead_whale.png
+  AssetGenImage get slide14DeadWhale =>
+      const AssetGenImage('assets/images/props/slide_14_dead_whale.png');
 
-  /// File path: assets/images/props/slide_12_sound_bounce.png
-  AssetGenImage get slide12SoundBounce =>
-      const AssetGenImage('assets/images/props/slide_12_sound_bounce.png');
+  /// File path: assets/images/props/slide_14_old_whale.png
+  AssetGenImage get slide14OldWhale =>
+      const AssetGenImage('assets/images/props/slide_14_old_whale.png');
 
-  /// File path: assets/images/props/slide_13_bottom_noise.png
-  AssetGenImage get slide13BottomNoise =>
-      const AssetGenImage('assets/images/props/slide_13_bottom_noise.png');
+  /// File path: assets/images/props/slide_14_slide_arrow.png
+  AssetGenImage get slide14SlideArrow =>
+      const AssetGenImage('assets/images/props/slide_14_slide_arrow.png');
 
-  /// File path: assets/images/props/slide_13_cargo.png
-  AssetGenImage get slide13Cargo =>
-      const AssetGenImage('assets/images/props/slide_13_cargo.png');
+  /// List of all assets
+  List<AssetGenImage> get values => [
+        slide01BigWhale,
+        slide01DashedLine,
+        slide01Map,
+        slide01SmallWhale,
+        slide01Whale,
+        slide02Arrow,
+        slide02BigWhale,
+        slide02BigWhaleEffects,
+        slide02Chart,
+        slide02Circle,
+        slide02Fishes1,
+        slide02Fishes2,
+        slide02Fishes3,
+        slide02SmallWhale,
+        slide02SmallWhaleEffects,
+        slide03Arrow,
+        slide03Baby,
+        slide03BigWhale,
+        slide03Chart,
+        slide03Circle,
+        slide03InteractionArrow,
+        slide03SmallWhale,
+        slide03SmallWhaleEffects,
+        slide04BigWhale,
+        slide04ChartArrows,
+        slide04Circle,
+        slide04CircleArrows,
+        slide04CircleBubbles,
+        slide04CircleEnvironment,
+        slide04Important,
+        slide04InteractionArrow,
+        slide04SmallWhale,
+        slide05BigArrow,
+        slide05BigWhale,
+        slide05Bus,
+        slide05Curve,
+        slide05Dinossaur,
+        slide05Fish,
+        slide05InteractionArrow,
+        slide05People,
+        slide05Shark,
+        slide05SmallWhale,
+        slide06FlipArrow,
+        slide06GroupSmallWhales,
+        slide06GroupTrees,
+        slide06SmallWhale,
+        slide06Tiny,
+        slide06TopLeftArrow,
+        slide06TopRightBottomArrow,
+        slide06TopRightTopArrow,
+        slide06Tree,
+        slide06WhaleBottomArrow,
+        slide06WhaleTopArrow,
+        slide07FlipArrow,
+        slide07Food1,
+        slide07Food2,
+        slide07Hands,
+        slide07House,
+        slide07Stuff,
+        slide07Vehicles,
+        slide07Whale,
+        slide08Food,
+        slide08FoodZoom,
+        slide08Whale,
+        slide09Food,
+        slide09FoodZoom,
+        slide09Whale,
+        slide10Arrow,
+        slide10Bag,
+        slide10Bubbles,
+        slide10Clothes,
+        slide10FlipArrow,
+        slide10OtherWhale,
+        slide10OtherWhaleBubbles,
+        slide10Plastic,
+        slide10Recycle,
+        slide10Trash,
+        slide10TrashZoom,
+        slide10VeggiesFruits,
+        slide10Whale,
+        slide11Arrow,
+        slide11Fishing,
+        slide11FlipArrow,
+        slide11Line,
+        slide11Local,
+        slide11Map1,
+        slide11Map2,
+        slide11SlideArrow,
+        slide11Tourism,
+        slide11Whale,
+        slide11WhaleEffects,
+        slide12Whale,
+        slide12WhaleEffects,
+        slide14Arrow,
+        slide14ArrowCurved,
+        slide14DeadWhale,
+        slide14OldWhale,
+        slide14SlideArrow
+      ];
+}
 
-  /// File path: assets/images/props/slide_13_cargo_noise.png
-  AssetGenImage get slide13CargoNoise =>
-      const AssetGenImage('assets/images/props/slide_13_cargo_noise.png');
+class $AssetsAudiosEnAGen {
+  const $AssetsAudiosEnAGen();
 
-  /// File path: assets/images/props/slide_13_oil.png
-  AssetGenImage get slide13Oil =>
-      const AssetGenImage('assets/images/props/slide_13_oil.png');
+  /// File path: assets/audios/en/a/slide_1.mp3
+  String get slide1 => 'assets/audios/en/a/slide_1.mp3';
 
-  /// File path: assets/images/props/slide_13_oil_noise.png
-  AssetGenImage get slide13OilNoise =>
-      const AssetGenImage('assets/images/props/slide_13_oil_noise.png');
+  /// File path: assets/audios/en/a/slide_10.mp3
+  String get slide10 => 'assets/audios/en/a/slide_10.mp3';
 
-  /// File path: assets/images/props/slide_13_whale.png
-  AssetGenImage get slide13Whale =>
-      const AssetGenImage('assets/images/props/slide_13_whale.png');
+  /// File path: assets/audios/en/a/slide_11.mp3
+  String get slide11 => 'assets/audios/en/a/slide_11.mp3';
 
-  /// File path: assets/images/props/slide_13_whale_effects.png
-  AssetGenImage get slide13WhaleEffects =>
-      const AssetGenImage('assets/images/props/slide_13_whale_effects.png');
+  /// File path: assets/audios/en/a/slide_12.mp3
+  String get slide12 => 'assets/audios/en/a/slide_12.mp3';
 
-  /// File path: assets/images/props/slide_14_whale.png
-  AssetGenImage get slide14Whale =>
-      const AssetGenImage('assets/images/props/slide_14_whale.png');
+  /// File path: assets/audios/en/a/slide_13.mp3
+  String get slide13 => 'assets/audios/en/a/slide_13.mp3';
 
-  /// File path: assets/images/props/slide_14_whale_effects.png
-  AssetGenImage get slide14WhaleEffects =>
-      const AssetGenImage('assets/images/props/slide_14_whale_effects.png');
+  /// File path: assets/audios/en/a/slide_14.mp3
+  String get slide14 => 'assets/audios/en/a/slide_14.mp3';
 
-  /// File path: assets/images/props/slide_15_arrow.png
-  AssetGenImage get slide15Arrow =>
-      const AssetGenImage('assets/images/props/slide_15_arrow.png');
+  /// File path: assets/audios/en/a/slide_15.mp3
+  String get slide15 => 'assets/audios/en/a/slide_15.mp3';
 
-  /// File path: assets/images/props/slide_15_boat_plastic.png
-  AssetGenImage get slide15BoatPlastic =>
-      const AssetGenImage('assets/images/props/slide_15_boat_plastic.png');
+  /// File path: assets/audios/en/a/slide_2.mp3
+  String get slide2 => 'assets/audios/en/a/slide_2.mp3';
 
-  /// File path: assets/images/props/slide_15_cargo.png
-  AssetGenImage get slide15Cargo =>
-      const AssetGenImage('assets/images/props/slide_15_cargo.png');
+  /// File path: assets/audios/en/a/slide_3.mp3
+  String get slide3 => 'assets/audios/en/a/slide_3.mp3';
 
-  /// File path: assets/images/props/slide_15_shark.png
-  AssetGenImage get slide15Shark =>
-      const AssetGenImage('assets/images/props/slide_15_shark.png');
+  /// File path: assets/audios/en/a/slide_4.mp3
+  String get slide4 => 'assets/audios/en/a/slide_4.mp3';
 
-  /// File path: assets/images/props/slide_15_whale_left.png
-  AssetGenImage get slide15WhaleLeft =>
-      const AssetGenImage('assets/images/props/slide_15_whale_left.png');
+  /// File path: assets/audios/en/a/slide_5.mp3
+  String get slide5 => 'assets/audios/en/a/slide_5.mp3';
 
-  /// File path: assets/images/props/slide_15_whale_right.png
-  AssetGenImage get slide15WhaleRight =>
-      const AssetGenImage('assets/images/props/slide_15_whale_right.png');
+  /// File path: assets/audios/en/a/slide_6.mp3
+  String get slide6 => 'assets/audios/en/a/slide_6.mp3';
 
-  /// File path: assets/images/props/slide_16_arrow.png
-  AssetGenImage get slide16Arrow =>
-      const AssetGenImage('assets/images/props/slide_16_arrow.png');
+  /// File path: assets/audios/en/a/slide_7.mp3
+  String get slide7 => 'assets/audios/en/a/slide_7.mp3';
 
-  /// File path: assets/images/props/slide_16_arrow_curved.png
-  AssetGenImage get slide16ArrowCurved =>
-      const AssetGenImage('assets/images/props/slide_16_arrow_curved.png');
+  /// File path: assets/audios/en/a/slide_8.mp3
+  String get slide8 => 'assets/audios/en/a/slide_8.mp3';
 
-  /// File path: assets/images/props/slide_16_dead_whale.png
-  AssetGenImage get slide16DeadWhale =>
-      const AssetGenImage('assets/images/props/slide_16_dead_whale.png');
+  /// File path: assets/audios/en/a/slide_9.mp3
+  String get slide9 => 'assets/audios/en/a/slide_9.mp3';
 
-  /// File path: assets/images/props/slide_16_old_whale.png
-  AssetGenImage get slide16OldWhale =>
-      const AssetGenImage('assets/images/props/slide_16_old_whale.png');
+  /// List of all assets
+  List<String> get values => [
+        slide1,
+        slide10,
+        slide11,
+        slide12,
+        slide13,
+        slide14,
+        slide15,
+        slide2,
+        slide3,
+        slide4,
+        slide5,
+        slide6,
+        slide7,
+        slide8,
+        slide9
+      ];
+}
 
-  /// File path: assets/images/props/slide_16_slide_arrow.png
-  AssetGenImage get slide16SlideArrow =>
-      const AssetGenImage('assets/images/props/slide_16_slide_arrow.png');
+class $AssetsAudiosEnBGen {
+  const $AssetsAudiosEnBGen();
+
+  /// File path: assets/audios/en/b/slide_1.mp3
+  String get slide1 => 'assets/audios/en/b/slide_1.mp3';
+
+  /// File path: assets/audios/en/b/slide_10.mp3
+  String get slide10 => 'assets/audios/en/b/slide_10.mp3';
+
+  /// File path: assets/audios/en/b/slide_11.mp3
+  String get slide11 => 'assets/audios/en/b/slide_11.mp3';
+
+  /// File path: assets/audios/en/b/slide_12.mp3
+  String get slide12 => 'assets/audios/en/b/slide_12.mp3';
+
+  /// File path: assets/audios/en/b/slide_13.mp3
+  String get slide13 => 'assets/audios/en/b/slide_13.mp3';
+
+  /// File path: assets/audios/en/b/slide_14.mp3
+  String get slide14 => 'assets/audios/en/b/slide_14.mp3';
+
+  /// File path: assets/audios/en/b/slide_15.mp3
+  String get slide15 => 'assets/audios/en/b/slide_15.mp3';
+
+  /// File path: assets/audios/en/b/slide_2.mp3
+  String get slide2 => 'assets/audios/en/b/slide_2.mp3';
+
+  /// File path: assets/audios/en/b/slide_3.mp3
+  String get slide3 => 'assets/audios/en/b/slide_3.mp3';
+
+  /// File path: assets/audios/en/b/slide_4.mp3
+  String get slide4 => 'assets/audios/en/b/slide_4.mp3';
+
+  /// File path: assets/audios/en/b/slide_5.mp3
+  String get slide5 => 'assets/audios/en/b/slide_5.mp3';
+
+  /// File path: assets/audios/en/b/slide_6.mp3
+  String get slide6 => 'assets/audios/en/b/slide_6.mp3';
+
+  /// File path: assets/audios/en/b/slide_7.mp3
+  String get slide7 => 'assets/audios/en/b/slide_7.mp3';
+
+  /// File path: assets/audios/en/b/slide_8.mp3
+  String get slide8 => 'assets/audios/en/b/slide_8.mp3';
+
+  /// File path: assets/audios/en/b/slide_9.mp3
+  String get slide9 => 'assets/audios/en/b/slide_9.mp3';
+
+  /// List of all assets
+  List<String> get values => [
+        slide1,
+        slide10,
+        slide11,
+        slide12,
+        slide13,
+        slide14,
+        slide15,
+        slide2,
+        slide3,
+        slide4,
+        slide5,
+        slide6,
+        slide7,
+        slide8,
+        slide9
+      ];
+}
+
+class $AssetsAudiosEnCountriesGen {
+  const $AssetsAudiosEnCountriesGen();
+
+  /// File path: assets/audios/en/countries/portugal.mp3
+  String get portugal => 'assets/audios/en/countries/portugal.mp3';
+
+  /// List of all assets
+  List<String> get values => [portugal];
+}
+
+class $AssetsAudiosPtAGen {
+  const $AssetsAudiosPtAGen();
+
+  /// File path: assets/audios/pt/a/slide_1.mp3
+  String get slide1 => 'assets/audios/pt/a/slide_1.mp3';
+
+  /// File path: assets/audios/pt/a/slide_10.mp3
+  String get slide10 => 'assets/audios/pt/a/slide_10.mp3';
+
+  /// File path: assets/audios/pt/a/slide_11.mp3
+  String get slide11 => 'assets/audios/pt/a/slide_11.mp3';
+
+  /// File path: assets/audios/pt/a/slide_12.mp3
+  String get slide12 => 'assets/audios/pt/a/slide_12.mp3';
+
+  /// File path: assets/audios/pt/a/slide_13.mp3
+  String get slide13 => 'assets/audios/pt/a/slide_13.mp3';
+
+  /// File path: assets/audios/pt/a/slide_14.mp3
+  String get slide14 => 'assets/audios/pt/a/slide_14.mp3';
+
+  /// File path: assets/audios/pt/a/slide_15.mp3
+  String get slide15 => 'assets/audios/pt/a/slide_15.mp3';
+
+  /// File path: assets/audios/pt/a/slide_2.mp3
+  String get slide2 => 'assets/audios/pt/a/slide_2.mp3';
+
+  /// File path: assets/audios/pt/a/slide_3.mp3
+  String get slide3 => 'assets/audios/pt/a/slide_3.mp3';
+
+  /// File path: assets/audios/pt/a/slide_4.mp3
+  String get slide4 => 'assets/audios/pt/a/slide_4.mp3';
+
+  /// File path: assets/audios/pt/a/slide_5.mp3
+  String get slide5 => 'assets/audios/pt/a/slide_5.mp3';
+
+  /// File path: assets/audios/pt/a/slide_6.mp3
+  String get slide6 => 'assets/audios/pt/a/slide_6.mp3';
+
+  /// File path: assets/audios/pt/a/slide_7.mp3
+  String get slide7 => 'assets/audios/pt/a/slide_7.mp3';
+
+  /// File path: assets/audios/pt/a/slide_8.mp3
+  String get slide8 => 'assets/audios/pt/a/slide_8.mp3';
+
+  /// File path: assets/audios/pt/a/slide_9.mp3
+  String get slide9 => 'assets/audios/pt/a/slide_9.mp3';
+
+  /// List of all assets
+  List<String> get values => [
+        slide1,
+        slide10,
+        slide11,
+        slide12,
+        slide13,
+        slide14,
+        slide15,
+        slide2,
+        slide3,
+        slide4,
+        slide5,
+        slide6,
+        slide7,
+        slide8,
+        slide9
+      ];
+}
+
+class $AssetsAudiosPtBGen {
+  const $AssetsAudiosPtBGen();
+
+  /// File path: assets/audios/pt/b/slide_1.mp3
+  String get slide1 => 'assets/audios/pt/b/slide_1.mp3';
+
+  /// File path: assets/audios/pt/b/slide_10.mp3
+  String get slide10 => 'assets/audios/pt/b/slide_10.mp3';
+
+  /// File path: assets/audios/pt/b/slide_11.mp3
+  String get slide11 => 'assets/audios/pt/b/slide_11.mp3';
+
+  /// File path: assets/audios/pt/b/slide_12.mp3
+  String get slide12 => 'assets/audios/pt/b/slide_12.mp3';
+
+  /// File path: assets/audios/pt/b/slide_13.mp3
+  String get slide13 => 'assets/audios/pt/b/slide_13.mp3';
+
+  /// File path: assets/audios/pt/b/slide_14.mp3
+  String get slide14 => 'assets/audios/pt/b/slide_14.mp3';
+
+  /// File path: assets/audios/pt/b/slide_15.mp3
+  String get slide15 => 'assets/audios/pt/b/slide_15.mp3';
+
+  /// File path: assets/audios/pt/b/slide_2.mp3
+  String get slide2 => 'assets/audios/pt/b/slide_2.mp3';
+
+  /// File path: assets/audios/pt/b/slide_3.mp3
+  String get slide3 => 'assets/audios/pt/b/slide_3.mp3';
+
+  /// File path: assets/audios/pt/b/slide_4.mp3
+  String get slide4 => 'assets/audios/pt/b/slide_4.mp3';
+
+  /// File path: assets/audios/pt/b/slide_5.mp3
+  String get slide5 => 'assets/audios/pt/b/slide_5.mp3';
+
+  /// File path: assets/audios/pt/b/slide_6.mp3
+  String get slide6 => 'assets/audios/pt/b/slide_6.mp3';
+
+  /// File path: assets/audios/pt/b/slide_7.mp3
+  String get slide7 => 'assets/audios/pt/b/slide_7.mp3';
+
+  /// File path: assets/audios/pt/b/slide_8.mp3
+  String get slide8 => 'assets/audios/pt/b/slide_8.mp3';
+
+  /// File path: assets/audios/pt/b/slide_9.mp3
+  String get slide9 => 'assets/audios/pt/b/slide_9.mp3';
+
+  /// List of all assets
+  List<String> get values => [
+        slide1,
+        slide10,
+        slide11,
+        slide12,
+        slide13,
+        slide14,
+        slide15,
+        slide2,
+        slide3,
+        slide4,
+        slide5,
+        slide6,
+        slide7,
+        slide8,
+        slide9
+      ];
+}
+
+class $AssetsAudiosPtCountriesGen {
+  const $AssetsAudiosPtCountriesGen();
+
+  /// File path: assets/audios/pt/countries/portugal.mp3
+  String get portugal => 'assets/audios/pt/countries/portugal.mp3';
+
+  /// List of all assets
+  List<String> get values => [portugal];
 }
 
 class Assets {
@@ -716,6 +940,17 @@ class AssetGenImage {
       filterQuality: filterQuality,
       cacheWidth: cacheWidth,
       cacheHeight: cacheHeight,
+    );
+  }
+
+  ImageProvider provider({
+    AssetBundle? bundle,
+    String? package,
+  }) {
+    return AssetImage(
+      _assetName,
+      bundle: bundle,
+      package: package,
     );
   }
 
