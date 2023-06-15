@@ -14,6 +14,7 @@ import 'package:arcadia_app/widgets/circle_button.dart';
 import 'package:arcadia_app/widgets/dropdown_button.dart';
 import 'package:arcadia_app/widgets/flip_coin.dart';
 import 'package:arcadia_app/widgets/gradient_slider.dart';
+import 'package:arcadia_app/widgets/line.dart';
 import 'package:arcadia_app/widgets/screen.dart';
 import 'package:arcadia_app/widgets/slide.dart';
 import 'package:flip_card/flip_card.dart';
@@ -25,13 +26,12 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
-import '../widgets/line.dart';
-
 class SlideshowScreen extends ConsumerWidget {
   const SlideshowScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
     final condition = ref.watch(conditionProvider);
     final logger = ref.watch(loggerProvider);
     return Slideshow(
@@ -205,7 +205,6 @@ class SlideshowScreen extends ConsumerWidget {
                   'pt': Assets.audios.pt.b.slide2,
                 },
           propsBuilder: (context, controller, isActive) {
-            final l10n = AppLocalizations.of(context)!;
             const reverseCurve = Interval(0, 1, curve: Curves.easeOut);
             final fishesOpacity = Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
@@ -551,8 +550,8 @@ class SlideshowScreen extends ConsumerWidget {
                   'en': Assets.audios.en.b.slide3,
                   'pt': Assets.audios.pt.b.slide3,
                 },
+          propsDuration: const Duration(seconds: 14),
           propsBuilder: (context, controller, isActive) {
-            final l10n = AppLocalizations.of(context)!;
             const reverseCurve = Interval(0, 1, curve: Curves.easeOut);
             final fishesOpacity = Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
@@ -563,21 +562,29 @@ class SlideshowScreen extends ConsumerWidget {
             final circleOpacity = Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
                 parent: controller,
-                curve: const Interval(0, 0.2, curve: Curves.easeIn),
+                curve: const Interval(0, 0.2 * 1 / 14, curve: Curves.easeIn),
                 reverseCurve: reverseCurve,
               ),
             );
             final bigWhaleOpacity = Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
                 parent: controller,
-                curve: const Interval(0.2, 0.3, curve: Curves.easeIn),
+                curve: const Interval(
+                  0.2 * 1 / 14,
+                  0.3 * 1 / 14,
+                  curve: Curves.easeIn,
+                ),
                 reverseCurve: reverseCurve,
               ),
             );
             final smallWhaleOpacity = Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
                 parent: controller,
-                curve: const Interval(0.3, 0.4, curve: Curves.easeIn),
+                curve: const Interval(
+                  0.3 * 1 / 14,
+                  0.4 * 1 / 14,
+                  curve: Curves.easeIn,
+                ),
                 reverseCurve: reverseCurve,
               ),
             );
@@ -585,35 +592,55 @@ class SlideshowScreen extends ConsumerWidget {
                 Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
                 parent: controller,
-                curve: const Interval(0.4, 0.5, curve: Curves.easeIn),
+                curve: const Interval(
+                  0.4 * 1 / 14,
+                  0.5 * 1 / 14,
+                  curve: Curves.easeIn,
+                ),
                 reverseCurve: reverseCurve,
               ),
             );
             final chartCircleOpacity = Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
                 parent: controller,
-                curve: const Interval(0.5, 0.6, curve: Curves.easeIn),
+                curve: const Interval(
+                  0.5 * 1 / 14,
+                  0.6 * 1 / 14,
+                  curve: Curves.easeIn,
+                ),
                 reverseCurve: reverseCurve,
               ),
             );
             final chartOpacity = Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
                 parent: controller,
-                curve: const Interval(0.6, 0.8, curve: Curves.easeIn),
+                curve: const Interval(
+                  0.6 * 1 / 14,
+                  0.8 * 1 / 14,
+                  curve: Curves.easeIn,
+                ),
                 reverseCurve: reverseCurve,
               ),
             );
             final chartExtraOpacity = Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
                 parent: controller,
-                curve: const Interval(0.8, 0.9, curve: Curves.easeIn),
+                curve: const Interval(
+                  0.8 * 1 / 14,
+                  0.9 * 1 / 14,
+                  curve: Curves.easeIn,
+                ),
                 reverseCurve: reverseCurve,
               ),
             );
             final chartInputOpacity = Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
                 parent: controller,
-                curve: const Interval(0.9, 1, curve: Curves.easeIn),
+                curve: const Interval(
+                  13 / 14,
+                  13 / 14 + 0.2 * 1 / 14,
+                  curve: Curves.easeIn,
+                ),
                 reverseCurve: reverseCurve,
               ),
             );
@@ -1113,9 +1140,11 @@ class SlideshowScreen extends ConsumerWidget {
                   'en': Assets.audios.en.b.slide4,
                   'pt': Assets.audios.pt.b.slide4,
                 },
-          propsDuration: const Duration(seconds: 18),
+          propsDuration: l10n.localeName == 'pt'
+              ? const Duration(seconds: 50)
+              : const Duration(seconds: 65),
           propsBuilder: (context, controller, isActive) {
-            final l10n = AppLocalizations.of(context)!;
+            final duration = l10n.localeName == 'pt' ? 51 : 66;
             const reverseCurve = Interval(0, 1, curve: Curves.easeOut);
             final fishesOpacity = Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
@@ -1126,7 +1155,7 @@ class SlideshowScreen extends ConsumerWidget {
             final circleOpacity = Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
                 parent: controller,
-                curve: const Interval(0, 0.2 * 1 / 18, curve: Curves.easeIn),
+                curve: Interval(0, 0.2 * 1 / duration, curve: Curves.easeIn),
                 reverseCurve: reverseCurve,
               ),
             );
@@ -1134,9 +1163,9 @@ class SlideshowScreen extends ConsumerWidget {
                 Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
                 parent: controller,
-                curve: const Interval(
-                  0.2 * 1 / 18,
-                  0.4 * 1 / 18,
+                curve: Interval(
+                  0.2 * 1 / duration,
+                  0.4 * 1 / duration,
                   curve: Curves.easeIn,
                 ),
                 reverseCurve: reverseCurve,
@@ -1145,9 +1174,9 @@ class SlideshowScreen extends ConsumerWidget {
             final whalesOpacity = Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
                 parent: controller,
-                curve: const Interval(
-                  0.4 * 1 / 18,
-                  0.6 * 1 / 18,
+                curve: Interval(
+                  0.4 * 1 / duration,
+                  0.6 * 1 / duration,
                   curve: Curves.easeIn,
                 ),
                 reverseCurve: reverseCurve,
@@ -1156,9 +1185,9 @@ class SlideshowScreen extends ConsumerWidget {
             final circleInfoOpacity = Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
                 parent: controller,
-                curve: const Interval(
-                  0.6 * 1 / 18,
-                  0.8 * 1 / 18,
+                curve: Interval(
+                  0.6 * 1 / duration,
+                  0.8 * 1 / duration,
                   curve: Curves.easeIn,
                 ),
                 reverseCurve: reverseCurve,
@@ -1168,9 +1197,9 @@ class SlideshowScreen extends ConsumerWidget {
                 Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
                 parent: controller,
-                curve: const Interval(
-                  17 / 18,
-                  17 / 18 + 0.2 * 1 / 18,
+                curve: Interval(
+                  17 / duration,
+                  17 / duration + 0.2 * 1 / duration,
                   curve: Curves.easeIn,
                 ),
                 reverseCurve: reverseCurve,
@@ -1179,9 +1208,9 @@ class SlideshowScreen extends ConsumerWidget {
             final chartTitleOpacity = Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
                 parent: controller,
-                curve: const Interval(
-                  17 / 18 + 0.2 * 1 / 18,
-                  17 / 18 + 0.4 * 1 / 18,
+                curve: Interval(
+                  17 / duration + 0.2 * 1 / duration,
+                  17 / duration + 0.4 * 1 / duration,
                   curve: Curves.easeIn,
                 ),
                 reverseCurve: reverseCurve,
@@ -1190,9 +1219,9 @@ class SlideshowScreen extends ConsumerWidget {
             final chartBubblesOpacity = Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
                 parent: controller,
-                curve: const Interval(
-                  17 / 18 + 0.4 * 1 / 18,
-                  17 / 18 + 0.6 * 1 / 18,
+                curve: Interval(
+                  17 / duration + 0.4 * 1 / duration,
+                  17 / duration + 0.6 * 1 / duration,
                   curve: Curves.easeIn,
                 ),
                 reverseCurve: reverseCurve,
@@ -1201,9 +1230,9 @@ class SlideshowScreen extends ConsumerWidget {
             final chartInputOpacity = Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
                 parent: controller,
-                curve: const Interval(
-                  17 / 18 + 0.6 * 1 / 18,
-                  17 / 18 + 0.8 * 1 / 18,
+                curve: Interval(
+                  (duration - 1) / duration,
+                  (duration - 1) / duration + 0.2 * 1 / duration,
                   curve: Curves.easeIn,
                 ),
                 reverseCurve: reverseCurve,
@@ -1731,7 +1760,7 @@ class SlideshowScreen extends ConsumerWidget {
                   left: 478,
                   top: 624,
                   child: FadeTransition(
-                    opacity: chartBubblesOpacity,
+                    opacity: chartInputOpacity,
                     child: SizedBox.shrink(
                       child: OverflowBox(
                         maxHeight: 1000,
@@ -1739,9 +1768,13 @@ class SlideshowScreen extends ConsumerWidget {
                         child: AnimatedContainer(
                           duration: const Duration(milliseconds: 300),
                           height: max(
-                              sqrt(tons * pow(129, 2) / 37000000000) * 2, 5),
+                            sqrt(tons * pow(129, 2) / 37000000000) * 2,
+                            5,
+                          ),
                           width: max(
-                              sqrt(tons * pow(129, 2) / 37000000000) * 2, 5),
+                            sqrt(tons * pow(129, 2) / 37000000000) * 2,
+                            5,
+                          ),
                           decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             color: AppColors.red,
@@ -1847,7 +1880,6 @@ class SlideshowScreen extends ConsumerWidget {
           background:
               Assets.images.backgrounds.slide05.image(fit: BoxFit.cover).image,
           propsBuilder: (context, controller, isActive) {
-            final l10n = AppLocalizations.of(context)!;
             const reverseCurve = Interval(0, 1, curve: Curves.easeOut);
 
             final whaleOpacity = Tween<double>(begin: 0, end: 1).animate(
@@ -2411,7 +2443,6 @@ class SlideshowScreen extends ConsumerWidget {
                   'pt': Assets.audios.pt.b.slide6,
                 },
           propsBuilder: (context, controller, isActive) {
-            final l10n = AppLocalizations.of(context)!;
             const reverseCurve = Interval(0, 1, curve: Curves.easeOut);
             final whaleOpacity = Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
@@ -3074,12 +3105,11 @@ class SlideshowScreen extends ConsumerWidget {
                   'pt': Assets.audios.pt.b.slide7,
                 },
           propsBuilder: (context, controller, isActive) {
-            final l10n = AppLocalizations.of(context)!;
             const reverseCurve = Interval(0, 1, curve: Curves.easeOut);
             final whaleOpacity = Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
                 parent: controller,
-                curve: const Interval(0, 0.2, curve: Curves.easeIn),
+                curve: const Interval(0, 0.2 * 1 / 18, curve: Curves.easeIn),
                 reverseCurve: reverseCurve,
               ),
             );
@@ -3456,7 +3486,6 @@ class SlideshowScreen extends ConsumerWidget {
                   'pt': Assets.audios.pt.b.slide10,
                 },
           propsBuilder: (context, controller, isActive) {
-            final l10n = AppLocalizations.of(context)!;
             const reverseCurve = Interval(0, 1, curve: Curves.easeOut);
             final whalesOpacity = Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
@@ -3700,7 +3729,6 @@ class SlideshowScreen extends ConsumerWidget {
                   'pt': Assets.audios.pt.b.slide11,
                 },
           propsBuilder: (context, controller, isActive) {
-            final l10n = AppLocalizations.of(context)!;
             const reverseCurve = Interval(0, 1, curve: Curves.easeOut);
             final circleOpacity = Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
@@ -4018,7 +4046,6 @@ class SlideshowScreen extends ConsumerWidget {
                   'pt': Assets.audios.pt.b.slide13,
                 },
           propsBuilder: (context, controller, isActive) {
-            final l10n = AppLocalizations.of(context)!;
             const reverseCurve = Interval(0, 1, curve: Curves.easeOut);
             final titleOpacity = Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
@@ -4155,7 +4182,6 @@ class SlideshowScreen extends ConsumerWidget {
                   'pt': Assets.audios.pt.b.slide14,
                 },
           propsBuilder: (context, controller, isActive) {
-            final l10n = AppLocalizations.of(context)!;
             const reverseCurve = Interval(0, 1, curve: Curves.easeOut);
             final oldWhaleOpacity = Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
@@ -4350,7 +4376,6 @@ class SlideshowScreen extends ConsumerWidget {
                   'pt': Assets.audios.pt.b.slide15,
                 },
           propsBuilder: (context, controller, isActive) {
-            final l10n = AppLocalizations.of(context)!;
             const reverseCurve = Interval(0, 1, curve: Curves.easeOut);
             final textOpacity = Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
@@ -4588,33 +4613,38 @@ class Slideshow extends HookConsumerWidget {
                                   return () =>
                                       currentSlide.removeListener(reset);
                                 });
+                                final isEnabled =
+                                    currentSlide.value == slides.length ||
+                                        !isAudioPlaying ||
+                                        forceEnable.value;
                                 return CircleButton(
                                   height: 52,
                                   width: 52,
                                   border: Border.all(
-                                    color: currentSlide.value == 31 ||
-                                            (isAudioPlaying &&
-                                                !forceEnable.value)
-                                        ? AppColors.blue.withOpacity(0.2)
-                                        : AppColors.blue,
+                                    color: isEnabled
+                                        ? AppColors.blue
+                                        : AppColors.blue.withOpacity(0.2),
                                     width: 2,
                                   ),
-                                  onTap: currentSlide.value == 31 ||
-                                          (isAudioPlaying && !forceEnable.value)
-                                      ? () => forceEnable.value = true
-                                      : () {
+                                  onTap: isEnabled
+                                      ? () {
+                                          if (currentSlide.value ==
+                                              slides.length) {
+                                            logger.logLeave(currentSlide.value);
+                                            context.go('/');
+                                            return;
+                                          }
                                           logger.logManualNextSlide(
                                             currentSlide.value,
                                           );
                                           currentSlide.value++;
-                                        },
+                                        }
+                                      : () => forceEnable.value = true,
                                   child: Arrow(
                                     size: const Size(28, 26),
-                                    color: currentSlide.value == 31 ||
-                                            (isAudioPlaying &&
-                                                !forceEnable.value)
-                                        ? AppColors.blue.withOpacity(0.2)
-                                        : AppColors.blue,
+                                    color: isEnabled
+                                        ? AppColors.blue
+                                        : AppColors.blue.withOpacity(0.2),
                                     direction: AxisDirection.right,
                                   ),
                                 );
@@ -5212,37 +5242,43 @@ class _InfoCoin13 extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return FlipCoin(
-      radius: 128,
-      back: const SizedBox(),
-      front: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            title,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontFamily: FontFamily.poppins,
-              color: AppColors.darkBlue,
-              fontWeight: FontWeight.bold,
-              fontSize: 23,
-              height: 1.2,
-            ),
-          ),
-          if (text != null) ...[
-            const SizedBox(height: 10),
-            Text(
-              text!,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontFamily: FontFamily.poppins,
-                color: AppColors.darkBlue,
-                fontSize: 17,
-                height: 1.2,
+    return Material(
+      type: MaterialType.circle,
+      color: AppColors.white,
+      child: SizedBox(
+        height: 256,
+        width: 256,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                title,
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontFamily: FontFamily.poppins,
+                  color: AppColors.darkBlue,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 23,
+                  height: 1.2,
+                ),
               ),
-            ),
-          ],
-        ],
+              if (text != null) ...[
+                const SizedBox(height: 10),
+                Text(
+                  text!,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontFamily: FontFamily.poppins,
+                    color: AppColors.darkBlue,
+                    fontSize: 17,
+                    height: 1.2,
+                  ),
+                ),
+              ],
+            ],
+          ),
+        ),
       ),
     );
   }
