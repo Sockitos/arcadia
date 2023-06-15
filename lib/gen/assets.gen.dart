@@ -39,8 +39,6 @@ class $AssetsAudiosEnGen {
 
   $AssetsAudiosEnAGen get a => const $AssetsAudiosEnAGen();
   $AssetsAudiosEnBGen get b => const $AssetsAudiosEnBGen();
-  $AssetsAudiosEnCountriesGen get countries =>
-      const $AssetsAudiosEnCountriesGen();
 }
 
 class $AssetsAudiosPtGen {
@@ -48,8 +46,6 @@ class $AssetsAudiosPtGen {
 
   $AssetsAudiosPtAGen get a => const $AssetsAudiosPtAGen();
   $AssetsAudiosPtBGen get b => const $AssetsAudiosPtBGen();
-  $AssetsAudiosPtCountriesGen get countries =>
-      const $AssetsAudiosPtCountriesGen();
 }
 
 class $AssetsImagesBackgroundsGen {
@@ -187,9 +183,17 @@ class $AssetsImagesPropsGen {
   AssetGenImage get slide04BigWhale =>
       const AssetGenImage('assets/images/props/slide_04_big_whale.png');
 
-  /// File path: assets/images/props/slide_04_chart_arrows.png
-  AssetGenImage get slide04ChartArrows =>
-      const AssetGenImage('assets/images/props/slide_04_chart_arrows.png');
+  /// File path: assets/images/props/slide_04_chart_arrow.png
+  AssetGenImage get slide04ChartArrow =>
+      const AssetGenImage('assets/images/props/slide_04_chart_arrow.png');
+
+  /// File path: assets/images/props/slide_04_chart_line_1.png
+  AssetGenImage get slide04ChartLine1 =>
+      const AssetGenImage('assets/images/props/slide_04_chart_line_1.png');
+
+  /// File path: assets/images/props/slide_04_chart_line_2.png
+  AssetGenImage get slide04ChartLine2 =>
+      const AssetGenImage('assets/images/props/slide_04_chart_line_2.png');
 
   /// File path: assets/images/props/slide_04_circle.png
   AssetGenImage get slide04Circle =>
@@ -463,6 +467,10 @@ class $AssetsImagesPropsGen {
   AssetGenImage get slide12WhaleEffects =>
       const AssetGenImage('assets/images/props/slide_12_whale_effects.png');
 
+  /// File path: assets/images/props/slide_13_line.png
+  AssetGenImage get slide13Line =>
+      const AssetGenImage('assets/images/props/slide_13_line.png');
+
   /// File path: assets/images/props/slide_14_arrow.png
   AssetGenImage get slide14Arrow =>
       const AssetGenImage('assets/images/props/slide_14_arrow.png');
@@ -509,7 +517,9 @@ class $AssetsImagesPropsGen {
         slide03SmallWhale,
         slide03SmallWhaleEffects,
         slide04BigWhale,
-        slide04ChartArrows,
+        slide04ChartArrow,
+        slide04ChartLine1,
+        slide04ChartLine2,
         slide04Circle,
         slide04CircleArrows,
         slide04CircleBubbles,
@@ -578,6 +588,7 @@ class $AssetsImagesPropsGen {
         slide11WhaleEffects,
         slide12Whale,
         slide12WhaleEffects,
+        slide13Line,
         slide14Arrow,
         slide14ArrowCurved,
         slide14DeadWhale,
@@ -722,16 +733,6 @@ class $AssetsAudiosEnBGen {
       ];
 }
 
-class $AssetsAudiosEnCountriesGen {
-  const $AssetsAudiosEnCountriesGen();
-
-  /// File path: assets/audios/en/countries/portugal.mp3
-  String get portugal => 'assets/audios/en/countries/portugal.mp3';
-
-  /// List of all assets
-  List<String> get values => [portugal];
-}
-
 class $AssetsAudiosPtAGen {
   const $AssetsAudiosPtAGen();
 
@@ -866,16 +867,6 @@ class $AssetsAudiosPtBGen {
         slide8,
         slide9
       ];
-}
-
-class $AssetsAudiosPtCountriesGen {
-  const $AssetsAudiosPtCountriesGen();
-
-  /// File path: assets/audios/pt/countries/portugal.mp3
-  String get portugal => 'assets/audios/pt/countries/portugal.mp3';
-
-  /// List of all assets
-  List<String> get values => [portugal];
 }
 
 class Assets {

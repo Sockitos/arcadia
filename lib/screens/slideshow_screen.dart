@@ -744,7 +744,8 @@ class SlideshowScreen extends ConsumerWidget {
                                                           child: Row(
                                                             children: [
                                                               SizedBox(
-                                                                  width: 30),
+                                                                width: 30,
+                                                              ),
                                                               Text('1900'),
                                                               Spacer(),
                                                               Text('1950'),
@@ -753,7 +754,8 @@ class SlideshowScreen extends ConsumerWidget {
                                                               Spacer(),
                                                               Text('2050'),
                                                               SizedBox(
-                                                                  width: 84),
+                                                                width: 84,
+                                                              ),
                                                             ],
                                                           ),
                                                         ),
@@ -1008,49 +1010,35 @@ class SlideshowScreen extends ConsumerWidget {
                                             ),
                                           ),
                                           const SizedBox(height: 10),
-                                          Row(
-                                            children: [
-                                              SizedBox(
-                                                width: 100,
-                                                child: DropdownField<int>(
-                                                  value: year.value,
-                                                  onChanged: (value) {
-                                                    if (value != null) {
-                                                      logger.logYearSelected(
-                                                        value,
-                                                        slide: 3,
-                                                      );
-                                                    }
-                                                    year.value =
-                                                        value ?? year.value;
-                                                  },
-                                                  options: [
-                                                    for (var i = 2010;
-                                                        i >= 1940;
-                                                        i--)
-                                                      i
-                                                  ],
-                                                ),
-                                              ),
-                                              CircleButton(
-                                                height: 40,
-                                                width: 40,
-                                                onTap: () async {
-                                                  if (year.value != null) {
-                                                    await player.setAsset(
-                                                      l10n.localeName == 'pt'
-                                                          ? 'assets/audios/pt/dates/${year.value}.mp3'
-                                                          : 'assets/audios/en/dates/${year.value}.mp3',
-                                                    );
-                                                    await player.play();
-                                                  }
-                                                },
-                                                child: const Icon(
-                                                  Icons.volume_up,
-                                                  color: AppColors.blue,
-                                                ),
-                                              ),
-                                            ],
+                                          SizedBox(
+                                            width: 100,
+                                            child: DropdownField<int>(
+                                              value: year.value,
+                                              onChanged: (value) async {
+                                                if (value != null) {
+                                                  logger.logYearSelected(
+                                                    value,
+                                                    slide: 3,
+                                                  );
+                                                }
+                                                year.value =
+                                                    value ?? year.value;
+                                                if (year.value != null) {
+                                                  await player.setAsset(
+                                                    l10n.localeName == 'pt'
+                                                        ? 'assets/audios/pt/dates/${year.value}.mp3'
+                                                        : 'assets/audios/en/dates/${year.value}.mp3',
+                                                  );
+                                                  await player.play();
+                                                }
+                                              },
+                                              options: [
+                                                for (var i = 2010;
+                                                    i >= 1940;
+                                                    i--)
+                                                  i
+                                              ],
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -1239,7 +1227,7 @@ class SlideshowScreen extends ConsumerWidget {
               ),
             );
 
-            final country = useState('Portugal');
+            final country = useState<String?>(null);
             final tons = co2Emissions[country.value] ?? 0;
             final player = useAudioPlayer();
             return [
@@ -1610,12 +1598,18 @@ class SlideshowScreen extends ConsumerWidget {
                   ),
                 ),
               Positioned(
-                left: 366.5,
-                top: 359,
-                child: Assets.images.props.slide04ChartArrows
+                left: 739.2,
+                top: 359.2,
+                child: Assets.images.props.slide04ChartArrow
                     .image(opacity: chartBubblesOpacity),
               ),
               if (condition == 'B') ...[
+                Positioned(
+                  left: 630.5,
+                  top: 728,
+                  child: Assets.images.props.slide04ChartLine1
+                      .image(opacity: chartBubblesOpacity),
+                ),
                 Positioned(
                   left: 346,
                   top: 717.7,
@@ -1820,7 +1814,13 @@ class SlideshowScreen extends ConsumerWidget {
                     ),
                   ),
                 ),
-              if (condition == 'B')
+              if (condition == 'B' && tons > 0) ...[
+                Positioned(
+                  left: 366.5,
+                  top: 561,
+                  child: Assets.images.props.slide04ChartLine2
+                      .image(opacity: chartBubblesOpacity),
+                ),
                 Positioned(
                   left: 478,
                   top: 624,
@@ -1850,6 +1850,7 @@ class SlideshowScreen extends ConsumerWidget {
                     ),
                   ),
                 ),
+              ],
               if (condition == 'B') ...[
                 Positioned(
                   left: 267,
@@ -1869,53 +1870,42 @@ class SlideshowScreen extends ConsumerWidget {
                           ),
                         ),
                         const SizedBox(height: 10),
-                        Row(
-                          children: [
-                            SizedBox(
-                              width: 200,
-                              child: DropdownField<String>(
-                                value: country.value,
-                                onChanged: (value) {
-                                  if (value != null) {
-                                    logger.logCountrySelected(
-                                      value,
-                                      slide: 4,
-                                    );
-                                  }
-                                  country.value = value ?? country.value;
-                                },
-                                options: co2Emissions.keys.toList(),
-                              ),
-                            ),
-                            CircleButton(
-                              height: 40,
-                              width: 40,
-                              onTap: () async {
+                        SizedBox(
+                          width: 200,
+                          child: DropdownField<String>(
+                            value: country.value,
+                            onChanged: (value) async {
+                              if (value != null) {
+                                logger.logCountrySelected(
+                                  value,
+                                  slide: 4,
+                                );
+                              }
+                              country.value = value ?? country.value;
+                              if (country.value != null) {
                                 await player.setAsset(
                                   l10n.localeName == 'pt'
-                                      ? 'assets/audios/pt/countries/${country.value.replaceAll(' ', '-')}.mp3'
-                                      : 'assets/audios/en/countries/${country.value.replaceAll(' ', '-')}.mp3',
+                                      ? 'assets/audios/pt/countries/${country.value!.replaceAll(' ', '-')}.mp3'
+                                      : 'assets/audios/en/countries/${country.value!.replaceAll(' ', '-')}.mp3',
                                 );
                                 await player.play();
-                              },
-                              child: const Icon(
-                                Icons.volume_up,
-                                color: AppColors.blue,
-                              ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 20),
-                        Text(
-                          NumberFormat.decimalPattern().format(tons),
-                          style: const TextStyle(
-                            fontFamily: FontFamily.poppins,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 23,
-                            height: 1.2,
-                            color: AppColors.red,
+                              }
+                            },
+                            options: co2Emissions.keys.toList(),
                           ),
                         ),
+                        const SizedBox(height: 20),
+                        if (tons > 0)
+                          Text(
+                            NumberFormat.decimalPattern().format(tons),
+                            style: const TextStyle(
+                              fontFamily: FontFamily.poppins,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 23,
+                              height: 1.2,
+                              color: AppColors.red,
+                            ),
+                          ),
                       ],
                     ),
                   ),
@@ -4154,6 +4144,13 @@ class SlideshowScreen extends ConsumerWidget {
                     ),
                   ),
                 ),
+              ),
+              Positioned(
+                top: 115,
+                left: 20,
+                right: 0,
+                child: Assets.images.props.slide13Line
+                    .image(opacity: titleOpacity),
               ),
               Positioned(
                 top: 330,

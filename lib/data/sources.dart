@@ -181,31 +181,6 @@ const sources = <int, List<Source>>{
   12: [
     Source(
       title:
-          '“Blue Whales Sing All Day When They Migrate and All Night When They Don’t”, Smithsonian Magazine',
-      url:
-          'https://www.smithsonianmag.com/smart-news/when-its-time-migrate-blue-whales-shift-timing-their-songs-new-study-reveals-180976021/',
-    ),
-  ],
-  13: [
-    Source(
-      title:
-          '“Blue Whales Sing All Day When They Migrate and All Night When They Don’t”, Smithsonian Magazine',
-      url:
-          'https://www.smithsonianmag.com/smart-news/when-its-time-migrate-blue-whales-shift-timing-their-songs-new-study-reveals-180976021/',
-    ),
-    Source(
-      title: '“Ocean Noise”, Center for Biological Diversity',
-      url: 'https://www.biologicaldiversity.org/campaigns/ocean_noise/',
-    ),
-    Source(
-      title: '“Ship Sounds”, The University of Rode Island',
-      url:
-          'https://dosits.org/galleries/audio-gallery/anthropogenic-sounds/ship/',
-    ),
-  ],
-  14: [
-    Source(
-      title:
           '“The Ocean Carbon Sink and Climate Change”, International Journal of Environmental Science and Development',
       url:
           'https://www.researchgate.net/publication/334083793_The_Ocean_Carbon_Sink_and_Climate_Change_2019_Article',
@@ -216,24 +191,8 @@ const sources = <int, List<Source>>{
           'https://www.dn.pt/edicao-do-dia/27-set-2020/tejo-como-matar-um-rio-12738645.html',
     ),
   ],
-  15: [
-    Source(
-      title:
-          '“The Ocean Carbon Sink and Climate Change”, International Journal of Environmental Science and Development',
-      url:
-          'https://www.researchgate.net/publication/334083793_The_Ocean_Carbon_Sink_and_Climate_Change_2019_Article',
-    ),
-    Source(
-      title: '“Ocean Noise”, Center for Biological Diversity',
-      url: 'https://www.biologicaldiversity.org/campaigns/ocean_noise/',
-    ),
-    Source(
-      title: '“7 Solutions To Ocean Plastic Pollution”, Oceanic Society',
-      url:
-          'https://www.oceanicsociety.org/resources/7-ways-to-reduce-ocean-plastic-pollution-today/',
-    ),
-  ],
-  16: [
+  13: [],
+  14: [
     Source(
       title:
           '“Nature’s Solution to Climate Change”, International Monetary Fund',
