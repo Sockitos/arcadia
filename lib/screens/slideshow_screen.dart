@@ -1414,8 +1414,8 @@ class SlideshowScreen extends ConsumerWidget {
                     .image(opacity: whalesOpacity),
               ),
               Positioned(
-                left: 304,
-                top: 327,
+                left: condition == 'B' ? 304 : 384,
+                top: condition == 'B' ? 327 : 307,
                 child: FadeTransition(
                   opacity: chartBackgroundOpacity,
                   child: DecoratedBox(
@@ -1424,81 +1424,145 @@ class SlideshowScreen extends ConsumerWidget {
                       color: AppColors.lightBlue15,
                     ),
                     child: SizedBox(
-                      height: 570,
-                      width: 570,
+                      height: condition == 'B' ? 570 : 470,
+                      width: condition == 'B' ? 570 : 470,
                       child: Center(
-                        child: FadeTransition(
-                          opacity: chartTitleOpacity,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const SizedBox(height: 35),
-                              Row(
-                                mainAxisSize: MainAxisSize.min,
+                        child: Column(
+                          children: [
+                            FadeTransition(
+                              opacity: chartTitleOpacity,
+                              child: Column(
+                                crossAxisAlignment: condition == 'B'
+                                    ? CrossAxisAlignment.start
+                                    : CrossAxisAlignment.center,
                                 children: [
-                                  const DecoratedBox(
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: AppColors.red,
+                                  if (condition == 'A')
+                                    const SizedBox(height: 55)
+                                  else
+                                    const SizedBox(height: 35),
+                                  if (condition == 'B')
+                                    Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        const DecoratedBox(
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: AppColors.red,
+                                          ),
+                                          child: SizedBox(
+                                            height: 16,
+                                            width: 16,
+                                          ),
+                                        ),
+                                        const SizedBox(width: 8),
+                                        Text(
+                                          'CO₂ ${l10n.emitted}',
+                                          style: const TextStyle(
+                                            fontFamily: FontFamily.poppins,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 20,
+                                            height: 1.2,
+                                            color: AppColors.black,
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    child: SizedBox(
-                                      height: 16,
-                                      width: 16,
-                                    ),
+                                  const SizedBox(height: 2),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      const DecoratedBox(
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: AppColors.lightBlue,
+                                        ),
+                                        child: SizedBox(
+                                          height: 16,
+                                          width: 16,
+                                        ),
+                                      ),
+                                      const SizedBox(width: 8),
+                                      Text(
+                                        'CO₂ ${l10n.absorbed}',
+                                        style: const TextStyle(
+                                          fontFamily: FontFamily.poppins,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 20,
+                                          height: 1.2,
+                                          color: AppColors.black,
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                  const SizedBox(width: 8),
+                                  const SizedBox(height: 10),
                                   Text(
-                                    'CO₂ ${l10n.emitted}',
+                                    l10n.tonsPerYear,
                                     style: const TextStyle(
                                       fontFamily: FontFamily.poppins,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20,
-                                      height: 1.2,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 17,
+                                      height: 1.1,
                                       color: AppColors.black,
                                     ),
                                   ),
                                 ],
                               ),
-                              const SizedBox(height: 2),
-                              Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  const DecoratedBox(
-                                    decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: AppColors.lightBlue,
-                                    ),
-                                    child: SizedBox(
-                                      height: 16,
-                                      width: 16,
+                            ),
+                            if (condition == 'A') ...[
+                              const SizedBox(height: 30),
+                              FadeTransition(
+                                opacity: chartBubblesOpacity,
+                                child: DecoratedBox(
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: AppColors.lightBlue,
+                                  ),
+                                  child: SizedBox(
+                                    height: 258,
+                                    width: 258,
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          l10n.phytoplankton,
+                                          style: const TextStyle(
+                                            fontFamily: FontFamily.poppins,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 20,
+                                            height: 1.2,
+                                            color: AppColors.black,
+                                          ),
+                                        ),
+                                        const SizedBox(height: 5),
+                                        Text(
+                                          l10n.worldwide,
+                                          style: const TextStyle(
+                                            fontFamily: FontFamily.poppins,
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 16,
+                                            height: 1.2,
+                                            color: AppColors.black,
+                                          ),
+                                        ),
+                                        const SizedBox(height: 10),
+                                        const Text(
+                                          '37,000,000,000',
+                                          style: TextStyle(
+                                            fontFamily: FontFamily.poppins,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 23,
+                                            height: 1.2,
+                                            color: AppColors.white,
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                  const SizedBox(width: 8),
-                                  Text(
-                                    'CO₂ ${l10n.absorbed}',
-                                    style: const TextStyle(
-                                      fontFamily: FontFamily.poppins,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 20,
-                                      height: 1.2,
-                                      color: AppColors.black,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 10),
-                              Text(
-                                l10n.tonsPerYear,
-                                style: const TextStyle(
-                                  fontFamily: FontFamily.poppins,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 17,
-                                  height: 1.1,
-                                  color: AppColors.black,
                                 ),
-                              )
+                              ),
                             ],
-                          ),
+                          ],
                         ),
                       ),
                     ),
@@ -1701,60 +1765,61 @@ class SlideshowScreen extends ConsumerWidget {
                   ),
                 ),
               ],
-              Positioned(
-                left: 589,
-                top: 468,
-                child: FadeTransition(
-                  opacity: chartBubblesOpacity,
-                  child: DecoratedBox(
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: AppColors.lightBlue,
-                    ),
-                    child: SizedBox(
-                      height: 258,
-                      width: 258,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            l10n.phytoplankton,
-                            style: const TextStyle(
-                              fontFamily: FontFamily.poppins,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20,
-                              height: 1.2,
-                              color: AppColors.black,
+              if (condition == 'B')
+                Positioned(
+                  left: 589,
+                  top: 468,
+                  child: FadeTransition(
+                    opacity: chartBubblesOpacity,
+                    child: DecoratedBox(
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: AppColors.lightBlue,
+                      ),
+                      child: SizedBox(
+                        height: 258,
+                        width: 258,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              l10n.phytoplankton,
+                              style: const TextStyle(
+                                fontFamily: FontFamily.poppins,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                                height: 1.2,
+                                color: AppColors.black,
+                              ),
                             ),
-                          ),
-                          const SizedBox(height: 5),
-                          Text(
-                            l10n.worldwide,
-                            style: const TextStyle(
-                              fontFamily: FontFamily.poppins,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 16,
-                              height: 1.2,
-                              color: AppColors.black,
+                            const SizedBox(height: 5),
+                            Text(
+                              l10n.worldwide,
+                              style: const TextStyle(
+                                fontFamily: FontFamily.poppins,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16,
+                                height: 1.2,
+                                color: AppColors.black,
+                              ),
                             ),
-                          ),
-                          const SizedBox(height: 10),
-                          const Text(
-                            '37,000,000,000',
-                            style: TextStyle(
-                              fontFamily: FontFamily.poppins,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 23,
-                              height: 1.2,
-                              color: AppColors.white,
+                            const SizedBox(height: 10),
+                            const Text(
+                              '37,000,000,000',
+                              style: TextStyle(
+                                fontFamily: FontFamily.poppins,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 23,
+                                height: 1.2,
+                                color: AppColors.white,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ),
-              ),
               if (condition == 'B')
                 Positioned(
                   left: 478,
@@ -2633,11 +2698,12 @@ class SlideshowScreen extends ConsumerWidget {
                       borderRadius: BorderRadius.circular(50),
                     ),
                     child: SizedBox(
-                      width: 756,
+                      width: condition == 'B' ? 756 : 620,
                       height: 580,
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(40, 50, 40, 0),
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
                             Row(
                               children: [
@@ -2673,7 +2739,7 @@ class SlideshowScreen extends ConsumerWidget {
                                     ),
                                   ),
                                 ),
-                                const Spacer(),
+                                if (condition == 'B') const Spacer(),
                               ],
                             ),
                             Expanded(
@@ -2911,7 +2977,7 @@ class SlideshowScreen extends ConsumerWidget {
                                           ),
                                         )
                                       else
-                                        const Spacer(flex: 2),
+                                        const Spacer(),
                                     ],
                                   ),
                                   Positioned(
