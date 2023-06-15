@@ -1828,8 +1828,8 @@ class SlideshowScreen extends ConsumerWidget {
                               onTap: () async {
                                 await player.setAsset(
                                   l10n.localeName == 'pt'
-                                      ? 'assets/audios/pt/countries/${country.value}.mp3'
-                                      : 'assets/audios/en/countries/${country.value}.mp3',
+                                      ? 'assets/audios/pt/countries/${country.value.replaceAll(' ', '-')}.mp3'
+                                      : 'assets/audios/en/countries/${country.value.replaceAll(' ', '-')}.mp3',
                                 );
                                 await player.play();
                               },
