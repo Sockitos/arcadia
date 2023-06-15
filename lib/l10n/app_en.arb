@@ -64,7 +64,7 @@
     "touchCircleToFlipN": "touch white\ncircle to flip",
     "doOurPart": "But we must do our part!",
     "touchCircleToFlip": "touch white circle to flip",
-    "flipAlreadyDo": "flip the ones you already do!",
+    "flipAlreadyDo": "Flip the circles with the actions you already do!\nLeave the others with text up. Then continue the story.",
     "ourPart1Label": "Reduce\nfood waste",
     "ourPart1Text": "Food waste is\nresponsible for 6% of\ntotal global\nemissions",
     "ourPart2Label": "Eat a\nPlant-rich diet",
@@ -84,6 +84,7 @@
     "canDo4Label": "Buy vegies\n& fruit not\nwrapped in\nplastic",
     "canDo5Label": "When you can't\nreally avoid\nusing plastic,\nrecycle it after",
     "touchToFlip": "touch to flip",
+    "againFlipAlreadyDo": "Again, flip the circles with the actions\nyou already do and then continue.",
     "migrationCorridors": "Blue whales\nmigration corridors",
     "shippingDensity": "Shipping\ndensity",
     "slide": "slide",
@@ -99,5 +100,5 @@
     "year": "year",
     "years": "years",
     "letsDoThis": "Let's do this\ntogether!",
-    "bePartOfThisJourney": "Be part of this journey."
+    "bePartOfThisJourney": "Be part of this journey!"
 }

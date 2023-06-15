@@ -486,7 +486,7 @@ abstract class AppLocalizations {
   /// No description provided for @flipAlreadyDo.
   ///
   /// In en, this message translates to:
-  /// **'flip the ones you already do!'**
+  /// **'Flip the circles with the actions you already do!\nLeave the others with text up. Then continue the story.'**
   String get flipAlreadyDo;
 
   /// No description provided for @ourPart1Label.
@@ -603,6 +603,12 @@ abstract class AppLocalizations {
   /// **'touch to flip'**
   String get touchToFlip;
 
+  /// No description provided for @againFlipAlreadyDo.
+  ///
+  /// In en, this message translates to:
+  /// **'Again, flip the circles with the actions\nyou already do and then continue.'**
+  String get againFlipAlreadyDo;
+
   /// No description provided for @migrationCorridors.
   ///
   /// In en, this message translates to:
@@ -696,7 +702,7 @@ abstract class AppLocalizations {
   /// No description provided for @bePartOfThisJourney.
   ///
   /// In en, this message translates to:
-  /// **'Be part of this journey.'**
+  /// **'Be part of this journey!'**
   String get bePartOfThisJourney;
 }
 

@@ -200,7 +200,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get touchCircleToFlip => 'toca no círculo branco para virar';
 
   @override
-  String get flipAlreadyDo => 'clica e vira as acções que já fazes!';
+  String get flipAlreadyDo => 'Clica nos círculos com acções que já fazes!\nDeixa os outros com o texto para cima. Depois continua a história.';
 
   @override
   String get ourPart1Label => 'Reduz o\ndesperdício\nalimentar';
@@ -260,6 +260,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get touchToFlip => 'toca para virar';
 
   @override
+  String get againFlipAlreadyDo => 'Uma vez mais, clica nos círculos com acções\nque já fazes e depois continua.';
+
+  @override
   String get migrationCorridors => 'Corredores de migração\nda Baleia Azul';
 
   @override
@@ -305,5 +308,5 @@ class AppLocalizationsPt extends AppLocalizations {
   String get letsDoThis => 'Vamos fazer\nisto juntos!';
 
   @override
-  String get bePartOfThisJourney => 'Be part of this journey.';
+  String get bePartOfThisJourney => 'Faz parte desta viagem!';
 }

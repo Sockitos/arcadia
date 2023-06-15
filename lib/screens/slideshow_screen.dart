@@ -3281,7 +3281,10 @@ class SlideshowScreen extends ConsumerWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 80),
+                    if (condition == 'B')
+                      const SizedBox(height: 60)
+                    else
+                      const SizedBox(height: 80),
                     FadeTransition(
                       opacity: tipOpacity,
                       child: Assets.images.props.slide07FlipArrow.image(),
@@ -3293,6 +3296,7 @@ class SlideshowScreen extends ConsumerWidget {
                         condition == 'B'
                             ? l10n.flipAlreadyDo
                             : l10n.touchCircleToFlip,
+                        textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontFamily: FontFamily.poppins,
                           color: AppColors.red,
@@ -3756,7 +3760,7 @@ class SlideshowScreen extends ConsumerWidget {
                 ),
               ),
               Positioned(
-                left: 1355,
+                left: condition == 'B' ? 1240 : 1355,
                 top: 755,
                 child: FadeTransition(
                   opacity: flipOpacity,
@@ -3766,8 +3770,9 @@ class SlideshowScreen extends ConsumerWidget {
                       const SizedBox(height: 2),
                       Text(
                         condition == 'B'
-                            ? l10n.flipAlreadyDo
+                            ? l10n.againFlipAlreadyDo
                             : l10n.touchToFlip,
+                        textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontFamily: FontFamily.poppins,
                           fontWeight: FontWeight.w500,
@@ -4030,7 +4035,7 @@ class SlideshowScreen extends ConsumerWidget {
                 ),
               ),
               Positioned(
-                left: 1295,
+                left: condition == 'B' ? 1255 : 1295,
                 top: 755,
                 child: FadeTransition(
                   opacity: flipOpacity,
@@ -4040,8 +4045,9 @@ class SlideshowScreen extends ConsumerWidget {
                       const SizedBox(height: 2),
                       Text(
                         condition == 'B'
-                            ? l10n.flipAlreadyDo
+                            ? l10n.againFlipAlreadyDo
                             : l10n.touchToFlip,
+                        textAlign: TextAlign.center,
                         style: const TextStyle(
                           fontFamily: FontFamily.poppins,
                           fontWeight: FontWeight.w500,

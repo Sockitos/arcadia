@@ -64,7 +64,7 @@
     "touchCircleToFlipN": "toca no\ncírculo branco\npara virar",
     "doOurPart": "Temos de fazer a nossa parte!",
     "touchCircleToFlip": "toca no círculo branco para virar",
-    "flipAlreadyDo": "clica e vira as acções que já fazes!",
+    "flipAlreadyDo": "Clica nos círculos com acções que já fazes!\nDeixa os outros com o texto para cima. Depois continua a história.",
     "ourPart1Label": "Reduz o\ndesperdício\nalimentar",
     "ourPart1Text": "Responsável por 6%\ndo total das emissões\nglobais",
     "ourPart2Label": "Come uma\ndieta rica em\nvegetais",
@@ -84,6 +84,7 @@
     "canDo4Label": "Compra\nfruta e\nvegetais não\nembalados\nem plástico",
     "canDo5Label": "Quando não\nconsegues\nmesmo evitar\nusar plástico,\nrecicla-o depois",
     "touchToFlip": "toca para virar",
+    "againFlipAlreadyDo": "Uma vez mais, clica nos círculos com acções\nque já fazes e depois continua.",
     "migrationCorridors": "Corredores de migração\nda Baleia Azul",
     "shippingDensity": "Densidade\nde navios",
     "slide": "desliza",
@@ -99,5 +100,5 @@
     "year": "ano",
     "years": "anos",
     "letsDoThis": "Vamos fazer\nisto juntos!",
-    "bePartOfThisJourney": "Be part of this journey."
+    "bePartOfThisJourney": "Faz parte desta viagem!"
 }
