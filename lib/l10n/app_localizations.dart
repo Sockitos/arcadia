@@ -693,6 +693,12 @@ abstract class AppLocalizations {
   /// **'years'**
   String get years;
 
+  /// No description provided for @questionsAnswers.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you have a question for me about what you just saw? Just ask!'**
+  String get questionsAnswers;
+
   /// No description provided for @letsDoThis.
   ///
   /// In en, this message translates to:

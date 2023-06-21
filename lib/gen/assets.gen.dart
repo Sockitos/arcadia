@@ -22,6 +22,14 @@ class $AssetsImagesGen {
   $AssetsImagesBackgroundsGen get backgrounds =>
       const $AssetsImagesBackgroundsGen();
 
+  /// File path: assets/images/chat_user.png
+  AssetGenImage get chatUser =>
+      const AssetGenImage('assets/images/chat_user.png');
+
+  /// File path: assets/images/chat_whale.png
+  AssetGenImage get chatWhale =>
+      const AssetGenImage('assets/images/chat_whale.png');
+
   /// File path: assets/images/fct.png
   AssetGenImage get fct => const AssetGenImage('assets/images/fct.png');
 
@@ -31,7 +39,7 @@ class $AssetsImagesGen {
   $AssetsImagesPropsGen get props => const $AssetsImagesPropsGen();
 
   /// List of all assets
-  List<AssetGenImage> get values => [fct, iti];
+  List<AssetGenImage> get values => [chatUser, chatWhale, fct, iti];
 }
 
 class $AssetsAudiosEnGen {
@@ -689,6 +697,9 @@ class $AssetsAudiosEnBGen {
   /// File path: assets/audios/en/b/slide_15.mp3
   String get slide15 => 'assets/audios/en/b/slide_15.mp3';
 
+  /// File path: assets/audios/en/b/slide_16.mp3
+  String get slide16 => 'assets/audios/en/b/slide_16.mp3';
+
   /// File path: assets/audios/en/b/slide_2.mp3
   String get slide2 => 'assets/audios/en/b/slide_2.mp3';
 
@@ -722,6 +733,7 @@ class $AssetsAudiosEnBGen {
         slide13,
         slide14,
         slide15,
+        slide16,
         slide2,
         slide3,
         slide4,
@@ -825,6 +837,9 @@ class $AssetsAudiosPtBGen {
   /// File path: assets/audios/pt/b/slide_15.mp3
   String get slide15 => 'assets/audios/pt/b/slide_15.mp3';
 
+  /// File path: assets/audios/pt/b/slide_16.mp3
+  String get slide16 => 'assets/audios/pt/b/slide_16.mp3';
+
   /// File path: assets/audios/pt/b/slide_2.mp3
   String get slide2 => 'assets/audios/pt/b/slide_2.mp3';
 
@@ -858,6 +873,7 @@ class $AssetsAudiosPtBGen {
         slide13,
         slide14,
         slide15,
+        slide16,
         slide2,
         slide3,
         slide4,

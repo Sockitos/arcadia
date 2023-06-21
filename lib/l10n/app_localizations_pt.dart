@@ -305,6 +305,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get years => 'anos';
 
   @override
+  String get questionsAnswers => 'Tens perguntas para mim sobre o que acabaste de ver? Pergunta-me!';
+
+  @override
   String get letsDoThis => 'Vamos fazer\nisto juntos!';
 
   @override

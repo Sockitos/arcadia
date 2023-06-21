@@ -305,6 +305,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get years => 'years';
 
   @override
+  String get questionsAnswers => 'Do you have a question for me about what you just saw? Just ask!';
+
+  @override
   String get letsDoThis => 'Let\'s do this\ntogether!';
 
   @override

@@ -5,6 +5,7 @@ class AppColors {
 
   static const white = Color(0xFFFFFFFF);
   static const black = Color(0xFF000000);
+  static const grey = Color(0xFFA5A5A5);
 
   static const lightBlue = Color(0xFF6FC5D4);
   static const lightBlue15 = Color(0xFFE9F6F9);
@@ -27,4 +28,7 @@ class AppColors {
   static const orange = Color(0xFFFAAB50);
   static const orange20 = Color(0xFFFEF5DC);
   static const orange30 = Color(0xFFFDF0CA);
+
+  static const chatBlue = Color(0xFFB0EAED);
+  static const chatOrange = Color(0xFFF7D694);
 }

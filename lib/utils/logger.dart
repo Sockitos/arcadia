@@ -95,4 +95,6 @@ class Logger {
   void logCoinFlip(String id, {required int slide}) => _log(
         'Coin flipped ($id) at slide $slide',
       );
+  void logQuestion(String question) => _log(question);
+  void logAnswer(String answer) => _log(answer);
 }

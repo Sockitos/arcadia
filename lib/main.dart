@@ -5,6 +5,7 @@ import 'package:arcadia_app/l10n/app_localizations.dart';
 import 'package:arcadia_app/providers.dart';
 import 'package:arcadia_app/router/router.dart';
 import 'package:arcadia_app/utils/logger.dart';
+import 'package:dart_openai/dart_openai.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -45,6 +46,8 @@ Future<void> main() async {
       ),
     );
   }
+
+  OpenAI.apiKey = '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';
 
   runApp(
     ProviderScope(

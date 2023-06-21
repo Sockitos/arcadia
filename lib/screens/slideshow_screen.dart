@@ -10,6 +10,7 @@ import 'package:arcadia_app/style/colors.dart';
 import 'package:arcadia_app/utils/hooks.dart';
 import 'package:arcadia_app/widgets/animated_indicator.dart';
 import 'package:arcadia_app/widgets/arrow.dart';
+import 'package:arcadia_app/widgets/chat.dart';
 import 'package:arcadia_app/widgets/circle_button.dart';
 import 'package:arcadia_app/widgets/dropdown_button.dart';
 import 'package:arcadia_app/widgets/flip_coin.dart';
@@ -4491,6 +4492,60 @@ class SlideshowScreen extends ConsumerWidget {
             ];
           },
         ),
+        if (condition == 'B')
+          Slide(
+            audioPaths: {
+              'en': Assets.audios.en.b.slide16,
+              'pt': Assets.audios.pt.b.slide16,
+            },
+            propsBuilder: (context, controller, isActive) {
+              const reverseCurve = Interval(0, 1, curve: Curves.easeOut);
+              final textOpacity = Tween<double>(begin: 0, end: 1).animate(
+                CurvedAnimation(
+                  parent: controller,
+                  curve: const Interval(0, 0.5, curve: Curves.easeIn),
+                  reverseCurve: reverseCurve,
+                ),
+              );
+              final chatOpacity = Tween<double>(begin: 0, end: 1).animate(
+                CurvedAnimation(
+                  parent: controller,
+                  curve: const Interval(0.5, 1, curve: Curves.easeIn),
+                  reverseCurve: reverseCurve,
+                ),
+              );
+
+              return [
+                Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      FadeTransition(
+                        opacity: textOpacity,
+                        child: Text(
+                          l10n.questionsAnswers,
+                          style: const TextStyle(
+                            fontFamily: FontFamily.poppins,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 30,
+                            color: AppColors.darkBlue,
+                            height: 1.2,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      const SizedBox(height: 40),
+                      FadeTransition(
+                        opacity: chatOpacity,
+                        child: const Chat(),
+                      ),
+                      const SizedBox(height: 80),
+                    ],
+                  ),
+                )
+              ];
+            },
+          ),
       ],
       stops: const [3, 4, 5, 6, 7, 10, 11, 13, 14],
     );
@@ -4544,20 +4599,6 @@ class Slideshow extends HookConsumerWidget {
       }
       if (currentSlide.value == slides.length) {
         logger.logEnd();
-        final timer = Timer(
-          const Duration(minutes: 2),
-          () {
-            logger.logEndTimeout();
-            context.go('/');
-          },
-        );
-
-        void cancel() {
-          timer.cancel();
-          currentSlide.removeListener(cancel);
-        }
-
-        currentSlide.addListener(cancel);
         return;
       }
       logger.logAutoNextSlide(currentSlide.value);
@@ -4658,7 +4699,8 @@ class Slideshow extends HookConsumerWidget {
                                 }
                               }
 
-                              if (!isAudioPlaying) {
+                              if (!isAudioPlaying &&
+                                  currentSlide.value != slides.length) {
                                 controller.forward();
                                 controller.addStatusListener(repeat);
                                 return () {
@@ -4683,9 +4725,7 @@ class Slideshow extends HookConsumerWidget {
                                       currentSlide.removeListener(reset);
                                 });
                                 final isEnabled =
-                                    currentSlide.value == slides.length ||
-                                        !isAudioPlaying ||
-                                        forceEnable.value;
+                                    !isAudioPlaying || forceEnable.value;
                                 return CircleButton(
                                   height: 52,
                                   width: 52,
