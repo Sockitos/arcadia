@@ -1130,10 +1130,10 @@ class SlideshowScreen extends ConsumerWidget {
                   'pt': Assets.audios.pt.b.slide4,
                 },
           propsDuration: l10n.localeName == 'pt'
-              ? const Duration(seconds: 50)
-              : const Duration(seconds: 65),
+              ? const Duration(seconds: 39)
+              : const Duration(seconds: 45),
           propsBuilder: (context, controller, isActive) {
-            final duration = l10n.localeName == 'pt' ? 51 : 66;
+            final duration = l10n.localeName == 'pt' ? 40 : 46;
             const reverseCurve = Interval(0, 1, curve: Curves.easeOut);
             final fishesOpacity = Tween<double>(begin: 0, end: 1).animate(
               CurvedAnimation(
