@@ -10,6 +10,12 @@ final countProvider = StateProvider<int>((ref) => throw UnimplementedError());
 
 final conditionProvider = StateProvider<String>((ref) => 'A');
 
+final yearProvider = StateProvider<int?>((ref) => null);
+
+final countryProvider = StateProvider<String?>((ref) => null);
+
+final heightProvider = StateProvider<int>((ref) => 170);
+
 final coinsProvider =
     StateNotifierProvider<CoinsNotifier, Set<String>>((ref) => CoinsNotifier());
 

@@ -646,7 +646,7 @@ class SlideshowScreen extends ConsumerWidget {
               ),
             );
 
-            final year = useState<int?>(null);
+            final year = ref.watch(yearProvider);
             final player = useAudioPlayer();
             return [
               Positioned(
@@ -928,11 +928,10 @@ class SlideshowScreen extends ConsumerWidget {
                                     ),
                                   ),
                                 if (condition == 'B')
-                                  if (year.value != null)
+                                  if (year != null)
                                     Positioned(
                                       top: 450,
-                                      left:
-                                          210 + (year.value! - 1900) * 2.12 + 1,
+                                      left: 210 + (year - 1900) * 2.12 + 1,
                                       child: FadeTransition(
                                         opacity: chartExtraOpacity,
                                         child: SizedBox.shrink(
@@ -969,9 +968,9 @@ class SlideshowScreen extends ConsumerWidget {
                                                 ),
                                                 const SizedBox(height: 2),
                                                 Text(
-                                                  year.value! <= 1966
+                                                  year <= 1966
                                                       ? l10n.notLongUntilBan
-                                                      : year.value! <= 1986
+                                                      : year <= 1986
                                                           ? l10n
                                                               .populationsGrowSoon
                                                           : l10n
@@ -1014,7 +1013,7 @@ class SlideshowScreen extends ConsumerWidget {
                                           SizedBox(
                                             width: 100,
                                             child: DropdownField<int>(
-                                              value: year.value,
+                                              value: year,
                                               onChanged: (value) async {
                                                 if (value != null) {
                                                   logger.logYearSelected(
@@ -1022,13 +1021,14 @@ class SlideshowScreen extends ConsumerWidget {
                                                     slide: 3,
                                                   );
                                                 }
-                                                year.value =
-                                                    value ?? year.value;
-                                                if (year.value != null) {
+                                                ref
+                                                    .read(yearProvider.notifier)
+                                                    .state = value ?? year;
+                                                if (year != null) {
                                                   await player.setAsset(
                                                     l10n.localeName == 'pt'
-                                                        ? 'assets/audios/pt/dates/${year.value}.mp3'
-                                                        : 'assets/audios/en/dates/${year.value}.mp3',
+                                                        ? 'assets/audios/pt/dates/$year.mp3'
+                                                        : 'assets/audios/en/dates/$year.mp3',
                                                   );
                                                   await player.play();
                                                 }
@@ -1228,8 +1228,8 @@ class SlideshowScreen extends ConsumerWidget {
               ),
             );
 
-            final country = useState<String?>(null);
-            final tons = co2Emissions[country.value] ?? 0;
+            final country = ref.watch(countryProvider);
+            final tons = co2Emissions[country] ?? 0;
             final player = useAudioPlayer();
             return [
               Positioned(
@@ -1874,7 +1874,7 @@ class SlideshowScreen extends ConsumerWidget {
                         SizedBox(
                           width: 200,
                           child: DropdownField<String>(
-                            value: country.value,
+                            value: country,
                             onChanged: (value) async {
                               if (value != null) {
                                 logger.logCountrySelected(
@@ -1882,12 +1882,13 @@ class SlideshowScreen extends ConsumerWidget {
                                   slide: 4,
                                 );
                               }
-                              country.value = value ?? country.value;
-                              if (country.value != null) {
+                              ref.read(countryProvider.notifier).state =
+                                  value ?? country;
+                              if (country != null) {
                                 await player.setAsset(
                                   l10n.localeName == 'pt'
-                                      ? 'assets/audios/pt/countries/${country.value!.replaceAll(' ', '-')}.mp3'
-                                      : 'assets/audios/en/countries/${country.value!.replaceAll(' ', '-')}.mp3',
+                                      ? 'assets/audios/pt/countries/${country.replaceAll(' ', '-')}.mp3'
+                                      : 'assets/audios/en/countries/${country.replaceAll(' ', '-')}.mp3',
                                 );
                                 await player.play();
                               }
