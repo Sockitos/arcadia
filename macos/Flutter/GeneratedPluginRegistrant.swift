@@ -7,7 +7,7 @@ import Foundation
 
 import audio_session
 import just_audio
-import path_provider_macos
+import path_provider_foundation
 import screen_retriever
 import window_manager
 
