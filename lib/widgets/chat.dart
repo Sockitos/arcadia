@@ -15,7 +15,7 @@ final messagesProvider =
     final country = ref.watch(countryProvider) ?? 'Portugal';
     final height = ref.watch(heightProvider);
     final formattedHeight = '${(height / 100).toStringAsFixed(2)}m';
-    return locale.languageCode == 'pt'
+    return locale.languageCode == 'en'
         ? <OpenAIChatCompletionChoiceMessageModel>[
             const OpenAIChatCompletionChoiceMessageModel(
               content:
