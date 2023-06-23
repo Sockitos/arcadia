@@ -1024,11 +1024,11 @@ class SlideshowScreen extends ConsumerWidget {
                                                 ref
                                                     .read(yearProvider.notifier)
                                                     .state = value ?? year;
-                                                if (year != null) {
+                                                if (value != null) {
                                                   await player.setAsset(
                                                     l10n.localeName == 'pt'
-                                                        ? 'assets/audios/pt/dates/$year.mp3'
-                                                        : 'assets/audios/en/dates/$year.mp3',
+                                                        ? 'assets/audios/pt/dates/$value.mp3'
+                                                        : 'assets/audios/en/dates/$value.mp3',
                                                   );
                                                   await player.play();
                                                 }
@@ -1884,11 +1884,11 @@ class SlideshowScreen extends ConsumerWidget {
                               }
                               ref.read(countryProvider.notifier).state =
                                   value ?? country;
-                              if (country != null) {
+                              if (value != null) {
                                 await player.setAsset(
                                   l10n.localeName == 'pt'
-                                      ? 'assets/audios/pt/countries/${country.replaceAll(' ', '-')}.mp3'
-                                      : 'assets/audios/en/countries/${country.replaceAll(' ', '-')}.mp3',
+                                      ? 'assets/audios/pt/countries/${value.replaceAll(' ', '-')}.mp3'
+                                      : 'assets/audios/en/countries/${value.replaceAll(' ', '-')}.mp3',
                                 );
                                 await player.play();
                               }
@@ -2024,8 +2024,8 @@ class SlideshowScreen extends ConsumerWidget {
               ),
             );
 
-            final height = useState(170);
-            final ratio = 3000 / height.value;
+            final height = ref.watch(heightProvider);
+            final ratio = 3000 / height;
             return [
               Positioned(
                 left: 303,
@@ -2113,7 +2113,7 @@ class SlideshowScreen extends ConsumerWidget {
                                     Padding(
                                       padding: const EdgeInsets.only(right: 7),
                                       child: Text(
-                                        '${(height.value / 100).toStringAsFixed(2)}m',
+                                        '${(height / 100).toStringAsFixed(2)}m',
                                         style: const TextStyle(
                                           fontFamily: FontFamily.poppins,
                                           fontWeight: FontWeight.bold,
@@ -2126,7 +2126,7 @@ class SlideshowScreen extends ConsumerWidget {
                                     const SizedBox(height: 5),
                                     _BarBar(
                                       totalWidth: 314.2,
-                                      filledWidth: height.value * 314.2 / 3000,
+                                      filledWidth: height * 314.2 / 3000,
                                       invert: true,
                                     ),
                                     const SizedBox(height: 15),
@@ -2458,7 +2458,7 @@ class SlideshowScreen extends ConsumerWidget {
                         SizedBox(
                           width: 110,
                           child: DropdownField<int>(
-                            value: height.value,
+                            value: height,
                             onChanged: (value) {
                               if (value != null) {
                                 logger.logHeightSelected(
@@ -2466,7 +2466,8 @@ class SlideshowScreen extends ConsumerWidget {
                                   slide: 5,
                                 );
                               }
-                              height.value = value ?? height.value;
+                              ref.read(heightProvider.notifier).state =
+                                  value ?? height;
                             },
                             options: [for (var i = 50; i <= 300; i += 5) i],
                             optionToString: (height) =>
