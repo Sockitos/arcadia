@@ -26,10 +26,10 @@ class LoggerFileOutput extends LoggerOutput {
   }
 
   @override
-  void log(String data) {}
+  void log(String data) => _fileSink?.writeln(data);
 
   @override
-  void logCount(int count) {}
+  void logCount(int count) => countFile.writeAsStringSync(count.toString());
 
   @override
   void dispose() {

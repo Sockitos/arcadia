@@ -80,19 +80,19 @@ class Chat extends HookConsumerWidget {
     ];
     ref.read(messagesProvider.notifier).state = newMessages;
 
+    logger.logQuestion(controller.text);
     controller.clear();
     focusNode.requestFocus();
 
-    logger.logQuestion(controller.text);
     final newMessage = await OpenAI.instance.chat.create(
       model: 'gpt-3.5-turbo',
       messages: newMessages,
     );
-    logger.logAnswer(newMessage.choices.last.message.content);
+    logger.logAnswer(newMessage.choices.first.message.content);
 
     final resultMessages = [
       ...newMessages.sublist(0, newMessages.length - 1),
-      for (final c in newMessage.choices) c.message,
+      newMessage.choices.first.message,
     ];
     ref.read(messagesProvider.notifier).state = resultMessages;
   }
