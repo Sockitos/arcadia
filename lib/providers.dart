@@ -22,7 +22,7 @@ final countryProvider = StateProvider<String?>((ref) {
 
 final heightProvider = StateProvider<int>((ref) {
   ref.watch(countProvider);
-  return 170;
+  return 100;
 });
 
 final coinsProvider = StateNotifierProvider<CoinsNotifier, Set<String>>(

@@ -2469,7 +2469,7 @@ class SlideshowScreen extends ConsumerWidget {
                               ref.read(heightProvider.notifier).state =
                                   value ?? height;
                             },
-                            options: [for (var i = 50; i <= 300; i += 5) i],
+                            options: [for (var i = 100; i <= 240; i += 5) i],
                             optionToString: (height) =>
                                 '${(height / 100).toStringAsFixed(2)}m',
                           ),
