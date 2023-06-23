@@ -7,8 +7,9 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final messagesProvider =
-    StateProvider.autoDispose<List<OpenAIChatCompletionChoiceMessageModel>>(
+    StateProvider<List<OpenAIChatCompletionChoiceMessageModel>>(
   (ref) {
+    ref.watch(countProvider);
     final locale = ref.watch(localeProvider);
     final year = ref.watch(yearProvider);
     final age = year != null ? DateTime.now().year - year : 25;

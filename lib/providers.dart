@@ -10,11 +10,20 @@ final countProvider = StateProvider<int>((ref) => throw UnimplementedError());
 
 final conditionProvider = StateProvider<String>((ref) => 'A');
 
-final yearProvider = StateProvider.autoDispose<int?>((ref) => null);
+final yearProvider = StateProvider<int?>((ref) {
+  ref.watch(countProvider);
+  return null;
+});
 
-final countryProvider = StateProvider.autoDispose<String?>((ref) => null);
+final countryProvider = StateProvider<String?>((ref) {
+  ref.watch(countProvider);
+  return null;
+});
 
-final heightProvider = StateProvider.autoDispose<int>((ref) => 170);
+final heightProvider = StateProvider<int>((ref) {
+  ref.watch(countProvider);
+  return 170;
+});
 
 final coinsProvider =
     StateNotifierProvider.autoDispose<CoinsNotifier, Set<String>>(
