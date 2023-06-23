@@ -25,9 +25,11 @@ final heightProvider = StateProvider<int>((ref) {
   return 170;
 });
 
-final coinsProvider =
-    StateNotifierProvider.autoDispose<CoinsNotifier, Set<String>>(
-  (ref) => CoinsNotifier(),
+final coinsProvider = StateNotifierProvider<CoinsNotifier, Set<String>>(
+  (ref) {
+    ref.watch(countProvider);
+    return CoinsNotifier();
+  },
 );
 
 class CoinsNotifier extends StateNotifier<Set<String>> {
