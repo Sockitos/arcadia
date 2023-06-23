@@ -11,6 +11,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:window_manager/window_manager.dart';
 
@@ -25,6 +26,7 @@ Future<void> main() async {
     count = 0;
     logger = Logger(output: LoggerDBOutput());
   } else {
+    await AudioPlayer.clearAssetCache();
     await windowManager.ensureInitialized();
     const windowOptions = WindowOptions(fullScreen: true);
     unawaited(
