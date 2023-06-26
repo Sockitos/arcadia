@@ -1,4 +1,4 @@
-# arcadia_app
+# arcadia
 
 A new Flutter project.
 

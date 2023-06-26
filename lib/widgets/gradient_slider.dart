@@ -1,4 +1,4 @@
-import 'package:arcadia_app/style/colors.dart';
+import 'package:arcadia/style/colors.dart';
 import 'package:flutter/material.dart';
 
 class GradientSlider extends StatelessWidget {

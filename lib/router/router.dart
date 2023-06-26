@@ -1,5 +1,5 @@
-import 'package:arcadia_app/screens/slideshow_screen.dart';
-import 'package:arcadia_app/screens/start_screen.dart';
+import 'package:arcadia/screens/slideshow_screen.dart';
+import 'package:arcadia/screens/start_screen.dart';
 import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 

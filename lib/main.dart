@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:io' as io;
 
-import 'package:arcadia_app/l10n/app_localizations.dart';
-import 'package:arcadia_app/providers.dart';
-import 'package:arcadia_app/router/router.dart';
-import 'package:arcadia_app/utils/logger.dart';
+import 'package:arcadia/l10n/app_localizations.dart';
+import 'package:arcadia/providers.dart';
+import 'package:arcadia/router/router.dart';
+import 'package:arcadia/utils/logger.dart';
 import 'package:dart_openai/dart_openai.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';

@@ -1,5 +1,5 @@
-import 'package:arcadia_app/gen/fonts.gen.dart';
-import 'package:arcadia_app/style/colors.dart';
+import 'package:arcadia/gen/fonts.gen.dart';
+import 'package:arcadia/style/colors.dart';
 import 'package:flutter/material.dart';
 
 class DropdownField<T> extends StatelessWidget {

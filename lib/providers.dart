@@ -1,4 +1,4 @@
-import 'package:arcadia_app/utils/logger.dart';
+import 'package:arcadia/utils/logger.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

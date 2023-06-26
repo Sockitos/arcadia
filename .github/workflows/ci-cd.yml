@@ -21,7 +21,7 @@ jobs:
         run: flutter pub get
 
       - name: Build
-        run: flutter build web --release --web-renderer canvaskit --base-href "/arcadia_app/"
+        run: flutter build web --release --web-renderer canvaskit --base-href "/arcadia/"
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v1
